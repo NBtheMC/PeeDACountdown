@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d0hbwwgkrf3lm"]
 
 [ext_resource type="PackedScene" uid="uid://dxue7rjdqqnho" path="res://Scenes/player/player.tscn" id="1_dblfo"]
+[ext_resource type="PackedScene" uid="uid://b3dofw22lvaxr" path="res://Scenes/countdown/countdown_handler.tscn" id="2_hau2d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ss858"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -31,3 +32,5 @@ size = Vector3(26.788216, 0.001, 21.478622)
 
 [node name="Player" parent="." unique_id=180760236 instance=ExtResource("1_dblfo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2502519, 0)
+
+[node name="CountdownHandler" parent="." unique_id=2133827847 instance=ExtResource("2_hau2d")]
