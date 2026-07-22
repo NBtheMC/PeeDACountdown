@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b5dd5r48mb0sw"]
 
 [ext_resource type="PackedScene" uid="uid://dxue7rjdqqnho" path="res://Scenes/player/player.tscn" id="1_3g2aj"]
+[ext_resource type="Script" uid="uid://b5tq3he4t555u" path="res://Scenes/items/item.gd" id="2_3g2aj"]
 [ext_resource type="PackedScene" uid="uid://bm417dbu1c2o6" path="res://Misc/Interactable.tscn" id="2_u8qkv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ss858"]
@@ -15,9 +16,9 @@ background_mode = 2
 sky = SubResource("Sky_dblfo")
 glow_enabled = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jvbdo"]
+[sub_resource type="BoxMesh" id="BoxMesh_jvbdo"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_kmt4r"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_kmt4r"]
 
 [node name="Node3D" type="Node3D" unique_id=1577513873]
 
@@ -37,14 +38,17 @@ size = Vector3(26.788216, 0.001, 21.478622)
 [node name="Player" parent="." unique_id=180760236 instance=ExtResource("1_3g2aj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2502519, 0)
 
-[node name="Box" type="StaticBody3D" parent="." unique_id=511325194]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.549923, 0, 0)
+[node name="Box" type="RigidBody3D" parent="." unique_id=70962879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8966665, 0.54033566, -2.9508104)
 collision_layer = 3
+script = ExtResource("2_3g2aj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Box" unique_id=1496125465]
-shape = SubResource("BoxShape3D_jvbdo")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Box" unique_id=717409448]
+mesh = SubResource("BoxMesh_jvbdo")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Box" unique_id=1451966250]
-mesh = SubResource("BoxMesh_kmt4r")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box" unique_id=1885438376]
+shape = SubResource("BoxShape3D_kmt4r")
 
 [node name="Interactable" parent="Box" unique_id=279760389 instance=ExtResource("2_u8qkv")]
+
+[connection signal="interacted" from="Box/Interactable" to="Box" method="_on_interactable_interacted"]
