@@ -7,6 +7,7 @@ const SENSITIVITY = 0.005
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
+@onready var raycast = $Head/Camera3D/RayCast3D
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -38,3 +39,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+	#Raycast
+	if (raycast.is_colliding()):
+		var hit_object = raycast.get_collider()
+		print(hit_object)
