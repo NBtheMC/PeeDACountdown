@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bdals65idehes" path="res://TempAssets/HungerBarBackgroundTemp.png" id="1_fqbal"]
 [ext_resource type="Texture2D" uid="uid://bcd4vq6d6edp7" path="res://TempAssets/HungerBarForegroundTemp.png" id="2_vumm1"]
-[ext_resource type="Script" uid="uid://cevf8wbelry4t" path="res://hunger_bar.gd" id="3_nx0u2"]
+[ext_resource type="Script" uid="uid://cevf8wbelry4t" path="res://Scenes/countdown/hunger_bar.gd" id="3_nx0u2"]
 
 [node name="TimerUI" type="CanvasLayer" unique_id=251125843]
 
