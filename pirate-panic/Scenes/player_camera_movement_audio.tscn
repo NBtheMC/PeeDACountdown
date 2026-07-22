@@ -2,9 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dxue7rjdqqnho" path="res://Scenes/player/player.tscn" id="1_asen0"]
 [ext_resource type="AudioStream" uid="uid://ckb0wmirwaw3a" path="res://Assets/Audio/731164__nammedit__seagulls_fighting_for_food.ogg" id="2_1t0jm"]
-[ext_resource type="AudioStream" uid="uid://b1wg7tbxq5yr8" path="res://Assets/Audio/575902__vman533__4-waves-close-recording-beach-portugal.ogg" id="3_8kmdv"]
 [ext_resource type="AudioStream" uid="uid://dx1glh7vl4yjt" path="res://Assets/Audio/31574__walter_odington__ship_creak.ogg" id="3_g42qc"]
-[ext_resource type="Script" uid="uid://iadf5srvuedf" path="res://Scenes/audio/Audio_Spline.gd" id="4_1t0jm"]
+[ext_resource type="PackedScene" uid="uid://h5bj62d3ytjc" path="res://Scenes/audio/audio_spline.tscn" id="4_1t0jm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ss858"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -17,14 +16,6 @@ sky_material = SubResource("ProceduralSkyMaterial_ss858")
 background_mode = 2
 sky = SubResource("Sky_dblfo")
 glow_enabled = true
-
-[sub_resource type="Curve3D" id="Curve3D_asen0"]
-closed = true
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
-}
-point_count = 4
 
 [node name="Node3D" type="Node3D" unique_id=1577513873]
 
@@ -42,7 +33,7 @@ use_collision = true
 size = Vector3(26.788216, 0.001, 21.478622)
 
 [node name="Player" parent="." unique_id=180760236 instance=ExtResource("1_asen0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2502519, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9545174, -0.2502519, 6.090334)
 
 [node name="AmbientSeagulls" type="AudioStreamPlayer3D" parent="Player" unique_id=103034582]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2502519, 0)
@@ -57,23 +48,6 @@ stream = ExtResource("3_g42qc")
 volume_db = -23.158
 autoplay = true
 
-[node name="Audio_Waves_Spline" type="Path3D" parent="." unique_id=2128970020 node_paths=PackedStringArray("player", "follow")]
+[node name="Audio_Waves_Spline" parent="." unique_id=2022735341 node_paths=PackedStringArray("player") instance=ExtResource("4_1t0jm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3065033, 1, 6.410866)
-curve = SubResource("Curve3D_asen0")
-script = ExtResource("4_1t0jm")
 player = NodePath("../Player")
-follow = NodePath("PathFollow3D")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Audio_Waves_Spline" unique_id=2014820939]
-transform = Transform3D(-0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071067, 2.1848924, 0, 7.8151073)
-progress = 11.052
-
-[node name="Waves_Close" type="AudioStreamPlayer3D" parent="Audio_Waves_Spline/PathFollow3D" unique_id=488964328]
-stream = ExtResource("3_8kmdv")
-volume_db = -16.449
-autoplay = true
-max_distance = 10.0
-parameters/looping = true
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Audio_Waves_Spline/PathFollow3D/Waves_Close" unique_id=1530091659]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
