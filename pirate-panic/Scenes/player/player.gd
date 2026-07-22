@@ -43,5 +43,7 @@ func _physics_process(delta: float) -> void:
 	
 	#Raycast
 	if (raycast.is_colliding()):
-		var hit_object = raycast.get_collider()
-		print(hit_object)
+		if Input.is_action_just_pressed("interact"):
+			var hit_object = raycast.get_collider()
+			if (hit_object.has_node("Interactable")):
+				hit_object.get_node("Interactable").interact()
