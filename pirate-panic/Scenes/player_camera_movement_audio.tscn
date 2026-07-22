@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://2mdk8p2opeu5"]
+
+[ext_resource type="PackedScene" uid="uid://dxue7rjdqqnho" path="res://Scenes/player/player.tscn" id="1_asen0"]
+[ext_resource type="AudioStream" uid="uid://ckb0wmirwaw3a" path="res://Assets/Audio/731164__nammedit__seagulls_fighting_for_food.ogg" id="2_1t0jm"]
+[ext_resource type="AudioStream" uid="uid://dx1glh7vl4yjt" path="res://Assets/Audio/31574__walter_odington__ship_creak.ogg" id="3_g42qc"]
+[ext_resource type="PackedScene" uid="uid://h5bj62d3ytjc" path="res://Scenes/audio/audio_spline.tscn" id="4_1t0jm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ss858"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_dblfo"]
+sky_material = SubResource("ProceduralSkyMaterial_ss858")
+
+[sub_resource type="Environment" id="Environment_hau2d"]
+background_mode = 2
+sky = SubResource("Sky_dblfo")
+glow_enabled = true
+
+[node name="Node3D" type="Node3D" unique_id=1577513873]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1102988990]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0.10299969, 5.786922, -5.908325)
+light_energy = 0.55
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=332250440]
+environment = SubResource("Environment_hau2d")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1826098984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.676655, -0.4995, 5.55587)
+use_collision = true
+size = Vector3(26.788216, 0.001, 21.478622)
+
+[node name="Player" parent="." unique_id=180760236 instance=ExtResource("1_asen0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9545174, -0.2502519, 6.090334)
+
+[node name="AmbientSeagulls" type="AudioStreamPlayer3D" parent="Player" unique_id=103034582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2502519, 0)
+stream = ExtResource("2_1t0jm")
+volume_db = -22.105
+pitch_scale = 0.84
+autoplay = true
+
+[node name="AmbientOcean" type="AudioStreamPlayer3D" parent="Player" unique_id=1842469470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5005038, 0)
+stream = ExtResource("3_g42qc")
+volume_db = -23.158
+autoplay = true
+
+[node name="Audio_Waves_Spline" parent="." unique_id=2022735341 node_paths=PackedStringArray("player") instance=ExtResource("4_1t0jm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3065033, 1, 6.410866)
+player = NodePath("../Player")
