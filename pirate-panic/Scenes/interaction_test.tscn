@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b5dd5r48mb0sw"]
+
+[ext_resource type="PackedScene" uid="uid://dxue7rjdqqnho" path="res://Scenes/player/player.tscn" id="1_3g2aj"]
+[ext_resource type="PackedScene" uid="uid://bm417dbu1c2o6" path="res://Misc/Interactable.tscn" id="2_u8qkv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ss858"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_dblfo"]
+sky_material = SubResource("ProceduralSkyMaterial_ss858")
+
+[sub_resource type="Environment" id="Environment_hau2d"]
+background_mode = 2
+sky = SubResource("Sky_dblfo")
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jvbdo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kmt4r"]
+
+[node name="Node3D" type="Node3D" unique_id=1577513873]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1102988990]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0.10299969, 5.786922, -5.908325)
+light_energy = 0.55
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=332250440]
+environment = SubResource("Environment_hau2d")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1826098984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.676655, -0.4995, 5.55587)
+use_collision = true
+size = Vector3(26.788216, 0.001, 21.478622)
+
+[node name="Player" parent="." unique_id=180760236 instance=ExtResource("1_3g2aj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2502519, 0)
+
+[node name="Box" type="StaticBody3D" parent="." unique_id=511325194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.549923, 0, 0)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box" unique_id=1496125465]
+shape = SubResource("BoxShape3D_jvbdo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Box" unique_id=1451966250]
+mesh = SubResource("BoxMesh_kmt4r")
+
+[node name="Interactable" parent="Box" unique_id=279760389 instance=ExtResource("2_u8qkv")]
