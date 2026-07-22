@@ -14,6 +14,10 @@ background_mode = 2
 sky = SubResource("Sky_dblfo")
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_s26hx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_s26hx"]
+
 [node name="Node3D" type="Node3D" unique_id=1577513873]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1102988990]
@@ -24,10 +28,20 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=332250440]
 environment = SubResource("Environment_hau2d")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1826098984]
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1826098984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.676655, -0.4995, 5.55587)
 use_collision = true
 size = Vector3(26.788216, 0.001, 21.478622)
 
 [node name="Player" parent="." unique_id=180760236 instance=ExtResource("1_dblfo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2502519, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1068466841]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2590857, 0, 4.3147593)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1881965118]
+shape = SubResource("BoxShape3D_s26hx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1538360310]
+mesh = SubResource("BoxMesh_s26hx")
