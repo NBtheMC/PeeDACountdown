@@ -22,3 +22,5 @@ shape = SubResource("ConvexPolygonShape3D_ss858")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5821208, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=880816880]
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Head/Camera3D" unique_id=700212650]
