@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cqufd2txb8i7x"]
+
+[ext_resource type="Texture2D" uid="uid://bdals65idehes" path="res://TempAssets/HungerBarBackgroundTemp.png" id="1_fqbal"]
+[ext_resource type="Texture2D" uid="uid://bcd4vq6d6edp7" path="res://TempAssets/HungerBarForegroundTemp.png" id="2_vumm1"]
+[ext_resource type="Script" uid="uid://cevf8wbelry4t" path="res://Scenes/countdown/hunger_bar.gd" id="3_nx0u2"]
+
+[node name="TimerUI" type="CanvasLayer" unique_id=251125843]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=800157740]
+
+[node name="HungerBar" type="TextureProgressBar" parent="Node2D" unique_id=1236251186]
+offset_left = 71.0
+offset_top = 54.0
+offset_right = 271.0
+offset_bottom = 104.0
+step = 0.01
+value = 100.0
+texture_under = ExtResource("1_fqbal")
+texture_progress = ExtResource("2_vumm1")
+script = ExtResource("3_nx0u2")
