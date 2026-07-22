@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://du3s71np5wis"]
+
+[ext_resource type="PackedScene" uid="uid://bmxbm56rqmwsp" path="res://Art/PirateShip.fbx" id="1_ijv5j"]
+
+[node name="Environment" type="Node3D" unique_id=342448898]
+
+[node name="PirateShip" parent="." unique_id=266896478 instance=ExtResource("1_ijv5j")]
