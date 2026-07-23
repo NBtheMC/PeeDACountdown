@@ -5,10 +5,13 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.005
 
+@onready var main_node = $".."
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var raycast = $Head/Camera3D/RayCast3D
+@onready var hand = $Head/Camera3D/Hand
 
+var held_item
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -22,6 +25,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -50,4 +54,20 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
 			var hit_object = raycast.get_collider()
 			if (hit_object.has_node("Interactable")):
-				hit_object.get_node("Interactable").interact()
+				hit_object.get_node("Interactable").interact(self)
+				
+	# item drop input
+	if (Input.is_action_just_pressed("drop")):
+		drop_held_item()
+
+func hold_item(item: Node):
+	item.reparent(hand)
+	item.transform = hand.transform
+	held_item = item
+
+func drop_held_item():
+	if (held_item == null):
+		return
+	held_item.reparent(main_node)
+	held_item.transform = transform
+	held_item.transform.origin.y = held_item.starting_y
