@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://du3s71np5wis"]
+
+[ext_resource type="PackedScene" uid="uid://dwmhyk12txjql" path="res://Art/PirateShip_V1_0.fbx" id="1_ijv5j"]
+[ext_resource type="Shader" uid="uid://bkydm4h6o6hyo" path="res://Art/Shaders/WaterSurface.tres" id="2_3hnbd"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_st70h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7522t"]
+render_priority = 0
+shader = ExtResource("2_3hnbd")
+shader_parameter/WaveSpeed = 1.0
+
+[sub_resource type="Environment" id="Environment_66mwo"]
+background_mode = 1
+background_color = Color(0.10611739, 0.12932006, 0.14964536, 1)
+background_energy_multiplier = 0.45
+ambient_light_color = Color(0.81122595, 0.57597315, 0.70767987, 1)
+fog_enabled = true
+fog_light_color = Color(0.06379772, 0.07367391, 0.08904172, 1)
+volumetric_fog_density = 0.2712
+volumetric_fog_albedo = Color(0.13767368, 0.17941618, 0.23762587, 1)
+
+[sub_resource type="Compositor" id="Compositor_hwhxn"]
+
+[node name="Environment" type="Node3D" unique_id=342448898]
+
+[node name="PirateShip_V1_0" parent="." unique_id=129218166 instance=ExtResource("1_ijv5j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24830651, 0.16907257, 1.1120892)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1117270177]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+mesh = SubResource("PlaneMesh_st70h")
+surface_material_override/0 = SubResource("ShaderMaterial_7522t")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=264558032]
+environment = SubResource("Environment_66mwo")
+compositor = SubResource("Compositor_hwhxn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=1378185346]
+transform = Transform3D(1, 0, 0, 0, -0.9987037, 0.05090024, 0, -0.05090024, -0.9987037, 0, 0, 0)
+light_color = Color(0.4152844, 0.40308145, 0.3373677, 1)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1022709639]
+transform = Transform3D(1, 0, 0, 0, 0.4034509, 0.91500133, 0, -0.91500133, 0.4034509, 0.23344496, 0.8800632, 2.1254497)
+light_color = Color(0.8055289, 0.7514873, 0.6066799, 1)
+shadow_enabled = true
+spot_attenuation = -0.22
+spot_angle = 51.59
+spot_angle_attenuation = 0.8408963
