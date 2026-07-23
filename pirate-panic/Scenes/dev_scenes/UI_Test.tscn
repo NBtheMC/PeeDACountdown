@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://unbom7r6cqqt"]
 
-[ext_resource type="Texture2D" uid="uid://hqmpo8q7culd" path="res://Scenes/countdown/icon.svg" id="1_1yx8b"]
-[ext_resource type="Script" uid="uid://c26ksem4rjvns" path="res://Scenes/UI/icon_anim.gd" id="1_dfh1l"]
+[ext_resource type="PackedScene" uid="uid://cuignlq4b7e18" path="res://Scenes/UI/ui_warning_icon.tscn" id="1_1yx8b"]
+[ext_resource type="Script" uid="uid://b0hb6u1yaeloe" path="res://Scenes/UI/text_anim.gd" id="2_dfh1l"]
+[ext_resource type="Theme" uid="uid://bcya1rsak86it" path="res://Scenes/UI/UI_theme.tres" id="3_5ib0t"]
 
 [node name="UiTest" type="Node3D" unique_id=512497521]
 
@@ -13,22 +14,33 @@ offset_top = 1.0
 offset_right = 1922.0
 offset_bottom = 1081.0
 
-[node name="Control" type="Control" parent="Control" unique_id=1485330165]
+[node name="UI_Warning_Icon" parent="Control" unique_id=65061495 instance=ExtResource("1_1yx8b")]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 565.0
-offset_top = -791.0
-offset_right = 695.0
-offset_bottom = -663.0
-grow_vertical = 0
-scale = Vector2(1e-05, 1e-05)
-script = ExtResource("1_dfh1l")
-spawn_time = 1.0
-rotate_cycle_time = 1.0
-despawn_time = 1.0
-rotation_amount = 15.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/Control" unique_id=1789065491]
-texture = ExtResource("1_1yx8b")
+[node name="UI_Bark_Textbox" type="Control" parent="Control" unique_id=905932299]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -404.0
+offset_top = -645.0
+offset_right = -404.0
+offset_bottom = -645.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_dfh1l")
+letters_per_second = 15.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/UI_Bark_Textbox" unique_id=1606389436]
+layout_mode = 0
+offset_left = -36.0
+offset_top = -3.0
+offset_right = 74.0
+offset_bottom = 37.0
+theme = ExtResource("3_5ib0t")
+bbcode_enabled = true
+text = "I'm getting rather [img=25]res://Scenes/countdown/icon.svg[/img] [color=red][b]famished[/b][/color]..."
+fit_content = true
+autowrap_mode = 0

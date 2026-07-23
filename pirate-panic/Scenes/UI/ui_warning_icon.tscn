@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cuignlq4b7e18"]
+
+[ext_resource type="Script" uid="uid://c26ksem4rjvns" path="res://Scenes/UI/icon_anim.gd" id="1_spvl1"]
+[ext_resource type="Texture2D" uid="uid://hqmpo8q7culd" path="res://Scenes/countdown/icon.svg" id="2_i55wi"]
+
+[node name="UI_Warning_Icon" type="Control" unique_id=65061495]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 565.0
+offset_top = -791.0
+offset_right = 695.0
+offset_bottom = -663.0
+grow_vertical = 0
+scale = Vector2(1e-05, 1e-05)
+script = ExtResource("1_spvl1")
+spawn_time = 1.0
+rotate_cycle_time = 1.0
+despawn_time = 1.0
+rotation_amount = 15.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1638720010]
+texture = ExtResource("2_i55wi")
