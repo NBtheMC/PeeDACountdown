@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://gfd3uxxx3kcd"]
+
+[ext_resource type="PackedScene" uid="uid://dxue7rjdqqnho" path="res://Scenes/player/player.tscn" id="1_k0lm7"]
+[ext_resource type="PackedScene" uid="uid://dl2vwih1ckeu1" path="res://Scenes/items/rowing_object.tscn" id="2_uj31n"]
+[ext_resource type="Script" uid="uid://caiqt33tvbeu1" path="res://Scenes/misc/Interactable.gd" id="3_k0lm7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ss858"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_dblfo"]
+sky_material = SubResource("ProceduralSkyMaterial_ss858")
+
+[sub_resource type="Environment" id="Environment_hau2d"]
+background_mode = 2
+sky = SubResource("Sky_dblfo")
+glow_enabled = true
+
+[node name="Node3D" type="Node3D" unique_id=1577513873]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1102988990]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0.10299969, 5.786922, -5.908325)
+light_energy = 0.55
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=332250440]
+environment = SubResource("Environment_hau2d")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1826098984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.677, 0, 5.556)
+use_collision = true
+size = Vector3(26.788216, 0.001, 21.478622)
+
+[node name="Player" parent="." unique_id=180760236 instance=ExtResource("1_k0lm7")]
+
+[node name="RowingObject" parent="." unique_id=1267491984 instance=ExtResource("2_uj31n")]
+
+[node name="Interactable" parent="RowingObject" index="3" unique_id=557900897]
+script = ExtResource("3_k0lm7")
+
+[connection signal="hold_interacted" from="RowingObject/Interactable" to="RowingObject" method="_on_interactable_hold_interacted"]
+[connection signal="showText" from="RowingObject/Interactable" to="RowingObject" method="_on_interactable_show_text"]
+[connection signal="unshowText" from="RowingObject/Interactable" to="RowingObject" method="_on_interactable_unshow_text"]
+
+[editable path="RowingObject"]
