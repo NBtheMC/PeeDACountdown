@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://h5bj62d3ytjc"]
+
+[ext_resource type="Script" uid="uid://iadf5srvuedf" path="res://Scenes/audio/Audio_Spline.gd" id="1_e2fmm"]
+[ext_resource type="AudioStream" uid="uid://b1wg7tbxq5yr8" path="res://Assets/Audio/575902__vman533__4-waves-close-recording-beach-portugal.ogg" id="2_t6egi"]
+
+[sub_resource type="Curve3D" id="Curve3D_asen0"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="Audio_Waves_Spline" type="Path3D" unique_id=2022735341 node_paths=PackedStringArray("follow")]
+curve = SubResource("Curve3D_asen0")
+script = ExtResource("1_e2fmm")
+follow = NodePath("PathFollow3D")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=1154904088]
+transform = Transform3D(-0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071067, 2.1848924, 0, 7.8151073)
+progress = 11.052
+
+[node name="Waves_Close" type="AudioStreamPlayer3D" parent="PathFollow3D" unique_id=515615584]
+stream = ExtResource("2_t6egi")
+volume_db = -24.87
+unit_size = 20.0
+autoplay = true
+max_distance = 10.0
+parameters/looping = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="PathFollow3D/Waves_Close" unique_id=840150725]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)

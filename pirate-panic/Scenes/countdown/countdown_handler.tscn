@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b3dofw22lvaxr"]
+
+[ext_resource type="PackedScene" uid="uid://cqufd2txb8i7x" path="res://Scenes/countdown/timer_ui.tscn" id="1_rgpxj"]
+
+[node name="CountdownHandler" type="Node3D" unique_id=2133827847]
+
+[node name="TimerUI" parent="." unique_id=251125843 instance=ExtResource("1_rgpxj")]

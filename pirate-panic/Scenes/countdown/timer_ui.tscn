@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cqufd2txb8i7x"]
+
+[ext_resource type="Script" uid="uid://3es5y0pube4b" path="res://Scenes/countdown/psyche_handler.gd" id="2_f6cbg"]
+[ext_resource type="Script" uid="uid://cevf8wbelry4t" path="res://Scenes/countdown/hunger_handler.gd" id="3_nx0u2"]
+[ext_resource type="Script" uid="uid://dk22vajmwwfqu" path="res://Scenes/countdown/main_timer.gd" id="3_pgysb"]
+
+[node name="TimerUI" type="CanvasLayer" unique_id=251125843]
+
+[node name="HungerHandler" type="Sprite2D" parent="." unique_id=331275145]
+script = ExtResource("3_nx0u2")
+
+[node name="PsycheHandler" type="Sprite2D" parent="." unique_id=1293033673]
+script = ExtResource("2_f6cbg")
+
+[node name="ClockBackground" type="Sprite2D" parent="." unique_id=1610691437]
+
+[node name="ClockHand" type="Sprite2D" parent="ClockBackground" unique_id=1585039773]
+
+[node name="MainTimer" type="Node" parent="." unique_id=953255662]
+script = ExtResource("3_pgysb")

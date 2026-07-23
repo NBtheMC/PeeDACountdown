@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://d0hbwwgkrf3lm"]
 
 [ext_resource type="PackedScene" uid="uid://dxue7rjdqqnho" path="res://Scenes/player/player.tscn" id="1_dblfo"]
+[ext_resource type="PackedScene" uid="uid://b3dofw22lvaxr" path="res://Scenes/countdown/countdown_handler.tscn" id="2_hau2d"]
+[ext_resource type="AudioStream" uid="uid://b1wg7tbxq5yr8" path="res://Assets/Audio/575902__vman533__4-waves-close-recording-beach-portugal.ogg" id="3_qu2ds"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ss858"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -13,6 +15,13 @@ sky_material = SubResource("ProceduralSkyMaterial_ss858")
 background_mode = 2
 sky = SubResource("Sky_dblfo")
 glow_enabled = true
+
+[sub_resource type="Curve3D" id="Curve3D_ysysb"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 10, 0, 0),
+"tilts": PackedFloat32Array(-0.1, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="Node3D" type="Node3D" unique_id=1577513873]
 
@@ -31,3 +40,24 @@ size = Vector3(26.788216, 0.001, 21.478622)
 
 [node name="Player" parent="." unique_id=180760236 instance=ExtResource("1_dblfo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2502519, 0)
+
+[node name="SplineAudioPlayer" type="Path3D" parent="." unique_id=537810828]
+curve = SubResource("Curve3D_ysysb")
+metadata/_custom_type_script = "uid://hq4bqf4mvq21"
+
+[node name="PathFollow3D" type="PathFollow3D" parent="SplineAudioPlayer" unique_id=419026221]
+transform = Transform3D(0.7071057, 0, 0.70710665, 0, 0.9999991, 0, -0.7071056, 0, 0.70710677, -1.2175002, 0, 8.782499)
+visibility_parent = NodePath("../../CSGBox3D2")
+progress = 15.86408
+
+[node name="Waves_Close" type="AudioStreamPlayer3D" parent="SplineAudioPlayer/PathFollow3D" unique_id=1909120130]
+transform = Transform3D(-0.7035742, 0.09983342, -0.7035742, 0.07059288, 0.99500424, 0.070592895, 0.7071068, 7.450581e-09, -0.7071068, 2.1107225, -0.21177864, -2.1213205)
+stream = ExtResource("3_qu2ds")
+volume_db = -16.449
+autoplay = true
+max_distance = 10.0
+parameters/looping = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1600073003]
+
+[node name="CountdownHandler" parent="." unique_id=2133827847 instance=ExtResource("2_hau2d")]

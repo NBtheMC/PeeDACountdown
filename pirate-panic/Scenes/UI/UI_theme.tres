@@ -1,0 +1,15 @@
+[gd_resource type="Theme" format=3 uid="uid://bcya1rsak86it"]
+
+[ext_resource type="FontFile" uid="uid://bff3usu1p2opd" path="res://Scenes/UI/Fonts/ARCADE_I.TTF" id="1_j4hef"]
+
+[resource]
+default_font_size = 25
+MarginContainer/constants/margin_bottom = 50
+MarginContainer/constants/margin_left = 50
+MarginContainer/constants/margin_right = 50
+MarginContainer/constants/margin_top = 50
+RichTextLabel/fonts/bold_font = ExtResource("1_j4hef")
+RichTextLabel/fonts/bold_italics_font = ExtResource("1_j4hef")
+RichTextLabel/fonts/italics_font = ExtResource("1_j4hef")
+RichTextLabel/fonts/mono_font = ExtResource("1_j4hef")
+RichTextLabel/fonts/normal_font = ExtResource("1_j4hef")

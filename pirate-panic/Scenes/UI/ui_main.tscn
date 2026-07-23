@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cuh8f33jalf4t"]
+
+[ext_resource type="Theme" uid="uid://bcya1rsak86it" path="res://Scenes/UI/UI_theme.tres" id="1_rad5t"]
+[ext_resource type="Script" uid="uid://bwghgobssqdfv" path="res://Scenes/UI/clock_anim.gd" id="2_ch3em"]
+[ext_resource type="Texture2D" uid="uid://x1vouhwipxg4" path="res://TempAssets/Clock-Hand-Temp.png" id="2_h3s1k"]
+[ext_resource type="PackedScene" uid="uid://daqrngoxfmyul" path="res://Scenes/UI/text_box.tscn" id="2_rad5t"]
+[ext_resource type="PackedScene" uid="uid://dtvfi44kmsghu" path="res://Scenes/UI/warning_icon_container.tscn" id="3_b2hoh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uirjc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="UI_Main" type="Control" unique_id=776437626]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 1922.0
+offset_bottom = 1081.0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2044965301]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = ExtResource("1_rad5t")
+
+[node name="Timer_Container" type="PanelContainer" parent="MarginContainer" unique_id=309307705]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_uirjc")
+script = ExtResource("2_ch3em")
+starting_rotation = 90.0
+final_rotation = 180.0
+
+[node name="ClockHand" type="TextureRect" parent="MarginContainer/Timer_Container" unique_id=161325825]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -430)
+offset_transform_rotation = 1.5707964
+offset_transform_pivot = Vector2(0, 200)
+texture = ExtResource("2_h3s1k")
+
+[node name="TextBox" parent="MarginContainer" unique_id=1858019659 instance=ExtResource("2_rad5t")]
+layout_mode = 2
+
+[node name="Warning_Icon_Container" parent="MarginContainer" unique_id=48865670 instance=ExtResource("3_b2hoh")]
+layout_mode = 2
