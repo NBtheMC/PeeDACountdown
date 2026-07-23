@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://cqufd2txb8i7x"]
 
-[ext_resource type="Texture2D" uid="uid://bdals65idehes" path="res://TempAssets/HungerBarBackgroundTemp.png" id="1_fqbal"]
-[ext_resource type="Texture2D" uid="uid://bcd4vq6d6edp7" path="res://TempAssets/HungerBarForegroundTemp.png" id="2_vumm1"]
-[ext_resource type="Script" uid="uid://cevf8wbelry4t" path="res://Scenes/countdown/hunger_bar.gd" id="3_nx0u2"]
+[ext_resource type="Script" uid="uid://3es5y0pube4b" path="res://Scenes/countdown/psyche_handler.gd" id="2_f6cbg"]
+[ext_resource type="Script" uid="uid://cevf8wbelry4t" path="res://Scenes/countdown/hunger_handler.gd" id="3_nx0u2"]
+[ext_resource type="Script" uid="uid://dk22vajmwwfqu" path="res://Scenes/countdown/main_timer.gd" id="3_pgysb"]
 
 [node name="TimerUI" type="CanvasLayer" unique_id=251125843]
 
-[node name="Node2D" type="Node2D" parent="." unique_id=800157740]
-
-[node name="HungerBar" type="TextureProgressBar" parent="Node2D" unique_id=1236251186]
-offset_left = 71.0
-offset_top = 54.0
-offset_right = 271.0
-offset_bottom = 104.0
-step = 0.01
-value = 100.0
-texture_under = ExtResource("1_fqbal")
-texture_progress = ExtResource("2_vumm1")
+[node name="HungerHandler" type="Sprite2D" parent="." unique_id=331275145]
 script = ExtResource("3_nx0u2")
+
+[node name="PsycheHandler" type="Sprite2D" parent="." unique_id=1293033673]
+script = ExtResource("2_f6cbg")
+
+[node name="ClockBackground" type="Sprite2D" parent="." unique_id=1610691437]
+
+[node name="ClockHand" type="Sprite2D" parent="ClockBackground" unique_id=1585039773]
+
+[node name="MainTimer" type="Node" parent="." unique_id=953255662]
+script = ExtResource("3_pgysb")
