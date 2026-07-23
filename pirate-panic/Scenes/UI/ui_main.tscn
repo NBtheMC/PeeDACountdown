@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cuh8f33jalf4t"]
+
+[ext_resource type="Theme" uid="uid://bcya1rsak86it" path="res://Scenes/UI/UI_theme.tres" id="1_rad5t"]
+[ext_resource type="PackedScene" uid="uid://daqrngoxfmyul" path="res://Scenes/UI/text_box.tscn" id="2_rad5t"]
+[ext_resource type="PackedScene" uid="uid://dtvfi44kmsghu" path="res://Scenes/UI/warning_icon_container.tscn" id="3_b2hoh"]
+
+[node name="UI_Main" type="Control" unique_id=776437626]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 1922.0
+offset_bottom = 1081.0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2044965301]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = ExtResource("1_rad5t")
+
+[node name="TextBox" parent="MarginContainer" unique_id=1858019659 instance=ExtResource("2_rad5t")]
+layout_mode = 2
+
+[node name="Warning_Icon_Container" parent="MarginContainer" unique_id=48865670 instance=ExtResource("3_b2hoh")]
+layout_mode = 2
