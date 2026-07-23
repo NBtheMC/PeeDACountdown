@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://du3s71np5wis"]
 
-[ext_resource type="PackedScene" uid="uid://bmxbm56rqmwsp" path="res://Art/PirateShip.fbx" id="1_ijv5j"]
+[ext_resource type="PackedScene" uid="uid://dwmhyk12txjql" path="res://Art/PirateShip_V1_0.fbx" id="1_ijv5j"]
 
 [node name="Environment" type="Node3D" unique_id=342448898]
 
-[node name="PirateShip" parent="." unique_id=266896478 instance=ExtResource("1_ijv5j")]
+[node name="PirateShip_V1_0" parent="." unique_id=129218166 instance=ExtResource("1_ijv5j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24830651, 0, 1.1120892)
