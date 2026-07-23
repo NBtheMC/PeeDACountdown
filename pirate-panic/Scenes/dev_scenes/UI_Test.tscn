@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://unbom7r6cqqt"]
+
+[ext_resource type="Texture2D" uid="uid://hqmpo8q7culd" path="res://Scenes/countdown/icon.svg" id="1_1yx8b"]
+[ext_resource type="Script" uid="uid://c26ksem4rjvns" path="res://Scenes/UI/icon_anim.gd" id="1_dfh1l"]
+
+[node name="UiTest" type="Node3D" unique_id=512497521]
+
+[node name="Control" type="Control" parent="." unique_id=1542660220]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 1922.0
+offset_bottom = 1081.0
+
+[node name="Control" type="Control" parent="Control" unique_id=1485330165]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 565.0
+offset_top = -791.0
+offset_right = 695.0
+offset_bottom = -663.0
+grow_vertical = 0
+scale = Vector2(1e-05, 1e-05)
+script = ExtResource("1_dfh1l")
+spawn_time = 1.0
+rotate_cycle_time = 1.0
+despawn_time = 1.0
+rotation_amount = 15.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Control" unique_id=1789065491]
+texture = ExtResource("1_1yx8b")
