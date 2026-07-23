@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d0hbwwgkrf3lm"]
 
 [ext_resource type="PackedScene" uid="uid://dxue7rjdqqnho" path="res://Scenes/player/player.tscn" id="1_dblfo"]
-[ext_resource type="Script" uid="uid://hq4bqf4mvq21" path="res://Scenes/audio/spline_audio_player.gd" id="2_a1usc"]
+[ext_resource type="PackedScene" uid="uid://b3dofw22lvaxr" path="res://Scenes/countdown/countdown_handler.tscn" id="2_hau2d"]
 [ext_resource type="AudioStream" uid="uid://b1wg7tbxq5yr8" path="res://Assets/Audio/575902__vman533__4-waves-close-recording-beach-portugal.ogg" id="3_qu2ds"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ss858"]
@@ -43,8 +43,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2502519, 0)
 
 [node name="SplineAudioPlayer" type="Path3D" parent="." unique_id=537810828]
 curve = SubResource("Curve3D_ysysb")
-script = ExtResource("2_a1usc")
-player_listeners = Array[NodePath]([NodePath("../Player")])
 metadata/_custom_type_script = "uid://hq4bqf4mvq21"
 
 [node name="PathFollow3D" type="PathFollow3D" parent="SplineAudioPlayer" unique_id=419026221]
@@ -61,3 +59,5 @@ max_distance = 10.0
 parameters/looping = true
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1600073003]
+
+[node name="CountdownHandler" parent="." unique_id=2133827847 instance=ExtResource("2_hau2d")]
