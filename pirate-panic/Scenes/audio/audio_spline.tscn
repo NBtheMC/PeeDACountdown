@@ -23,7 +23,7 @@ progress = 11.052
 [node name="Waves_Close" type="AudioStreamPlayer3D" parent="PathFollow3D" unique_id=515615584]
 stream = ExtResource("2_t6egi")
 volume_db = -24.87
-unit_size = 30.37
+unit_size = 20.0
 autoplay = true
 max_distance = 10.0
 parameters/looping = true
