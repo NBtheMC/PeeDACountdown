@@ -1,7 +1,7 @@
 extends Node
 
-signal interacted
+signal interacted(interactor: Node)
 
-func interact():
-	interacted.emit()
+func interact(interactor: Node) -> void:
+	interacted.emit(interactor)
 	
