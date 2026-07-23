@@ -29,6 +29,7 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(0, -200)
 script = ExtResource("1_0fjus")
 letters_per_second = 15.0
+linger_time = 5.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI_Bark_Textbox" unique_id=1795873810]
 layout_mode = 1

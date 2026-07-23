@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cuignlq4b7e18"]
 
 [ext_resource type="Script" uid="uid://c26ksem4rjvns" path="res://Scenes/UI/icon_anim.gd" id="1_spvl1"]
-[ext_resource type="Texture2D" uid="uid://hqmpo8q7culd" path="res://Scenes/countdown/icon.svg" id="2_i55wi"]
 [ext_resource type="Texture2D" uid="uid://bl4wv2qmd8wco" path="res://TempAssets/hungry-emoticon_999327-68411-768390068.jpg" id="2_iqx87"]
 
 [node name="UI_Warning_Icon" type="Control" unique_id=65061495]
@@ -32,8 +31,3 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("2_iqx87")
 expand_mode = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1638720010]
-visible = false
-position = Vector2(75, 75)
-texture = ExtResource("2_i55wi")

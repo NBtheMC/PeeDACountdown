@@ -2,6 +2,8 @@ extends Node
 
 # speed at which the text appears (in letters per second)
 @export var letters_per_second : float
+@export var linger_time : float
+
 var type_delay : float # 1 / letters_per_second
 var full_text : String
 
@@ -9,9 +11,12 @@ var full_text : String
 func _ready() -> void:
 	start_text_scroll($RichTextLabel.text)
 
+func clear_text():
+	$RichTextLabel.text = ""
+
 func start_text_scroll(text: String) -> void:
 	full_text = text
-	$RichTextLabel.text = ""
+	clear_text()
 	type_delay = 1.0 / letters_per_second
 	text_scroll()
 
@@ -32,13 +37,8 @@ func text_scroll() -> void:
 		
 		await get_tree().create_timer(type_delay).timeout
 	
-	#for letter in full_text:
-	#	$RichTextLabel.text += letter
-	#	if (letter == '[' or letter == '{' or letter == '/'): bbcode_skip = true
-	#	if (letter == ']' or letter == '}'): bbcode_skip = false
-	#	print($RichTextLabel.text)
-	#	if (not bbcode_skip):
-	#		await get_tree().create_timer(type_delay).timeout
+	await get_tree().create_timer(linger_time).timeout
+	clear_text()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

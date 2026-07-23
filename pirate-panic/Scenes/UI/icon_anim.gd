@@ -11,19 +11,25 @@ var rotate_tween
 # rotation amount (in Degrees on either side of default)
 @export var rotation_amount : float
 
+# texture field that is passed to child TextureRect
 @export var icon : Texture
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$TextureRect.scale = Vector2(0.0, 0.0)
-	$TextureRect.texture = icon
+	update_texture(icon)
+	
+	# dev testing
 	spawn()
 	animate()
 
+# dev testing
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		despawn()
+		
+func update_texture(texture : Texture):
+	$TextureRect.texture = texture
 
 func interrupt_current_tween() -> void:
 	if tween:
