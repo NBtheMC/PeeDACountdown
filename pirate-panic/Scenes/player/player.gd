@@ -33,7 +33,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 	# 4. Action inputs using the global 'Input' class, completely safe from mouse events
 	if Input.is_action_just_pressed("drop"):
@@ -81,15 +81,19 @@ func _process(delta: float) -> void:
 		if hit_object and hit_object.has_node("Interactable"):
 			# Use 'as Interactable' to safely convert the node type
 			found_interactable = hit_object.get_node("Interactable") as Interactable
-
-	# Handle Text transitions smoothly at visual framerate
-	if found_interactable != last_viewed_interactable:
-		if last_viewed_interactable != null:
-			clear_current_viewed_interactable()
-		if found_interactable != null:
 			currentViewedInteractable = found_interactable
 			currentViewedInteractable.show_text(self)
-		last_viewed_interactable = found_interactable
+	else:
+		clear_current_viewed_interactable()
+		
+	# Handle Text transitions smoothly at visual framerate
+	#if found_interactable != last_viewed_interactable:
+	#	if last_viewed_interactable != null:
+	#		clear_current_viewed_interactable()
+	#	if found_interactable != null:
+	#		currentViewedInteractable = found_interactable
+	#		currentViewedInteractable.show_text(self)
+	#	last_viewed_interactable = found_interactable
 
 	# Continuous holding checks
 	if currentViewedInteractable != null and Input.is_action_pressed("interact"):
@@ -108,9 +112,13 @@ func drop_held_item():
 	held_item.transform.origin.y = held_item.starting_y
 	
 func clear_current_viewed_interactable():
-	print("clear_current_viewed_interactable")
+	# print("clear_current_viewed_interactable")
 	# ONLY call the function if the variable actually holds an object!
 	if currentViewedInteractable != null:
 		currentViewedInteractable.unshow_text(self)
 	# Safely clear the reference out afterward
 	currentViewedInteractable = null
+
+
+func _on_leak_spot_leak_repair() -> void:
+	pass # Replace with function body.
