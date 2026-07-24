@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://dxue7rjdqqnho" path="res://Scenes/player/player.tscn" id="1_qmsjm"]
 [ext_resource type="Script" uid="uid://b5tq3he4t555u" path="res://Scenes/items/item.gd" id="2_lr162"]
 [ext_resource type="PackedScene" uid="uid://bm417dbu1c2o6" path="res://Scenes/misc/Interactable.tscn" id="3_viqbx"]
-[ext_resource type="PackedScene" uid="uid://dpju3sgbf2w7l" path="res://Art/DamageArea_Damaged.fbx" id="4_lr162"]
+[ext_resource type="PackedScene" uid="uid://b1882d6joqqfo" path="res://Art/DamageArea_Damaged.fbx" id="4_lr162"]
 [ext_resource type="Script" uid="uid://ce7mqmiqtourj" path="res://Scenes/leak/leak_system.gd" id="4_pej23"]
-[ext_resource type="PackedScene" uid="uid://dfchykencmqbd" path="res://Art/DamageArea_Undamaged.fbx" id="5_viqbx"]
+[ext_resource type="PackedScene" uid="uid://b2xlaa05tn6mu" path="res://Art/DamageArea_Undamaged.fbx" id="5_viqbx"]
 [ext_resource type="Script" uid="uid://dfnvsbg1gvoh4" path="res://Scenes/leak/leak_spot.gd" id="7_4tnck"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ss858"]

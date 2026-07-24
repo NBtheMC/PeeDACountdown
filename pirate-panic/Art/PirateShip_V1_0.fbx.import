@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b2xlaa05tn6mu"
-path="res://.godot/imported/DamageArea_Undamaged.fbx-7c5affc54864d5e94429b2ee246c0f97.scn"
+uid="uid://dwmhyk12txjql"
+path="res://.godot/imported/PirateShip_V1_0.fbx-378eec761a72a4a19cf8d0a31e0256ea.scn"
 
 [deps]
 
-source_file="res://Art/DamageArea_Undamaged.fbx"
-dest_files=["res://.godot/imported/DamageArea_Undamaged.fbx-7c5affc54864d5e94429b2ee246c0f97.scn"]
+source_file="res://Art/PirateShip_V1_0.fbx"
+dest_files=["res://.godot/imported/PirateShip_V1_0.fbx-378eec761a72a4a19cf8d0a31e0256ea.scn"]
 
 [params]
 

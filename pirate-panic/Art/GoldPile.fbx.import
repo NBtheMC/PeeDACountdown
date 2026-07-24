@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b2xlaa05tn6mu"
-path="res://.godot/imported/DamageArea_Undamaged.fbx-7c5affc54864d5e94429b2ee246c0f97.scn"
+uid="uid://bxaplhkkulm2o"
+path="res://.godot/imported/GoldPile.fbx-fe2d91671a87dccc31ecb40c053749f5.scn"
 
 [deps]
 
-source_file="res://Art/DamageArea_Undamaged.fbx"
-dest_files=["res://.godot/imported/DamageArea_Undamaged.fbx-7c5affc54864d5e94429b2ee246c0f97.scn"]
+source_file="res://Art/GoldPile.fbx"
+dest_files=["res://.godot/imported/GoldPile.fbx-fe2d91671a87dccc31ecb40c053749f5.scn"]
 
 [params]
 

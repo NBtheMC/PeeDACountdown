@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dl2vwih1ckeu1"]
+
+[ext_resource type="Script" uid="uid://bguo365hkq6uh" path="res://Scenes/rowing_object.gd" id="1_lm31u"]
+[ext_resource type="Script" uid="uid://caiqt33tvbeu1" path="res://Scenes/misc/Interactable.gd" id="2_34ilw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_502px"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jvbdo"]
+
+[node name="RowingObject" type="StaticBody3D" unique_id=1267491984 node_paths=PackedStringArray("rowing_text")]
+collision_layer = 2
+script = ExtResource("1_lm31u")
+rowing_text = NodePath("CanvasLayer/RowingText")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=118222880]
+visible = false
+mesh = SubResource("BoxMesh_502px")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=970112086]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_jvbdo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1372377046]
+
+[node name="RowingText" type="RichTextLabel" parent="CanvasLayer" unique_id=1496855677]
+offset_left = 539.0
+offset_top = 459.0
+offset_right = 1470.0
+offset_bottom = 623.0
+theme_override_font_sizes/normal_font_size = 46
+text = "Press and hold E to row"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Interactable" type="Node" parent="." unique_id=557900897]
+script = ExtResource("2_34ilw")
+
+[connection signal="hold_interacted" from="Interactable" to="." method="_on_interactable_hold_interacted"]
+[connection signal="showText" from="Interactable" to="." method="_on_interactable_show_text"]
+[connection signal="unshowText" from="Interactable" to="." method="_on_interactable_unshow_text"]
