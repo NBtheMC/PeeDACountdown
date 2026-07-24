@@ -20,7 +20,11 @@ var leaks: Array[Leak]
 var active_leaks: int
 var max_leaks: int # equal to leaks.size()
 var leak_meter: float
+var boat_sank: bool = false
 @onready var timer: Timer = $Timer
+	
+# gets emitted when leak_meter = 100
+signal leak_max
 	
 func _ready() -> void:
 	for n in get_children():
@@ -39,7 +43,14 @@ func _ready() -> void:
 	_start_timer()
 
 func _process(delta: float) -> void:
+	if (boat_sank):
+		return
 	leak_meter += (LEAK_SPEED * active_leaks * delta)
+	if (leak_meter >= 100):
+		print("Too manmy leaks! The boat has sank!")
+		boat_sank = true
+		leak_max.emit()
+		timer.stop()
 
 func _start_timer():
 	timer.wait_time = randi_range(LEAK_TIMER_MIN, LEAK_TIMER_MAX)
@@ -47,13 +58,13 @@ func _start_timer():
 	print("next leak in ", timer.wait_time, " seconds")
 
 func _on_timer_timeout():
-	print("timer timeout")
+	# print("timer timeout")
 	if (active_leaks == max_leaks):
 		_start_timer()
 		return
 		
 	var index = get_random_leak_spot()
-	print(index)
+	# print(index)
 	start_leak(index)
 	_start_timer()
 	
