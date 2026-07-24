@@ -45,9 +45,10 @@ func _input(event: InputEvent) -> void:
 			currentViewedInteractable.interact(self)
 			
 	if Input.is_action_just_released("interact"):
-		print("Released interact key")
-		if currentViewedInteractable and currentViewedInteractable.has_method("stop_rowing"):
-			currentViewedInteractable.stop_rowing()
+		print("Released interact key on " + str(currentViewedInteractable))
+		if currentViewedInteractable and currentViewedInteractable.get_parent() is RowingObject:
+			print("Stop rowing on " + str(currentViewedInteractable))
+			currentViewedInteractable.get_parent().stop_rowing()
 
 # Add a new variable at the very top of your script to track the previous frame's target
 var last_viewed_interactable: Node = null
