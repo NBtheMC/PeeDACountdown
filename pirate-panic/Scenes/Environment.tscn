@@ -2,8 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dwmhyk12txjql" path="res://Art/PirateShip_V1_0.fbx" id="1_ijv5j"]
 [ext_resource type="Shader" uid="uid://bkydm4h6o6hyo" path="res://Art/Shaders/WaterSurface.tres" id="2_3hnbd"]
-[ext_resource type="Shader" uid="uid://dcr8wjkvk2roo" path="res://Art/Shaders/ppnodez.tres" id="3_c0q54"]
+[ext_resource type="Shader" uid="uid://xxok7fpeu6is" path="res://Art/Shaders/PostProcess_Possession.gdshader" id="3_c0q54"]
 [ext_resource type="PackedScene" uid="uid://cchx6b282edus" path="res://Art/Oars.fbx" id="4_c0q54"]
+[ext_resource type="Texture2D" uid="uid://bktddt1y7klu1" path="res://Art/Textures/LightGlare_01.png" id="5_hr7o0"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_st70h"]
 
@@ -35,7 +36,10 @@ flip_faces = true
 size = Vector2(2, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yuhor"]
+render_priority = 0
 shader = ExtResource("3_c0q54")
+shader_parameter/depth_range = 0.0
+shader_parameter/distortion_strength = 0.0
 
 [node name="Environment" type="Node3D" unique_id=342448898]
 
@@ -71,3 +75,8 @@ surface_material_override/0 = SubResource("ShaderMaterial_yuhor")
 
 [node name="Oars" parent="." unique_id=998845485 instance=ExtResource("4_c0q54")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.19010639, 1.10298)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1232709242]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.25171167, 1.0088221, 2.134068)
+billboard = 1
+texture = ExtResource("5_hr7o0")
