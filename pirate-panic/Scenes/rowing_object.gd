@@ -25,22 +25,21 @@ func _process(delta: float) -> void:
 		
 		# Cap the distance so it doesn't go over the total max distance
 		rowed_distance = min(rowed_distance, total_distance)
-		
+		print("rowed_distance = " + str(rowed_distance))
 		# Check if the player reached the goal
 		if rowed_distance >= total_distance:
 			print("Rowing complete!")
+		is_rowing = false
 
 func _on_interactable_show_text(interactor: Node) -> void:
 	print("_on_interactable_show_text called")
 	rowing_text.visible = true
-	pass # Replace with function body.
 
 func _on_interactable_unshow_text(interactor: Node) -> void:
 	print("_on_interactable_unshow_text called")
 	rowing_text.visible = false
-	pass # Replace with function body.
+	is_rowing = false
 
 func _on_interactable_hold_interacted(interactor: Node) -> void:
 	print("_on_interactable_hold_interacted called")
 	is_rowing = true
-	pass # Replace with function body.
