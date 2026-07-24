@@ -90,7 +90,6 @@ func stop_afterimage() -> void:
 
 func anim_wiggle() -> void:
 	rotate_tween = get_tree().create_tween().bind_node(self)
-	self.rotation_degrees = -rotation_amount
 	rotate_tween.set_loops() # loop infinitely
 	rotate_tween.tween_property($Icon, "rotation_degrees", rotation_amount, rotate_cycle_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT) 
 	rotate_tween.tween_property($Icon, "rotation_degrees", -rotation_amount, rotate_cycle_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

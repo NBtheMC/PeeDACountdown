@@ -11,6 +11,12 @@ offset_bottom = 40.0
 
 [node name="CountdownHandler" parent="." unique_id=2133827847 instance=ExtResource("1_de23q")]
 
+[node name="HungerHandler" parent="CountdownHandler/TimerUI" parent_id_path=PackedInt32Array(2133827847, 251125843) index="0" unique_id=331275145]
+countdown_loss_speed = 10.0
+
+[node name="PsycheHandler" parent="CountdownHandler/TimerUI" parent_id_path=PackedInt32Array(2133827847, 251125843) index="1" unique_id=1293033673]
+countdown_loss_speed = 10.0
+
 [node name="UI_Main" parent="." unique_id=776437626 instance=ExtResource("2_c7mb3")]
 layout_mode = 0
 offset_left = 0.0

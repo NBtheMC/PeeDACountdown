@@ -10,6 +10,25 @@ var full_text : String
 # reference to text label
 var label
 
+var barks : Dictionary = {
+	"hunger_full_1" : "T'was a fine meal.",
+	"hunger_full_2" : "The sea always provides.",
+	"hunger_low_1" : "Yarr, My stomach be grumblin'...",
+	"hunger_low_2" : "I should eat soon...",
+	"hunger_low_3" : "I'm famished...",
+	"hunger_fatal_1" : "So weak... Need food...",
+	"hunger_fatal_2" : "Help... food...",
+	"psyche_full_1" : "Must've been the wind...",
+	"psyche_full_2" : "It's nothing. Just me and the sea.",
+	"psyche_low_1" : "What the freak.",
+	"psyche_low_2" : "He's after me. I can't let him win.",
+	"psyche_low_3" : "I be seeing things. They aren't real.",
+	"psyche_fatal_1" : "I'm going to die out here, aren't I...?",
+	"psyche_fatal_2" : "It's only a matter of time until He catches up.",
+	"psyche_fatal_3" : "HELP! HELP ME! ... HELP!",
+	"psyche_fatal_4" : "He took my crew. He took everything."
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	label = $RichTextLabel
