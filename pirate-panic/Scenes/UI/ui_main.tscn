@@ -39,6 +39,13 @@ offset_transform_enabled = true
 offset_transform_pivot = Vector2(0, 200)
 texture = ExtResource("2_h3s1k")
 
+[node name="Background" type="TextureRect" parent="MarginContainer/Timer_Container" unique_id=811479078]
+layout_mode = 2
+
+[node name="SFX_ClockTick" type="AudioStreamPlayer" parent="MarginContainer/Timer_Container" unique_id=1002985017]
+
+[node name="SFX_TimeRunningOut" type="AudioStreamPlayer" parent="MarginContainer/Timer_Container" unique_id=696639998]
+
 [node name="TextBox" parent="MarginContainer" unique_id=1858019659 instance=ExtResource("2_rad5t")]
 layout_mode = 2
 

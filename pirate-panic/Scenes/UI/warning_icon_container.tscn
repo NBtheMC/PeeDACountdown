@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dtvfi44kmsghu"]
 
 [ext_resource type="PackedScene" uid="uid://cuignlq4b7e18" path="res://Scenes/UI/ui_warning_icon.tscn" id="1_0tjg7"]
-[ext_resource type="Texture2D" uid="uid://bl4wv2qmd8wco" path="res://TempAssets/hungry-emoticon_999327-68411-768390068.jpg" id="2_t2sdu"]
 [ext_resource type="Texture2D" uid="uid://csy87gb3gs8fm" path="res://TempAssets/zany-emoji-goofy-emoticon-with-crazy-eyes-and-tongue-out-vector-2493150358.jpg" id="3_smcp0"]
 
 [node name="Warning_Icon_Container" type="HBoxContainer" unique_id=48865670]
@@ -10,7 +9,6 @@ size_flags_vertical = 8
 
 [node name="Hunger_Warning_Icon" parent="." unique_id=65061495 instance=ExtResource("1_0tjg7")]
 layout_mode = 2
-icon = ExtResource("2_t2sdu")
 
 [node name="Psyche_Warning_Icon" parent="." unique_id=1715797187 instance=ExtResource("1_0tjg7")]
 layout_mode = 2
