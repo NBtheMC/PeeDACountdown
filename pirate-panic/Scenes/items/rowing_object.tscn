@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dl2vwih1ckeu1"]
 
 [ext_resource type="Script" uid="uid://bguo365hkq6uh" path="res://Scenes/rowing_object.gd" id="1_lm31u"]
+[ext_resource type="Script" uid="uid://caiqt33tvbeu1" path="res://Scenes/misc/Interactable.gd" id="2_34ilw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_502px"]
 
@@ -12,6 +13,7 @@ script = ExtResource("1_lm31u")
 rowing_text = NodePath("CanvasLayer/RowingText")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=118222880]
+visible = false
 mesh = SubResource("BoxMesh_502px")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=970112086]
@@ -31,3 +33,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Interactable" type="Node" parent="." unique_id=557900897]
+script = ExtResource("2_34ilw")
+
+[connection signal="hold_interacted" from="Interactable" to="." method="_on_interactable_hold_interacted"]
+[connection signal="showText" from="Interactable" to="." method="_on_interactable_show_text"]
+[connection signal="unshowText" from="Interactable" to="." method="_on_interactable_unshow_text"]
