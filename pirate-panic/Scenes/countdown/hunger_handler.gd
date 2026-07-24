@@ -2,7 +2,7 @@ extends Sprite2D
 
 @export var hunger_max_value: float = 100.0
 var hunger_value
-@export var hunger_loss_speed: float = 0.2
+@export var hunger_loss_speed: float = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,14 +13,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# Calculate the flat amount that represents X% of the max value
 	# Move value down toward 0 safely
-	hunger_value -= hunger_loss_speed
+	hunger_value -= hunger_loss_speed * delta
 	
 	print("hunger_value= " + str(hunger_value))
 	
 	if hunger_value <= 50:
 		print("oof getting kinda hungry")
+		# pop up sprite here
 	elif hunger_value <= 25:
 		print("getting really hungry")
+		# pop up sprite here
 	elif hunger_value <= 0:
 		on_hunger_empty()
 
