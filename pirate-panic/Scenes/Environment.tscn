@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dwmhyk12txjql" path="res://Art/PirateShip_V1_0.fbx" id="1_ijv5j"]
 [ext_resource type="Shader" uid="uid://bkydm4h6o6hyo" path="res://Art/Shaders/WaterSurface.tres" id="2_3hnbd"]
-[ext_resource type="Shader" uid="uid://xxok7fpeu6is" path="res://Art/Shaders/PostProcess_Possession.gdshader" id="3_gjion"]
+[ext_resource type="Shader" uid="uid://dcr8wjkvk2roo" path="res://Art/Shaders/ppnodez.tres" id="3_c0q54"]
+[ext_resource type="PackedScene" uid="uid://cchx6b282edus" path="res://Art/Oars.fbx" id="4_c0q54"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_st70h"]
 
@@ -34,13 +35,12 @@ flip_faces = true
 size = Vector2(2, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yuhor"]
-render_priority = 0
-shader = ExtResource("3_gjion")
+shader = ExtResource("3_c0q54")
 
 [node name="Environment" type="Node3D" unique_id=342448898]
 
 [node name="PirateShip_V1_0" parent="." unique_id=129218166 instance=ExtResource("1_ijv5j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24830651, 0.16907257, 1.1120892)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.24830651, 0.16907257, 1.1120892)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1117270177]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
@@ -63,8 +63,11 @@ spot_attenuation = -0.22
 spot_angle = 51.59
 spot_angle_attenuation = 0.8408963
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=900379967]
+[node name="PostProcessPlane" type="MeshInstance3D" parent="." unique_id=900379967]
 transform = Transform3D(-0.69757676, -0.7089118, -0.10407088, -0.004189093, 0.14927956, -0.98878616, 0.7164979, -0.6893183, -0.107103646, 0, -0.9663972, 0)
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_ophcw")
 surface_material_override/0 = SubResource("ShaderMaterial_yuhor")
+
+[node name="Oars" parent="." unique_id=998845485 instance=ExtResource("4_c0q54")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.19010639, 1.10298)
