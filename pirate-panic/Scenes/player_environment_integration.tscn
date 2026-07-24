@@ -99,12 +99,18 @@ oar_animation_player = NodePath("../Oars/AnimationPlayer")
 [node name="MeshInstance3D" parent="Environment/RowingObject" index="0" unique_id=118222880]
 transform = Transform3D(0.33354592, 0, 0, 0, 0.55624425, 0, 0, 0, 0.5594557, 0, 0, 0)
 
+[node name="RowingText" parent="Environment/RowingObject/CanvasLayer" parent_id_path=PackedInt32Array(1267491984, 1372377046) index="0" unique_id=1496855677]
+visible = false
+
 [node name="RowingObject2" parent="Environment" unique_id=1684298204 node_paths=PackedStringArray("oar_animation_player") instance=ExtResource("6_3puld")]
 transform = Transform3D(0.78058046, 0, 0, 0, 1, 0, 0, 0, 1, 0.8376088, 0.36353314, 1.1244775)
 oar_animation_player = NodePath("../Oars/AnimationPlayer")
 
 [node name="MeshInstance3D" parent="Environment/RowingObject2" index="0" unique_id=118222880]
 transform = Transform3D(0.33354592, 0, 0, 0, 0.55624425, 0, 0, 0, 0.5594557, 0, 0, 0)
+
+[node name="RowingText" parent="Environment/RowingObject2/CanvasLayer" parent_id_path=PackedInt32Array(1684298204, 1372377046) index="0" unique_id=1496855677]
+visible = false
 
 [editable path="Player"]
 [editable path="Environment"]
