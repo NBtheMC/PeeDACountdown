@@ -7,7 +7,7 @@ signal showText(interactor: Node)
 signal unshowText(interactor: Node)
 
 func interact(interactor: Node) -> void:
-	print("interact signal called")
+	# print("interact signal called")
 	interacted.emit(interactor)
 
 func hold_interact(interactor: Node) -> void:
