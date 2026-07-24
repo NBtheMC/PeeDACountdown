@@ -5,9 +5,22 @@
 [ext_resource type="Texture2D" uid="uid://x1vouhwipxg4" path="res://TempAssets/Clock-Hand-Temp.png" id="2_h3s1k"]
 [ext_resource type="PackedScene" uid="uid://daqrngoxfmyul" path="res://Scenes/UI/text_box.tscn" id="2_rad5t"]
 [ext_resource type="PackedScene" uid="uid://dtvfi44kmsghu" path="res://Scenes/UI/warning_icon_container.tscn" id="3_b2hoh"]
+[ext_resource type="Texture2D" uid="uid://botjnwh6hkfh7" path="res://TempAssets/pirate game temp clock.png" id="3_ch3em"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uirjc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rad5t"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.60933006, 0.6093301, 0.60933006, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [node name="UI_Main" type="Control" unique_id=776437626]
 layout_mode = 3
@@ -23,26 +36,81 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 theme = ExtResource("1_rad5t")
 
-[node name="Timer_Container" type="PanelContainer" parent="MarginContainer" unique_id=309307705]
+[node name="Timer_Container" type="PanelContainer" parent="MarginContainer" unique_id=309307705 node_paths=PackedStringArray("clock_hand")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 offset_transform_enabled = true
+offset_transform_scale = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_uirjc")
 script = ExtResource("2_ch3em")
-starting_rotation = 90.0
-final_rotation = 180.0
+final_rotation = 360.0
+time_until_completion = 120.0
+clock_hand = NodePath("Background/ClockHand")
 
-[node name="ClockHand" type="TextureRect" parent="MarginContainer/Timer_Container" unique_id=161325825]
+[node name="Background" type="TextureRect" parent="MarginContainer/Timer_Container" unique_id=811479078]
+z_index = -1
+custom_minimum_size = Vector2(750, 750)
 layout_mode = 2
 offset_transform_enabled = true
-offset_transform_position = Vector2(0, -430)
-offset_transform_rotation = 1.5707964
+offset_transform_position = Vector2(-400, -400)
+texture = ExtResource("3_ch3em")
+stretch_mode = 4
+
+[node name="ClockHand" type="TextureRect" parent="MarginContainer/Timer_Container/Background" unique_id=161325825]
+custom_maximum_size = Vector2(82, 550)
+layout_mode = 0
+offset_left = 345.0
+offset_top = 29.0
+offset_right = 427.0
+offset_bottom = 579.0
+scale = Vector2(0.645, 0.645)
+offset_transform_enabled = true
 offset_transform_pivot = Vector2(0, 200)
 texture = ExtResource("2_h3s1k")
+
+[node name="SFX_ClockTick" type="AudioStreamPlayer" parent="MarginContainer/Timer_Container" unique_id=1002985017]
+
+[node name="SFX_TimeRunningOut" type="AudioStreamPlayer" parent="MarginContainer/Timer_Container" unique_id=696639998]
 
 [node name="TextBox" parent="MarginContainer" unique_id=1858019659 instance=ExtResource("2_rad5t")]
 layout_mode = 2
 
 [node name="Warning_Icon_Container" parent="MarginContainer" unique_id=48865670 instance=ExtResource("3_b2hoh")]
 layout_mode = 2
+
+[node name="Reticle" type="PanelContainer" parent="MarginContainer" unique_id=1996595663]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(100, 100)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ReticleHorizontal" type="PanelContainer" parent="MarginContainer/Reticle" unique_id=267156225]
+custom_minimum_size = Vector2(10, 2)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_rad5t")
+
+[node name="ReticleVertical" type="PanelContainer" parent="MarginContainer/Reticle" unique_id=407970851]
+custom_minimum_size = Vector2(2, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_rad5t")
+
+[node name="InteractTooltip" type="RichTextLabel" parent="MarginContainer/Reticle" unique_id=1261964841]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_rad5t")
+text = "E"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[editable path="MarginContainer/TextBox"]
