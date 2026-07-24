@@ -14,6 +14,8 @@ var tick_tween : Tween
 var time_elapsed : float = 0.0
 var last_tick : float = 0.0
 
+@export var clock_hand : TextureRect
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -32,5 +34,5 @@ func _process(delta: float) -> void:
 func animate_hand() -> void:
 	tick_tween = get_tree().create_tween().bind_node(self)
 	var new_rotation = deg_to_rad(((1 - progress) * starting_rotation) + (progress * final_rotation))
-	tick_tween.tween_property($ClockHand, "offset_transform_rotation", new_rotation, 0.5).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	tick_tween.tween_property(clock_hand, "offset_transform_rotation", new_rotation, 0.5).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	$SFX_ClockTick.play()
