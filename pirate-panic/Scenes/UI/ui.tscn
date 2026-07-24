@@ -24,7 +24,10 @@ offset_top = 0.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="Background" parent="UI_Main/MarginContainer/Timer_Container" parent_id_path=PackedInt32Array(776437626, 309307705) index="0" unique_id=811479078]
+[node name="Timer_Container" parent="UI_Main/MarginContainer" parent_id_path=PackedInt32Array(776437626, 2044965301) index="0" unique_id=309307705]
+time_until_completion = 15.0
+
+[node name="Background" parent="UI_Main/MarginContainer/Timer_Container" index="0" unique_id=811479078]
 z_index = 3
 
 [node name="Warning_Icon_Container" parent="UI_Main/MarginContainer" parent_id_path=PackedInt32Array(776437626, 2044965301) index="2" unique_id=48865670]

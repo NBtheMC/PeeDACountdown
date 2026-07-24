@@ -38,6 +38,7 @@ func _ready() -> void:
 
 ### PUBLIC CALL FUNCTIONS ###
 func start_warning() -> void:
+	$SFX_Warning.play()
 	update_texture(icon)
 	spawn()
 	anim_wiggle()
@@ -47,6 +48,7 @@ func stop_warning() -> void:
 	despawn()
 
 func start_fatal_warning() -> void:
+	$SFX_Fatal.play()
 	update_texture(fatal_icon)
 	anim_afterimage()
 

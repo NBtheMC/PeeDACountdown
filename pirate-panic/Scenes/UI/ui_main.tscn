@@ -6,9 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://daqrngoxfmyul" path="res://Scenes/UI/text_box.tscn" id="2_rad5t"]
 [ext_resource type="PackedScene" uid="uid://dtvfi44kmsghu" path="res://Scenes/UI/warning_icon_container.tscn" id="3_b2hoh"]
 [ext_resource type="Texture2D" uid="uid://botjnwh6hkfh7" path="res://TempAssets/pirate game temp clock.png" id="3_ch3em"]
+[ext_resource type="AudioStream" uid="uid://sxm7xyk8c13j" path="res://Assets/Audio/Clock Tick-001.ogg" id="5_mnjlg"]
+[ext_resource type="AudioStream" uid="uid://dkvb4gkiftvwc" path="res://Assets/Audio/Clock Tick-002.ogg" id="6_t0c6f"]
+[ext_resource type="AudioStream" uid="uid://d3p7marirkl3" path="res://Assets/Audio/Clock Tick-003.ogg" id="7_ei2ab"]
+[ext_resource type="AudioStream" uid="uid://tnou3lg2j0gk" path="res://Assets/Audio/Clock Tick-004.ogg" id="8_2b5bj"]
+[ext_resource type="AudioStream" uid="uid://dp2a4txh1sv8a" path="res://Assets/Audio/Clock Tick-005.ogg" id="9_1dckk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uirjc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_emsw4"]
+random_pitch = 1.0198333
+streams_count = 5
+stream_0/stream = ExtResource("5_mnjlg")
+stream_1/stream = ExtResource("6_t0c6f")
+stream_2/stream = ExtResource("7_ei2ab")
+stream_3/stream = ExtResource("8_2b5bj")
+stream_4/stream = ExtResource("9_1dckk")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rad5t"]
 content_margin_left = 0.0
@@ -47,6 +61,7 @@ script = ExtResource("2_ch3em")
 final_rotation = 360.0
 time_until_completion = 120.0
 clock_hand = NodePath("Background/ClockHand")
+tick_sfx_min_volume = -30.0
 
 [node name="Background" type="TextureRect" parent="MarginContainer/Timer_Container" unique_id=811479078]
 z_index = -1
@@ -70,6 +85,8 @@ offset_transform_pivot = Vector2(0, 200)
 texture = ExtResource("2_h3s1k")
 
 [node name="SFX_ClockTick" type="AudioStreamPlayer" parent="MarginContainer/Timer_Container" unique_id=1002985017]
+stream = SubResource("AudioStreamRandomizer_emsw4")
+volume_db = -21.211
 
 [node name="SFX_TimeRunningOut" type="AudioStreamPlayer" parent="MarginContainer/Timer_Container" unique_id=696639998]
 

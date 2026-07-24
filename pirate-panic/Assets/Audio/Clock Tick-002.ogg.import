@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dkvb4gkiftvwc"
+path="res://.godot/imported/Clock Tick-002.ogg-57489b771dad21f11095e5a57effb600.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Clock Tick-002.ogg"
+dest_files=["res://.godot/imported/Clock Tick-002.ogg-57489b771dad21f11095e5a57effb600.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
