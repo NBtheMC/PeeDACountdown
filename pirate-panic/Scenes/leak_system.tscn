@@ -3,10 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://dxue7rjdqqnho" path="res://Scenes/player/player.tscn" id="1_qmsjm"]
 [ext_resource type="Script" uid="uid://b5tq3he4t555u" path="res://Scenes/items/item.gd" id="2_lr162"]
 [ext_resource type="PackedScene" uid="uid://bm417dbu1c2o6" path="res://Scenes/misc/Interactable.tscn" id="3_viqbx"]
-[ext_resource type="PackedScene" uid="uid://b1882d6joqqfo" path="res://Art/DamageArea_Damaged.fbx" id="4_lr162"]
 [ext_resource type="Script" uid="uid://ce7mqmiqtourj" path="res://Scenes/leak/leak_system.gd" id="4_pej23"]
-[ext_resource type="PackedScene" uid="uid://b2xlaa05tn6mu" path="res://Art/DamageArea_Undamaged.fbx" id="5_viqbx"]
-[ext_resource type="Script" uid="uid://dfnvsbg1gvoh4" path="res://Scenes/leak/leak_spot.gd" id="7_4tnck"]
+[ext_resource type="PackedScene" uid="uid://b2s6n06ug5yvj" path="res://Scenes/leak/leak_spot.tscn" id="5_viqbx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ss858"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -23,9 +21,6 @@ glow_enabled = true
 [sub_resource type="BoxMesh" id="BoxMesh_502px"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jvbdo"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_kmt4r"]
-size = Vector3(0.17822266, 0.042907715, 0.1796875)
 
 [node name="Node3D" type="Node3D" unique_id=1577513873]
 
@@ -61,68 +56,17 @@ shape = SubResource("BoxShape3D_jvbdo")
 [node name="LeakSystem" type="Node3D" parent="." unique_id=1958816275]
 script = ExtResource("4_pej23")
 
-[node name="LeakSpot1" type="StaticBody3D" parent="LeakSystem" unique_id=794177228]
-collision_layer = 2
-script = ExtResource("7_4tnck")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LeakSystem/LeakSpot1" unique_id=649277432]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -0.7)
-shape = SubResource("BoxShape3D_kmt4r")
-
-[node name="Damaged" parent="LeakSystem/LeakSpot1" unique_id=1137194602 instance=ExtResource("4_lr162")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, 0, -0.7)
-visible = false
-
-[node name="Undamaged" parent="LeakSystem/LeakSpot1" unique_id=1766182062 instance=ExtResource("5_viqbx")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, 0, -0.7)
-
-[node name="Interactable" parent="LeakSystem/LeakSpot1" unique_id=1251088076 instance=ExtResource("3_viqbx")]
-
 [node name="Timer" type="Timer" parent="LeakSystem" unique_id=2045361253]
 
-[node name="LeakSpot2" type="StaticBody3D" parent="LeakSystem" unique_id=1716987515]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4364815, 0, 4.8631134)
-collision_layer = 2
-script = ExtResource("7_4tnck")
+[node name="LeakSpot" parent="LeakSystem" unique_id=810583223 instance=ExtResource("5_viqbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1574311, 0, 2.732133)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LeakSystem/LeakSpot2" unique_id=441017691]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -0.7)
-shape = SubResource("BoxShape3D_kmt4r")
-
-[node name="Damaged" parent="LeakSystem/LeakSpot2" unique_id=124051012 instance=ExtResource("4_lr162")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, 0, -0.7)
-visible = false
-
-[node name="Undamaged" parent="LeakSystem/LeakSpot2" unique_id=405114558 instance=ExtResource("5_viqbx")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, 0, -0.7)
-
-[node name="Interactable" parent="LeakSystem/LeakSpot2" unique_id=2007367668 instance=ExtResource("3_viqbx")]
-
-[node name="LeakSpot3" type="StaticBody3D" parent="LeakSystem" unique_id=1788402985]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1073728, 0, 6.0113487)
-collision_layer = 2
-script = ExtResource("7_4tnck")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LeakSystem/LeakSpot3" unique_id=1727483244]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -0.7)
-shape = SubResource("BoxShape3D_kmt4r")
-
-[node name="Damaged" parent="LeakSystem/LeakSpot3" unique_id=1989233019 instance=ExtResource("4_lr162")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, 0, -0.7)
-visible = false
-
-[node name="Undamaged" parent="LeakSystem/LeakSpot3" unique_id=1312157703 instance=ExtResource("5_viqbx")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, 0, -0.7)
-
-[node name="Interactable" parent="LeakSystem/LeakSpot3" unique_id=1451294190 instance=ExtResource("3_viqbx")]
+[node name="LeakSpot2" parent="LeakSystem" unique_id=1048119753 instance=ExtResource("5_viqbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90361834, 0, 3.9594746)
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1192491573]
 
 [connection signal="interacted" from="Box/Interactable" to="Box" method="_on_interactable_interacted"]
-[connection signal="leak_repair" from="LeakSystem/LeakSpot1" to="LeakSystem" method="_on_leak_spot_leak_repair"]
-[connection signal="interacted" from="LeakSystem/LeakSpot1/Interactable" to="LeakSystem/LeakSpot1" method="_on_interactable_interacted"]
 [connection signal="timeout" from="LeakSystem/Timer" to="LeakSystem" method="_on_timer_timeout"]
+[connection signal="leak_repair" from="LeakSystem/LeakSpot" to="LeakSystem" method="_on_leak_spot_leak_repair"]
 [connection signal="leak_repair" from="LeakSystem/LeakSpot2" to="LeakSystem" method="_on_leak_spot_leak_repair"]
-[connection signal="interacted" from="LeakSystem/LeakSpot2/Interactable" to="LeakSystem/LeakSpot2" method="_on_interactable_interacted"]
-[connection signal="leak_repair" from="LeakSystem/LeakSpot3" to="LeakSystem" method="_on_leak_spot_leak_repair"]
-[connection signal="interacted" from="LeakSystem/LeakSpot3/Interactable" to="LeakSystem/LeakSpot3" method="_on_interactable_interacted"]

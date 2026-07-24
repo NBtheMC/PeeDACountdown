@@ -1,27 +1,44 @@
 [gd_scene format=3 uid="uid://b2s6n06ug5yvj"]
 
 [ext_resource type="Script" uid="uid://dfnvsbg1gvoh4" path="res://Scenes/leak/leak_spot.gd" id="1_kcako"]
-[ext_resource type="PackedScene" uid="uid://dpju3sgbf2w7l" path="res://Art/DamageArea_Damaged.fbx" id="2_uu0pc"]
-[ext_resource type="PackedScene" uid="uid://dfchykencmqbd" path="res://Art/DamageArea_Undamaged.fbx" id="3_vmw6b"]
+[ext_resource type="PackedScene" uid="uid://bkq51qpqsxemt" path="res://Art/DamageArea_MajorDamage.fbx" id="2_kcako"]
+[ext_resource type="PackedScene" uid="uid://b2xlaa05tn6mu" path="res://Art/DamageArea_Undamaged.fbx" id="3_vmw6b"]
 [ext_resource type="PackedScene" uid="uid://bm417dbu1c2o6" path="res://Scenes/misc/Interactable.tscn" id="4_titiu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kmt4r"]
-size = Vector3(0.17822266, 0.042907715, 0.1796875)
+size = Vector3(0.27526855, 0.06454468, 0.27679443)
 
-[node name="LeakSpot" type="StaticBody3D" unique_id=810583223]
+[node name="LeakSpot" type="StaticBody3D" unique_id=810583223 node_paths=PackedStringArray("screen_text")]
 collision_layer = 2
 script = ExtResource("1_kcako")
+screen_text = NodePath("CanvasLayer/ScreenText")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1507162949]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.000219726, 0.0129821785, 0.013073731)
 shape = SubResource("BoxShape3D_kmt4r")
 
-[node name="Damaged" parent="." unique_id=1137194602 instance=ExtResource("2_uu0pc")]
+[node name="Damaged" parent="." unique_id=1761617188 instance=ExtResource("2_kcako")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 visible = false
 
-[node name="Undamaged" parent="." unique_id=1766182062 instance=ExtResource("3_vmw6b")]
+[node name="Undamaged" parent="." unique_id=1935994453 instance=ExtResource("3_vmw6b")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 
 [node name="Interactable" parent="." unique_id=279760389 instance=ExtResource("4_titiu")]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1242056973]
+
+[node name="ScreenText" type="RichTextLabel" parent="CanvasLayer" unique_id=60428231]
+visible = false
+offset_left = 539.0
+offset_top = 459.0
+offset_right = 1470.0
+offset_bottom = 623.0
+theme_override_font_sizes/normal_font_size = 46
+text = "Press E to fix Leak"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="showText" from="Interactable" to="." method="_on_interactable_show_text"]
+[connection signal="unshowText" from="Interactable" to="." method="_on_interactable_unshow_text"]

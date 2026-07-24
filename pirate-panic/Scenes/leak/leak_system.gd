@@ -5,16 +5,26 @@ class Leak:
 	var index: int
 	var node_ref: Node3D
 	var active: bool
+	var repair: int
 
 # The minimum amount of time it takes for a leak to start
-const LEAK_TIMER_MIN = 5
+@export var LEAK_TIMER_MIN = 10
 #the maximum amount of time it takes for a leak to start
-const LEAK_TIMER_MAX = 5
+@export var LEAK_TIMER_MAX = 30
+# how fast the water fills up. Multipled by number of active leaks
+@export var LEAK_SPEED = 0.5
+# how many times the player needs to hit interact to repair the leak
+@export var REPAIR_COUNT = 5
 
 var leaks: Array[Leak]
 var active_leaks: int
 var max_leaks: int # equal to leaks.size()
+var leak_meter: float
+var boat_sank: bool = false
 @onready var timer: Timer = $Timer
+	
+# gets emitted when leak_meter = 100
+signal leak_max
 	
 func _ready() -> void:
 	for n in get_children():
@@ -32,19 +42,29 @@ func _ready() -> void:
 	timer.one_shot = true
 	_start_timer()
 
+func _process(delta: float) -> void:
+	if (boat_sank):
+		return
+	leak_meter += (LEAK_SPEED * active_leaks * delta)
+	if (leak_meter >= 100):
+		print("Too manmy leaks! The boat has sank!")
+		boat_sank = true
+		leak_max.emit()
+		timer.stop()
+
 func _start_timer():
 	timer.wait_time = randi_range(LEAK_TIMER_MIN, LEAK_TIMER_MAX)
 	timer.start()
 	print("next leak in ", timer.wait_time, " seconds")
 
 func _on_timer_timeout():
-	print("timer timeout")
+	# print("timer timeout")
 	if (active_leaks == max_leaks):
 		_start_timer()
 		return
 		
 	var index = get_random_leak_spot()
-	print(index)
+	# print(index)
 	start_leak(index)
 	_start_timer()
 	
@@ -58,6 +78,7 @@ func get_random_leak_spot():
 func start_leak(index: int):
 	print("Starting leak on leak spot, ", index)
 	leaks[index].active = true
+	leaks[index].repair = REPAIR_COUNT
 	enable_damage_mesh(index)
 	active_leaks+=1
 	
@@ -74,6 +95,8 @@ func disable_damage_mesh(index: int):
 func _on_leak_spot_leak_repair(index: int) -> void:
 	if (!leaks[index].active):
 		return
-	leaks[index].active = false
-	active_leaks-=1
-	disable_damage_mesh(index)
+	leaks[index].repair-=1
+	if (leaks[index].repair <= 0):
+		leaks[index].active = false
+		active_leaks-=1
+		disable_damage_mesh(index)
