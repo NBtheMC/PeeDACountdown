@@ -12,14 +12,17 @@ func _ready():
 	starting_y = transform.origin.y
 
 func _on_interactable_interacted(interactor: Node) -> void:
+	print("Holding " + item_name)
 	interactor.hold_item(self)
 
 func _on_interactable_show_text(interactor: Node) -> void:
+	print("Showing text of " + item_name)
 	if text != null:
 		text.visible = true
 	pass # Replace with function body.
 
 func _on_interactable_unshow_text(interactor: Node) -> void:
+	print("Unshowing text of " + item_name)
 	if text != null:
 		text.visible = false
 	pass # Replace with function body.

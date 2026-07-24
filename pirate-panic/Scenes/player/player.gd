@@ -85,15 +85,6 @@ func _process(delta: float) -> void:
 			currentViewedInteractable.show_text(self)
 	else:
 		clear_current_viewed_interactable()
-		
-	# Handle Text transitions smoothly at visual framerate
-	#if found_interactable != last_viewed_interactable:
-	#	if last_viewed_interactable != null:
-	#		clear_current_viewed_interactable()
-	#	if found_interactable != null:
-	#		currentViewedInteractable = found_interactable
-	#		currentViewedInteractable.show_text(self)
-	#	last_viewed_interactable = found_interactable
 
 	# Continuous holding checks
 	if currentViewedInteractable != null and Input.is_action_pressed("interact"):
