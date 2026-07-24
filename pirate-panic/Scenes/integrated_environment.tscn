@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b5eg48m2olsck"]
+
+[ext_resource type="PackedScene" uid="uid://du3s71np5wis" path="res://Scenes/Environment.tscn" id="1_buce7"]
+
+[node name="Environment" unique_id=342448898 instance=ExtResource("1_buce7")]
+
+[editable path="PirateShip_V1_0"]
