@@ -47,7 +47,7 @@ grow_vertical = 2
 pivot_offset = Vector2(-248.5, 131)
 theme = ExtResource("2_u2o4w")
 bbcode_enabled = true
-text = "I'm getting rather [img=50]res://TempAssets/hungry-emoticon_999327-68411-768390068.jpg[/img] [color=red][b]famished[/b][/color]..."
+text = "I'm getting [font_size=50][b]rather[/b][/font_size] [img=50]res://TempAssets/hungry-emoticon_999327-68411-768390068.jpg[/img] [color=red][b]famished[/b][/color]..."
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
