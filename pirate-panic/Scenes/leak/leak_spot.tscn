@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b2s6n06ug5yvj"]
 
 [ext_resource type="Script" uid="uid://dfnvsbg1gvoh4" path="res://Scenes/leak/leak_spot.gd" id="1_kcako"]
-[ext_resource type="PackedScene" uid="uid://b1882d6joqqfo" path="res://Art/DamageArea_Damaged.fbx" id="2_uu0pc"]
+[ext_resource type="PackedScene" uid="uid://bkq51qpqsxemt" path="res://Art/DamageArea_MajorDamage.fbx" id="2_kcako"]
 [ext_resource type="PackedScene" uid="uid://b2xlaa05tn6mu" path="res://Art/DamageArea_Undamaged.fbx" id="3_vmw6b"]
 [ext_resource type="PackedScene" uid="uid://bm417dbu1c2o6" path="res://Scenes/misc/Interactable.tscn" id="4_titiu"]
 
@@ -17,11 +17,11 @@ screen_text = NodePath("CanvasLayer/ScreenText")
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.000219726, 0.0129821785, 0.013073731)
 shape = SubResource("BoxShape3D_kmt4r")
 
-[node name="Damaged" parent="." unique_id=1137194602 instance=ExtResource("2_uu0pc")]
+[node name="Damaged" parent="." unique_id=1761617188 instance=ExtResource("2_kcako")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 visible = false
 
-[node name="Undamaged" parent="." unique_id=1766182062 instance=ExtResource("3_vmw6b")]
+[node name="Undamaged" parent="." unique_id=1935994453 instance=ExtResource("3_vmw6b")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 
 [node name="Interactable" parent="." unique_id=279760389 instance=ExtResource("4_titiu")]
