@@ -40,12 +40,12 @@ func _input(event: InputEvent) -> void:
 		drop_held_item()
 		
 	if Input.is_action_just_pressed("interact"):
-		print("Pressed interact key")
+		# print("Pressed interact key")
 		if currentViewedInteractable != null:
 			currentViewedInteractable.interact(self)
 			
 	if Input.is_action_just_released("interact"):
-		print("Released interact key on " + str(currentViewedInteractable))
+		# print("Released interact key on " + str(currentViewedInteractable))
 		if currentViewedInteractable and currentViewedInteractable.get_parent() is RowingObject:
 			print("Stop rowing on " + str(currentViewedInteractable))
 			currentViewedInteractable.get_parent().stop_rowing()
