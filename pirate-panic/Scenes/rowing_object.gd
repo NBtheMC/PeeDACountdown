@@ -28,21 +28,41 @@ func _ready() -> void:
 	else:
 		push_error("No animations found inside this AnimationPlayer!")
 #
-func _process(delta: float) -> void:
-	if is_rowing:
-		print("Is rowing")
-		oar_animation_player.play(oar_anim)
-		# Increase distance smoothly based on frame rate (delta)
-		rowed_distance += rowing_speed * delta
+# Call this function once from your player script when they first press or hold 'E'
+func start_rowing() -> void:
+	if not is_rowing:
+		is_rowing = true
+		print("Started rowing")
 		
-		# Cap the distance so it doesn't go over the total max distance
-		rowed_distance = min(rowed_distance, total_distance)
-		print("rowed_distance = " + str(rowed_distance))
-		# Check if the player reached the goal
-		if rowed_distance >= total_distance:
-			print("Rowing complete!")
+		# 1. Start the animation engine ONCE [2]
+		if oar_animation_player and oar_anim != "":
+			oar_animation_player.play(oar_anim)
+
+# Call this function once when the player releases 'E' or looks away
+func stop_rowing() -> void:
+	if is_rowing:
 		is_rowing = false
-		oar_animation_player.pause()
+		print("Stopped rowing")
+		
+		# 2. Freeze the animation in place [2]
+		if oar_animation_player:
+			oar_animation_player.pause()
+
+func _process(delta: float) -> void:
+	if not is_rowing:
+		return
+		
+	# REMOVED: oar_animation_player.play() from here!
+	
+	# Increase distance smoothly based on frame rate (delta)
+	rowed_distance += rowing_speed * delta
+	rowed_distance = min(rowed_distance, total_distance)
+	print("rowed_distance = " + str(rowed_distance))
+	
+	# Check if the player reached the goal
+	if rowed_distance >= total_distance:
+		print("Rowing complete!")
+		stop_rowing() # Safely handles the state cleanup and animation pausing
 
 func _on_interactable_show_text(interactor: Node) -> void:
 	print("_on_interactable_show_text called")
@@ -51,8 +71,8 @@ func _on_interactable_show_text(interactor: Node) -> void:
 func _on_interactable_unshow_text(interactor: Node) -> void:
 	print("_on_interactable_unshow_text called")
 	rowing_text.visible = false
-	is_rowing = false
+	stop_rowing()
 
 func _on_interactable_hold_interacted(interactor: Node) -> void:
 	print("_on_interactable_hold_interacted called")
-	is_rowing = true
+	start_rowing()
