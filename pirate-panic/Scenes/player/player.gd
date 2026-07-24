@@ -19,15 +19,18 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	currentViewedInteractable = null
 	
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	# 1. UI Cancel (Escape key)
 	if event.is_action_pressed("ui_cancel"):
+		print("Input mode set to visible")
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
+
 	# 2. Recapture mouse on click
 	if event is InputEventMouseButton and event.pressed:
+		print("Input mode set to captured")
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		
+	
+	print("event = " + event.to_string())
 	# 3. Handle Camera Rotation
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		print("Moving mouse")
@@ -52,27 +55,27 @@ func _unhandled_input(event: InputEvent) -> void:
 # Add a new variable at the very top of your script to track the previous frame's target
 var last_viewed_interactable: Node = null
 
-func _process(delta: float) -> void:
-	# 1. Force the raycast to update its math using the current visual frame positions
-	raycast.force_raycast_update()
-	
-	# Add the gravity.
+func _physics_process(delta: float) -> void:
+	# --- ALL MOVEMENT & PHYSICS GO HERE ---
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-	move_and_slide()
+		
+	move_and_slide() # Safe to run here!
+
+func _process(delta: float) -> void:
+	# --- ONLY RAYCASTS, TEXT, AND CONTINUOUS INPUTS GO HERE ---
+	raycast.force_raycast_update()
 	
-	# 2. Now safely run your look-at and continuous-hold logic at framerate speed
 	var found_interactable: Node = null
 
 	if raycast.is_colliding():
@@ -89,10 +92,9 @@ func _process(delta: float) -> void:
 			currentViewedInteractable.show_text(self)
 		last_viewed_interactable = found_interactable
 
-	# 3. Continuous holding checks belong in _process for perfectly smooth progress updates
+	# Continuous holding checks
 	if currentViewedInteractable != null and Input.is_action_pressed("interact"):
 		currentViewedInteractable.hold_interact(self)
-
 
 func hold_item(item: Node):
 	item.reparent(hand)
