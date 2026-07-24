@@ -1,9 +1,8 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
-const SENSITIVITY = 0.005
+@export var SPEED = 0.5
+@export var SENSITIVITY = 0.005
 
 @onready var main_node = $".."
 @onready var head = $Head
