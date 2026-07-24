@@ -25,19 +25,17 @@ theme = ExtResource("1_rad5t")
 
 [node name="Timer_Container" type="PanelContainer" parent="MarginContainer" unique_id=309307705]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 0
 offset_transform_enabled = true
 theme_override_styles/panel = SubResource("StyleBoxFlat_uirjc")
 script = ExtResource("2_ch3em")
-starting_rotation = 90.0
-final_rotation = 180.0
+final_rotation = 360.0
+time_until_completion = 120.0
 
 [node name="ClockHand" type="TextureRect" parent="MarginContainer/Timer_Container" unique_id=161325825]
 layout_mode = 2
 offset_transform_enabled = true
-offset_transform_position = Vector2(0, -430)
-offset_transform_rotation = 1.5707964
 offset_transform_pivot = Vector2(0, 200)
 texture = ExtResource("2_h3s1k")
 
