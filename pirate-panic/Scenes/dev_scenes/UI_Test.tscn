@@ -1,7 +1,24 @@
 [gd_scene format=3 uid="uid://unbom7r6cqqt"]
 
 [ext_resource type="PackedScene" uid="uid://cuh8f33jalf4t" path="res://Scenes/UI/ui_main.tscn" id="1_1yx8b"]
+[ext_resource type="PackedScene" uid="uid://b3dofw22lvaxr" path="res://Scenes/countdown/countdown_handler.tscn" id="2_dfh1l"]
 
 [node name="UiTest" type="Node3D" unique_id=512497521]
 
 [node name="UI_Main" parent="." unique_id=776437626 instance=ExtResource("1_1yx8b")]
+
+[node name="CountdownHandler" parent="." unique_id=2133827847 instance=ExtResource("2_dfh1l")]
+
+[connection signal="countdown_fatal" from="CountdownHandler/TimerUI/HungerHandler" to="UI_Main/MarginContainer/Warning_Icon_Container/Hunger_Warning_Icon" method="start_fatal_warning"]
+[connection signal="countdown_low" from="CountdownHandler/TimerUI/HungerHandler" to="UI_Main/MarginContainer/Warning_Icon_Container/Hunger_Warning_Icon" method="stop_fatal_warning"]
+[connection signal="countdown_low" from="CountdownHandler/TimerUI/HungerHandler" to="UI_Main/MarginContainer/Warning_Icon_Container/Hunger_Warning_Icon" method="start_warning"]
+[connection signal="countdown_nominal" from="CountdownHandler/TimerUI/HungerHandler" to="UI_Main/MarginContainer/Warning_Icon_Container/Hunger_Warning_Icon" method="stop_warning"]
+[connection signal="countdown_fatal" from="CountdownHandler/TimerUI/PsycheHandler" to="UI_Main/MarginContainer/Warning_Icon_Container/Psyche_Warning_Icon" method="start_fatal_warning"]
+[connection signal="countdown_low" from="CountdownHandler/TimerUI/PsycheHandler" to="UI_Main/MarginContainer/Warning_Icon_Container/Psyche_Warning_Icon" method="stop_fatal_warning"]
+[connection signal="countdown_low" from="CountdownHandler/TimerUI/PsycheHandler" to="UI_Main/MarginContainer/Warning_Icon_Container/Psyche_Warning_Icon" method="start_warning"]
+[connection signal="countdown_nominal" from="CountdownHandler/TimerUI/PsycheHandler" to="UI_Main/MarginContainer/Warning_Icon_Container/Psyche_Warning_Icon" method="stop_warning"]
+
+[editable path="UI_Main"]
+[editable path="UI_Main/MarginContainer/Warning_Icon_Container"]
+[editable path="CountdownHandler"]
+[editable path="CountdownHandler/TimerUI"]

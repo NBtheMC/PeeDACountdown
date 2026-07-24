@@ -23,15 +23,24 @@ var afterimage_tween : Tween
 @export var icon : Texture
 @export var fatal_icon : Texture
 
+@export var nominal_warning_signal : Signal
+@export var low_warning_signal : Signal
+@export var fatal_warning_signal : Signal
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Icon.scale = Vector2(0.0, 0.0) # vanish on start
+	
+	#nominal_warning_signal.connect(stop_warning)
+	#low_warning_signal.connect(start_warning)
+	#low_warning_signal.connect(stop_fatal_warning)
+	#fatal_warning_signal.connect(start_fatal_warning)
 
 ### PUBLIC CALL FUNCTIONS ###
 func start_warning() -> void:
 	update_texture(icon)
-	anim_wiggle()
 	spawn()
+	anim_wiggle()
 
 func stop_warning() -> void:
 	stop_wiggle()
@@ -77,7 +86,7 @@ func anim_afterimage() -> void:
 	
 func stop_afterimage() -> void:
 	$AfterImage.visible = false
-	afterimage_tween.kill()
+	if (afterimage_tween): afterimage_tween.kill()
 
 func anim_wiggle() -> void:
 	rotate_tween = get_tree().create_tween().bind_node(self)
@@ -87,4 +96,4 @@ func anim_wiggle() -> void:
 	rotate_tween.tween_property($Icon, "rotation_degrees", -rotation_amount, rotate_cycle_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func stop_wiggle() -> void:
-	rotate_tween.kill()
+	if (rotate_tween): rotate_tween.kill()
