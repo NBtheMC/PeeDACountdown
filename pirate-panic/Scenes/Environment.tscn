@@ -40,7 +40,7 @@ shader = ExtResource("3_c0q54")
 [node name="Environment" type="Node3D" unique_id=342448898]
 
 [node name="PirateShip_V1_0" parent="." unique_id=129218166 instance=ExtResource("1_ijv5j")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.24830651, 0.16907257, 1.1120892)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24830651, 0.16907257, 1.1120892)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1117270177]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)

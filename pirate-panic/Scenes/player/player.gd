@@ -29,10 +29,8 @@ func _input(event: InputEvent) -> void:
 		print("Input mode set to captured")
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	print("event = " + event.to_string())
 	# 3. Handle Camera Rotation
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		print("Moving mouse")
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
@@ -80,7 +78,8 @@ func _process(delta: float) -> void:
 	if raycast.is_colliding():
 		var hit_object = raycast.get_collider()
 		if hit_object and hit_object.has_node("Interactable"):
-			found_interactable = hit_object.get_node("Interactable")
+			# Use 'as Interactable' to safely convert the node type
+			found_interactable = hit_object.get_node("Interactable") as Interactable
 
 	# Handle Text transitions smoothly at visual framerate
 	if found_interactable != last_viewed_interactable:
