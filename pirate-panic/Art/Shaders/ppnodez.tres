@@ -9,13 +9,27 @@ source = 5
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ktrj5"]
 input_name = "screen_uv"
 
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_hr4nk"]
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_481hi"]
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_ktrj5"]
+
 [resource]
 mode = 1
 flags/light_only = false
+nodes/vertex/2/node = SubResource("VisualShaderNodeColorConstant_ktrj5")
+nodes/vertex/2/position = Vector2(-80, 220)
+nodes/vertex/connections = PackedInt32Array(2, 0, 0, 2, 2, 0, 0, 3, 2, 0, 0, 1)
 nodes/fragment/2/node = SubResource("VisualShaderNodeInput_hr4nk")
-nodes/fragment/2/position = Vector2(-480, 300)
+nodes/fragment/2/position = Vector2(-1020, 520)
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_481hi")
-nodes/fragment/3/position = Vector2(0, 160)
+nodes/fragment/3/position = Vector2(-540, 380)
 nodes/fragment/4/node = SubResource("VisualShaderNodeInput_ktrj5")
-nodes/fragment/4/position = Vector2(-480, 180)
-nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 3, 0, 0, 0, 4, 0, 3, 0)
+nodes/fragment/4/position = Vector2(-1020, 400)
+nodes/fragment/5/node = SubResource("VisualShaderNodeColorConstant_hr4nk")
+nodes/fragment/5/position = Vector2(-233.59995, 223.86002)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 4, 0, 3, 0, 5, 0, 0, 0, 5, 0, 0, 1, 5, 0, 0, 2, 5, 0, 0, 3, 5, 0, 0, 4)
+nodes/light/2/node = SubResource("VisualShaderNodeColorConstant_481hi")
+nodes/light/2/position = Vector2(-79.29999, 171.30002)
+nodes/light/connections = PackedInt32Array(2, 0, 0, 0, 2, 0, 0, 1, 2, 0, 0, 2)

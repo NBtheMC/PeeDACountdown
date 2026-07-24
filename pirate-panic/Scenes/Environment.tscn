@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dwmhyk12txjql" path="res://Art/PirateShip_V1_0.fbx" id="1_ijv5j"]
 [ext_resource type="Shader" uid="uid://bkydm4h6o6hyo" path="res://Art/Shaders/WaterSurface.tres" id="2_3hnbd"]
-[ext_resource type="Shader" uid="uid://dcr8wjkvk2roo" path="res://Art/Shaders/ppnodez.tres" id="3_c0q54"]
+[ext_resource type="Shader" uid="uid://xxok7fpeu6is" path="res://Art/Shaders/PostProcess_Possession.gdshader" id="3_c0q54"]
 [ext_resource type="PackedScene" uid="uid://cchx6b282edus" path="res://Art/Oars.fbx" id="4_c0q54"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_st70h"]
@@ -35,7 +35,10 @@ flip_faces = true
 size = Vector2(2, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yuhor"]
+render_priority = 0
 shader = ExtResource("3_c0q54")
+shader_parameter/depth_range = 0.0
+shader_parameter/distortion_strength = 0.0
 
 [node name="Environment" type="Node3D" unique_id=342448898]
 
