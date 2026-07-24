@@ -7,13 +7,16 @@ class Leak:
 	var active: bool
 
 # The minimum amount of time it takes for a leak to start
-const LEAK_TIMER_MIN = 5
+@export var LEAK_TIMER_MIN = 10
 #the maximum amount of time it takes for a leak to start
-const LEAK_TIMER_MAX = 5
+@export var LEAK_TIMER_MAX = 30
+# how fast the water fills up. Multipled by number of active leaks
+@export var LEAK_SPEED = 0.5
 
 var leaks: Array[Leak]
 var active_leaks: int
 var max_leaks: int # equal to leaks.size()
+var leak_meter: float
 @onready var timer: Timer = $Timer
 	
 func _ready() -> void:
@@ -31,6 +34,9 @@ func _ready() -> void:
 
 	timer.one_shot = true
 	_start_timer()
+
+func _process(delta: float) -> void:
+	leak_meter += (LEAK_SPEED * active_leaks * delta)
 
 func _start_timer():
 	timer.wait_time = randi_range(LEAK_TIMER_MIN, LEAK_TIMER_MAX)
