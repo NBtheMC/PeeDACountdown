@@ -5,6 +5,7 @@ class Leak:
 	var index: int
 	var node_ref: Node3D
 	var active: bool
+	var repair: int
 
 # The minimum amount of time it takes for a leak to start
 @export var LEAK_TIMER_MIN = 10
@@ -12,6 +13,8 @@ class Leak:
 @export var LEAK_TIMER_MAX = 30
 # how fast the water fills up. Multipled by number of active leaks
 @export var LEAK_SPEED = 0.5
+# how many times the player needs to hit interact to repair the leak
+@export var REPAIR_COUNT = 5
 
 var leaks: Array[Leak]
 var active_leaks: int
@@ -64,6 +67,7 @@ func get_random_leak_spot():
 func start_leak(index: int):
 	print("Starting leak on leak spot, ", index)
 	leaks[index].active = true
+	leaks[index].repair = REPAIR_COUNT
 	enable_damage_mesh(index)
 	active_leaks+=1
 	
@@ -80,6 +84,8 @@ func disable_damage_mesh(index: int):
 func _on_leak_spot_leak_repair(index: int) -> void:
 	if (!leaks[index].active):
 		return
-	leaks[index].active = false
-	active_leaks-=1
-	disable_damage_mesh(index)
+	leaks[index].repair-=1
+	if (leaks[index].repair <= 0):
+		leaks[index].active = false
+		active_leaks-=1
+		disable_damage_mesh(index)
