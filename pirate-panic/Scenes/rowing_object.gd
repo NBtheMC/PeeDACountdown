@@ -67,8 +67,9 @@ func _process(delta: float) -> void:
 		stop_rowing() # Safely handles the state cleanup and animation pausing
 
 func _on_interactable_show_text(interactor: Node) -> void:
-	print("_on_interactable_show_text called")
-	rowing_text.visible = true
+	if interactor.get_held_item() == null:
+		print("_on_interactable_show_text called")
+		rowing_text.visible = true
 
 func _on_interactable_unshow_text(interactor: Node) -> void:
 	print("_on_interactable_unshow_text called")
