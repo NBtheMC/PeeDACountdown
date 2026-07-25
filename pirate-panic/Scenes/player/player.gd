@@ -17,6 +17,10 @@ var currentViewedInteractable: Interactable = null
 var isLockedMovement: bool = false
 var isLockedRotation: bool = false
 
+### SFX REFERENCES ###
+@export var sfx_item_drop : AudioStreamPlayer
+@export var sfx_item_pickup : AudioStreamPlayer
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	currentViewedInteractable = null
@@ -98,6 +102,7 @@ func hold_item(item: Node):
 	item.reparent(hand)
 	item.transform = Transform3D.IDENTITY
 	held_item = item
+	sfx_item_pickup.play() # sfx
 
 func drop_held_item():
 	if (held_item == null):
@@ -105,6 +110,7 @@ func drop_held_item():
 	held_item.reparent(held_item.starting_parent)
 	held_item.transform = held_item.starting_transform
 	# held_item.transform.origin.y = held_item.starting_y
+	sfx_item_drop.play() #sfx
 	
 func clear_current_viewed_interactable():
 	# print("clear_current_viewed_interactable")
