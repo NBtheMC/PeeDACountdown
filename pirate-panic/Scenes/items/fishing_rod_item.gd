@@ -10,6 +10,7 @@ var imm_mesh: ImmediateMesh
 var is_fishing: bool = false
 
 func _ready() -> void:
+	super._ready()
 	# 1. Allocate a single mesh instance container into memory once
 	line_mesh = MeshInstance3D.new()
 	imm_mesh = ImmediateMesh.new()
@@ -23,19 +24,19 @@ func _process(_delta: float) -> void:
 	draw_straight_line()
 
 func cast_line(hook_spot: Transform3D) -> void:
-	print("Cast line")
+	# print("Cast line")
 	is_fishing = true
 	line_mesh.visible = true
 	fishing_pole_hook.transform = hook_spot
 
 func reel_in() -> void:
-	print("Reeled in")
+	# print("Reeled in")
 	is_fishing = false
 	line_mesh.visible = false
 	imm_mesh.clear_surfaces()
 
 func draw_straight_line() -> void:
-	print("Draw straight line")
+	# print("Draw straight line")
 	# 3. Wipe the previous frame's line data instantly
 	imm_mesh.clear_surfaces()
 	
