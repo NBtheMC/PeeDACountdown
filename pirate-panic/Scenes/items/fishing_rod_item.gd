@@ -5,6 +5,9 @@ class_name FishingRodItem
 @export var fishing_pole_hook: Node3D
 @export var line_material: Material # Assign a basic StandardMaterial3D in the Inspector
 
+@onready var audio_player: AudioStreamPlayer
+@export var cast_sound: AudioStream
+
 var line_mesh: MeshInstance3D
 var imm_mesh: ImmediateMesh
 var is_fishing: bool = false
@@ -12,6 +15,8 @@ var is_fishing: bool = false
 func _ready() -> void:
 	super._ready()
 	# 1. Allocate a single mesh instance container into memory once
+	audio_player = AudioStreamPlayer.new()
+	add_child(audio_player)
 	line_mesh = MeshInstance3D.new()
 	imm_mesh = ImmediateMesh.new()
 	line_mesh.mesh = imm_mesh
@@ -24,7 +29,9 @@ func _process(_delta: float) -> void:
 	draw_straight_line()
 
 func cast_line(hook_spot: Transform3D) -> void:
-	# print("Cast line")
+	print("Cast line")
+	audio_player.stream = cast_sound
+	audio_player.play()
 	is_fishing = true
 	line_mesh.visible = true
 	fishing_pole_hook.transform = hook_spot

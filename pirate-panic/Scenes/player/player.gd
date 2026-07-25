@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name Player
 
 @export var SPEED = 0.5
 @export var SENSITIVITY = 0.005

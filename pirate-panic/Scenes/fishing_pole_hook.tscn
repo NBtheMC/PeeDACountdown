@@ -5,7 +5,7 @@
 [node name="FishingPoleHook" unique_id=621556733 instance=ExtResource("1_1smrf")]
 
 [node name="FishingPole_Hook" parent="." index="0" unique_id=1743320362]
-transform = Transform3D(77.19811, -7.5774856e-06, 63.564556, -63.564564, -9.202731e-06, 77.198105, 0, -100.00001, -1.1920929e-05, -0.093263194, 0.8369173, 0)
+transform = Transform3D(77.19811, -7.5774856e-06, 63.564556, -63.564564, -9.202731e-06, 77.198105, 0, -100.00001, -1.1920929e-05, -0.063035384, 0.8502816, 0)
 
 [node name="PoleTip" type="Node3D" parent="." index="2" unique_id=1522990743]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0252988, 0)
