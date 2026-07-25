@@ -5,7 +5,6 @@
 [ext_resource type="AudioStream" uid="uid://8y4pj4iernf3" path="res://Assets/Audio/Row Boat-003.ogg" id="3_cne6t"]
 
 [resource]
-random_pitch = 1.0184205
 streams_count = 3
 stream_0/stream = ExtResource("1_8ai2g")
 stream_1/stream = ExtResource("2_125ve")

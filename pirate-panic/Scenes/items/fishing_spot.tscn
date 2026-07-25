@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bsawxlfwrqpdp"]
+
+[ext_resource type="Script" uid="uid://c4rohau6pyyqi" path="res://Scenes/items/fishing_spot_item.gd" id="1_ypaso"]
+[ext_resource type="AudioStream" uid="uid://c8xp4iho1dyya" path="res://Assets/Audio/Fish Bite-001.ogg" id="2_ombqm"]
+[ext_resource type="AudioStream" uid="uid://f85krih22lab" path="res://Assets/Audio/Catch Fish.ogg" id="3_fxcg1"]
+[ext_resource type="Script" uid="uid://caiqt33tvbeu1" path="res://Scenes/misc/Interactable.gd" id="4_ped8v"]
+[ext_resource type="Texture2D" uid="uid://ca5o8ocahfcdm" path="res://Art/Textures/FishingSpot_01.png" id="5_syxr7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_axf4i"]
+size = Vector3(0.5975342, 0.5274658, 0.6446991)
+
+[node name="FishingSpot" type="StaticBody3D" unique_id=2077910226 node_paths=PackedStringArray("hook_spawn_marker", "player", "text")]
+collision_layer = 2
+script = ExtResource("1_ypaso")
+hook_spawn_marker = NodePath("HookSpot")
+fish_sound = ExtResource("2_ombqm")
+catch_sound = ExtResource("3_fxcg1")
+player = NodePath("")
+item_name = "fishing_spot"
+text = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1515164837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29051358, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1546352152]
+transform = Transform3D(0.9116287, 0, -0.41101462, 0, 1, 0, 0.41101462, 0, 0.9116287, -0.09174025, 0.08708006, 0.08809841)
+shape = SubResource("BoxShape3D_axf4i")
+
+[node name="Interactable" type="Node" parent="." unique_id=587322173]
+script = ExtResource("4_ped8v")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1415939119]
+transform = Transform3D(0.05, 0, 0, 0, -2.1855695e-09, -0.05, 0, 0.05, -2.1855695e-09, -0.09276414, 0.027617097, 0.0807004)
+texture = ExtResource("5_syxr7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=337235002]
+
+[node name="FishingSpotText" type="RichTextLabel" parent="CanvasLayer" unique_id=2046734757]
+visible = false
+offset_left = 539.0
+offset_top = 459.0
+offset_right = 1470.0
+offset_bottom = 623.0
+theme_override_font_sizes/normal_font_size = 46
+text = "E to cast rod"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HookSpot" type="Node3D" parent="." unique_id=1868902255]
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="showText" from="Interactable" to="." method="_on_interactable_show_text"]
+[connection signal="unshowText" from="Interactable" to="." method="_on_interactable_unshow_text"]

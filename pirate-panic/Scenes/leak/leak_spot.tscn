@@ -14,6 +14,7 @@
 size = Vector3(0.27526855, 0.06454468, 0.27679443)
 
 [node name="LeakSpot" type="StaticBody3D" unique_id=810583223 node_paths=PackedStringArray("screen_text", "sfx_leak_spew", "sfx_leak_fix")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 2
 script = ExtResource("1_kcako")
 screen_text = NodePath("CanvasLayer/ScreenText")

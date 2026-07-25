@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://c4in6nsw7cjxr"]
+
+[ext_resource type="Script" uid="uid://bqpeleo7kkogg" path="res://Scenes/items/fishing_rod_item.gd" id="1_lyd5f"]
+[ext_resource type="AudioStream" uid="uid://cii5eytswjtrc" path="res://Assets/Audio/Cast Fishing Rod.ogg" id="2_bmjrk"]
+[ext_resource type="PackedScene" uid="uid://bm417dbu1c2o6" path="res://Scenes/misc/Interactable.tscn" id="3_01qy8"]
+[ext_resource type="PackedScene" uid="uid://ws4t6k2lao2p" path="res://Scenes/fishing_pole_hook.tscn" id="4_da6da"]
+
+[sub_resource type="Resource" id="Resource_xysg7"]
+metadata/__load_path__ = "res://Art/Materials/fishing_line_material.tres"
+
+[sub_resource type="BoxMesh" id="BoxMesh_ne2mb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dstl4"]
+
+[node name="FishingRod" type="StaticBody3D" unique_id=892319930 node_paths=PackedStringArray("pole_tip", "fishing_pole_hook", "text")]
+collision_layer = 2
+script = ExtResource("1_lyd5f")
+pole_tip = NodePath("FishingPoleHook/PoleTip")
+fishing_pole_hook = NodePath("FishingPoleHook/FishingPole_Hook")
+line_material = SubResource("Resource_xysg7")
+cast_sound = ExtResource("2_bmjrk")
+item_name = "fishing_rod"
+text = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=744478198]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0.05958128, 0, 0.0015544891)
+visible = false
+mesh = SubResource("BoxMesh_ne2mb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=221632995]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0.05958128, 0, 0.0015544891)
+shape = SubResource("BoxShape3D_dstl4")
+
+[node name="Interactable" parent="." unique_id=279760389 instance=ExtResource("3_01qy8")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1549101683]
+
+[node name="FishingRodText" type="RichTextLabel" parent="CanvasLayer" unique_id=320264828]
+visible = false
+offset_left = 539.0
+offset_top = 459.0
+offset_right = 1470.0
+offset_bottom = 623.0
+theme_override_font_sizes/normal_font_size = 46
+text = "E to pick up fishing rod"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FishingPoleHook" parent="." unique_id=621556733 instance=ExtResource("4_da6da")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.06798971, -0.15444058, 0)
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="showText" from="Interactable" to="." method="_on_interactable_show_text"]
+[connection signal="unshowText" from="Interactable" to="." method="_on_interactable_unshow_text"]
+
+[editable path="FishingPoleHook"]
