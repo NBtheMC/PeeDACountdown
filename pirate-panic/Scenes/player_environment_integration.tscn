@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bm417dbu1c2o6" path="res://Scenes/misc/Interactable.tscn" id="13_3piwx"]
 [ext_resource type="PackedScene" uid="uid://ws4t6k2lao2p" path="res://Scenes/fishing_pole_hook.tscn" id="13_dstl4"]
 [ext_resource type="Script" uid="uid://c4rohau6pyyqi" path="res://Scenes/items/fishing_spot_item.gd" id="13_ne2mb"]
-[ext_resource type="Material" uid="uid://4m4pg5x4gbc5" path="res://Art/Materials/fishing_line_material.tres" id="14_dstl4"]
+[ext_resource type="Material" path="res://Art/Materials/fishing_line_material.tres" id="14_dstl4"]
 [ext_resource type="AudioStream" uid="uid://c8xp4iho1dyya" path="res://Assets/Audio/Fish Bite-001.ogg" id="16_21urw"]
 [ext_resource type="AudioStream" uid="uid://f85krih22lab" path="res://Assets/Audio/Catch Fish.ogg" id="17_vid44"]
 [ext_resource type="PackedScene" uid="uid://doe6sn26ingvw" path="res://Scenes/UI/ui.tscn" id="20_vid44"]
@@ -173,12 +173,9 @@ surface_material_override/0 = SubResource("ShaderMaterial_yuhor")
 [node name="Oars" parent="Environment" unique_id=998845485 instance=ExtResource("8_ppi7r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.19010639, 1.10298)
 
-[node name="Skeleton3D" parent="Environment/Oars/OarArmatuiree" parent_id_path=PackedInt32Array(998845485, 31121314) index="0" unique_id=622394749]
-bones/0/rotation = Quaternion(0.8662246, 0.4120287, -0.1692086, 0.22639741)
-bones/2/rotation = Quaternion(-0.8662246, 0.4120287, -0.1692086, -0.22639741)
-
-[node name="RowingObject" parent="Environment" unique_id=1267491984 node_paths=PackedStringArray("oar_animation_player", "world_objects") instance=ExtResource("6_3puld")]
+[node name="RowingObject" parent="Environment" unique_id=1267491984 node_paths=PackedStringArray("rowing_text", "oar_animation_player", "world_objects") instance=ExtResource("6_3puld")]
 transform = Transform3D(0.78058046, 0, 0, 0, 1, 0, 0, 0, 1, -0.34215546, 0.36353314, 1.1244775)
+rowing_text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 oar_animation_player = NodePath("../Oars/AnimationPlayer")
 world_objects = NodePath("../WorldObjects")
 
@@ -188,8 +185,9 @@ transform = Transform3D(0.33354592, 0, 0, 0, 0.55624425, 0, 0, 0, 0.5594557, 0, 
 [node name="RowingText" parent="Environment/RowingObject/CanvasLayer" parent_id_path=PackedInt32Array(1267491984, 1372377046) index="0" unique_id=1496855677]
 visible = false
 
-[node name="RowingObject2" parent="Environment" unique_id=1684298204 node_paths=PackedStringArray("oar_animation_player", "world_objects") instance=ExtResource("6_3puld")]
+[node name="RowingObject2" parent="Environment" unique_id=1684298204 node_paths=PackedStringArray("rowing_text", "oar_animation_player", "world_objects") instance=ExtResource("6_3puld")]
 transform = Transform3D(0.78058046, 0, 0, 0, 1, 0, 0, 0, 1, 0.8376088, 0.36353314, 1.1244775)
+rowing_text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 oar_animation_player = NodePath("../Oars/AnimationPlayer")
 world_objects = NodePath("../WorldObjects")
 
@@ -222,7 +220,7 @@ fishing_pole_hook = NodePath("FishingPoleHook/FishingPole_Hook")
 line_material = ExtResource("14_dstl4")
 cast_sound = ExtResource("12_4j1fj")
 item_name = "fishing_rod"
-text = NodePath("CanvasLayer/FishingRodText")
+text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/FishingRod" unique_id=790088202]
 transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0.05958128, 0, 0.0015544891)
@@ -260,7 +258,7 @@ fish_sound = ExtResource("16_21urw")
 catch_sound = ExtResource("17_vid44")
 player = NodePath("../../Player")
 item_name = "fishing_spot"
-text = NodePath("CanvasLayer/FishingSpotText")
+text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/FishingSpot" unique_id=1383832948]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29051358, 0)
@@ -307,3 +305,9 @@ vertical_alignment = 1
 [editable path="Environment/RowingObject"]
 [editable path="Environment/RowingObject2"]
 [editable path="Environment/FishingRod/FishingPoleHook"]
+[editable path="UI"]
+[editable path="UI/CountdownHandler"]
+[editable path="UI/CountdownHandler/TimerUI"]
+[editable path="UI/UI_Main"]
+[editable path="UI/UI_Main/MarginContainer/TextBox"]
+[editable path="UI/UI_Main/MarginContainer/Warning_Icon_Container"]
