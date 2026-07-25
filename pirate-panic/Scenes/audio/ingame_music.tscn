@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c6s81be7w6mjq"]
+
+[ext_resource type="AudioStream" uid="uid://ca4plf5ml2r7s" path="res://Assets/Audio/Music/mus_base.ogg" id="1_qusfv"]
+[ext_resource type="Script" uid="uid://buhu1qcrywyet" path="res://Scenes/audio/ingame_music.gd" id="1_sgmht"]
+[ext_resource type="AudioStream" uid="uid://bu5yqu45cnrqi" path="res://Assets/Audio/Music/mus_layer_psyche.ogg" id="2_uj3dp"]
+[ext_resource type="AudioStream" uid="uid://b4cnhk74n37y" path="res://Assets/Audio/Music/mus_layer_vinyl-loop.ogg" id="3_uj3dp"]
+[ext_resource type="Script" uid="uid://do0r3y1ps0ds3" path="res://Scenes/audio/music_layer.gd" id="4_cdlv1"]
+
+[node name="Ingame Music" type="Node3D" unique_id=230669202]
+script = ExtResource("1_sgmht")
+
+[node name="Music-Base" type="AudioStreamPlayer2D" parent="." unique_id=1967533846]
+stream = ExtResource("1_qusfv")
+autoplay = true
+attenuation = 1e-05
+
+[node name="Music-PsycheLayer" type="AudioStreamPlayer2D" parent="." unique_id=528667950]
+stream = ExtResource("2_uj3dp")
+volume_db = -80.0
+autoplay = true
+attenuation = 1e-05
+script = ExtResource("4_cdlv1")
+fadeInSpeed = 3.0
+fadeOutSpeed = 4.0
+
+[node name="Music-VinylLayer" type="AudioStreamPlayer2D" parent="." unique_id=443544554]
+stream = ExtResource("3_uj3dp")
+autoplay = true
+parameters/looping = true
