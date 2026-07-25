@@ -1,0 +1,29 @@
+[gd_resource type="VisualShader" format=3 uid="uid://3ltsgxemytb5"]
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_m4q80"]
+constant = Color(0.17943668, 0.39164943, 0.53970605, 1)
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_614oj"]
+constant = 0.1
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_m4q80"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_614oj"]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_m4q80"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[resource]
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorConstant_m4q80")
+nodes/fragment/2/position = Vector2(-160, 340)
+nodes/fragment/3/node = SubResource("VisualShaderNodeFloatConstant_614oj")
+nodes/fragment/3/position = Vector2(80, 320)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_m4q80")
+nodes/fragment/4/position = Vector2(-486.36005, 376.44)
+nodes/fragment/5/node = SubResource("VisualShaderNodeInput_614oj")
+nodes/fragment/5/position = Vector2(-500.20932, 184.45421)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorDecompose_m4q80")
+nodes/fragment/6/position = Vector2(-20, 500)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 3, 5, 0, 0, 0, 5, 0, 6, 0, 6, 3, 0, 1)
