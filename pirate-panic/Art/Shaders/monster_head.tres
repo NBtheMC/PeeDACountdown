@@ -1,7 +1,10 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://dyyey5qkrepfk"]
 
 [ext_resource type="Texture2D" uid="uid://b68sgj5dwvy4k" path="res://Art/Textures/monsterhead_textured_BaseColor.png" id="1_bwxe0"]
+[ext_resource type="Texture2D" uid="uid://disa32buspmiq" path="res://Art/Textures/monster_head_emissive.png" id="2_o21ac"]
 
 [resource]
 albedo_texture = ExtResource("1_bwxe0")
 roughness = 0.9
+emission_enabled = true
+emission_texture = ExtResource("2_o21ac")
