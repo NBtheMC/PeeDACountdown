@@ -15,6 +15,18 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uirjc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="Gradient" id="Gradient_mnjlg"]
+offsets = PackedFloat32Array(0.6926407, 0.7619048)
+colors = PackedColorArray(1, 0, 0, 0.39215687, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4dirt"]
+gradient = SubResource("Gradient_mnjlg")
+width = 800
+height = 800
+fill = 1
+fill_from = Vector2(0.51282054, 0.525641)
+fill_to = Vector2(1, 0.9358974)
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_emsw4"]
 random_pitch = 1.0198333
 streams_count = 5
@@ -50,7 +62,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 theme = ExtResource("1_rad5t")
 
-[node name="Timer_Container" type="PanelContainer" parent="MarginContainer" unique_id=309307705 node_paths=PackedStringArray("clock_hand")]
+[node name="Timer_Container" type="PanelContainer" parent="MarginContainer" unique_id=309307705 node_paths=PackedStringArray("clock_hand", "clock_progress_shader")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -61,10 +73,12 @@ script = ExtResource("2_ch3em")
 final_rotation = 360.0
 time_until_completion = 120.0
 clock_hand = NodePath("Background/ClockHand")
+clock_progress_shader = NodePath("Background/TextureProgressBar")
 tick_sfx_min_volume = -30.0
 
 [node name="Background" type="TextureRect" parent="MarginContainer/Timer_Container" unique_id=811479078]
-z_index = -1
+z_index = -2
+z_as_relative = false
 custom_minimum_size = Vector2(750, 750)
 layout_mode = 2
 offset_transform_enabled = true
@@ -73,6 +87,7 @@ texture = ExtResource("3_ch3em")
 stretch_mode = 4
 
 [node name="ClockHand" type="TextureRect" parent="MarginContainer/Timer_Container/Background" unique_id=161325825]
+z_as_relative = false
 custom_maximum_size = Vector2(82, 550)
 layout_mode = 0
 offset_left = 345.0
@@ -83,6 +98,21 @@ scale = Vector2(0.645, 0.645)
 offset_transform_enabled = true
 offset_transform_pivot = Vector2(0, 200)
 texture = ExtResource("2_h3s1k")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/Timer_Container/Background" unique_id=252812748]
+z_index = -1
+z_as_relative = false
+custom_minimum_size = Vector2(300, 300)
+custom_maximum_size = Vector2(300, 300)
+layout_mode = 0
+offset_left = 87.0
+offset_top = 49.0
+offset_right = 387.0
+offset_bottom = 349.0
+scale = Vector2(0.71, 0.71)
+step = 0.001
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_4dirt")
 
 [node name="SFX_ClockTick" type="AudioStreamPlayer" parent="MarginContainer/Timer_Container" unique_id=1002985017]
 stream = SubResource("AudioStreamRandomizer_emsw4")
