@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bm417dbu1c2o6" path="res://Scenes/misc/Interactable.tscn" id="3_viqbx"]
 [ext_resource type="Script" uid="uid://ce7mqmiqtourj" path="res://Scenes/leak/leak_system.gd" id="4_pej23"]
 [ext_resource type="PackedScene" uid="uid://b2s6n06ug5yvj" path="res://Scenes/leak/leak_spot.tscn" id="5_viqbx"]
-[ext_resource type="PackedScene" uid="uid://cyd1o5kcgun06" path="res://Art/Mallet.fbx" id="6_pej23"]
+[ext_resource type="PackedScene" uid="uid://b47pg3djscc2m" path="res://Scenes/items/mallet.tscn" id="6_pej23"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ss858"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,9 +22,6 @@ glow_enabled = true
 [sub_resource type="BoxMesh" id="BoxMesh_502px"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jvbdo"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_kmt4r"]
-size = Vector3(0.6665039, 1.2388306, 1)
 
 [node name="Node3D" type="Node3D" unique_id=1577513873]
 
@@ -70,38 +67,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90361834, 0, 3.9594746)
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1192491573]
 
-[node name="Mallet" type="StaticBody3D" parent="." unique_id=1958329689 node_paths=PackedStringArray("text")]
+[node name="Mallet" parent="." unique_id=532419465 instance=ExtResource("6_pej23")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4051136, 0, 0)
-collision_layer = 2
-script = ExtResource("2_lr162")
-item_name = "mallet"
-text = NodePath("CanvasLayer/MalletText")
-
-[node name="Mallet" parent="Mallet" unique_id=53442188 instance=ExtResource("6_pej23")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mallet" unique_id=979184662]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032470703, 0.5418396, 0)
-shape = SubResource("BoxShape3D_kmt4r")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Mallet" unique_id=1827686710]
-
-[node name="MalletText" type="RichTextLabel" parent="Mallet/CanvasLayer" unique_id=1601765433]
-offset_left = 539.0
-offset_top = 459.0
-offset_right = 1470.0
-offset_bottom = 623.0
-theme_override_font_sizes/normal_font_size = 46
-text = "E to pick up mallet"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Interactable" parent="Mallet" unique_id=1637610535 instance=ExtResource("3_viqbx")]
 
 [connection signal="interacted" from="Box/Interactable" to="Box" method="_on_interactable_interacted"]
 [connection signal="timeout" from="LeakSystem/Timer" to="LeakSystem" method="_on_timer_timeout"]
 [connection signal="leak_repair" from="LeakSystem/LeakSpot" to="LeakSystem" method="_on_leak_spot_leak_repair"]
 [connection signal="leak_repair" from="LeakSystem/LeakSpot2" to="LeakSystem" method="_on_leak_spot_leak_repair"]
-[connection signal="interacted" from="Mallet/Interactable" to="Mallet" method="_on_interactable_interacted"]
-[connection signal="showText" from="Mallet/Interactable" to="Mallet" method="_on_interactable_show_text"]
-[connection signal="unshowText" from="Mallet/Interactable" to="Mallet" method="_on_interactable_unshow_text"]
