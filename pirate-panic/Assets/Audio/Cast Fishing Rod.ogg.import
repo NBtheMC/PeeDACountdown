@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cii5eytswjtrc"
+path="res://.godot/imported/Cast Fishing Rod.ogg-3fa06a082840ae4fcc604203754437dd.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Cast Fishing Rod.ogg"
+dest_files=["res://.godot/imported/Cast Fishing Rod.ogg-3fa06a082840ae4fcc604203754437dd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
