@@ -106,4 +106,9 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.25171167, 1.008822
 billboard = 1
 texture = ExtResource("5_hr7o0")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=933440087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24880579, 1.0113441, 2.1251452)
+light_color = Color(0.85215914, 0.7427434, 0.45613295, 1)
+light_energy = 1.395
+
 [editable path="PirateShip_V1_0"]
