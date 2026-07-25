@@ -20,20 +20,22 @@ func _ready() -> void:
 	add_child(line_mesh)
 
 func _process(_delta: float) -> void:
-	# 2. Only run calculations if both objects exist and the line is active
-	if is_fishing and pole_tip and fishing_pole_hook:
-		draw_straight_line()
+	draw_straight_line()
 
-func cast_line() -> void:
+func cast_line(hook_spot: Transform3D) -> void:
+	print("Cast line")
 	is_fishing = true
 	line_mesh.visible = true
+	fishing_pole_hook.transform = hook_spot
 
 func reel_in() -> void:
+	print("Reeled in")
 	is_fishing = false
 	line_mesh.visible = false
 	imm_mesh.clear_surfaces()
 
 func draw_straight_line() -> void:
+	print("Draw straight line")
 	# 3. Wipe the previous frame's line data instantly
 	imm_mesh.clear_surfaces()
 	

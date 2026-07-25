@@ -14,6 +14,9 @@ var held_item
 
 var currentViewedInteractable: Interactable = null
 
+var isLockedMovement: bool = false
+var isLockedRotation: bool = false
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	currentViewedInteractable = null
@@ -30,7 +33,7 @@ func _input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	# 3. Handle Camera Rotation
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and !isLockedRotation:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
@@ -58,17 +61,18 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	var input_dir := Input.get_vector("left", "right", "up", "down")
-	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+	if !isLockedMovement:
+		var input_dir := Input.get_vector("left", "right", "up", "down")
+		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
-	move_and_slide() # Safe to run here!
+		if direction:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+		move_and_slide() # Safe to run here!
 
 func _process(delta: float) -> void:
 	# --- ONLY RAYCASTS, TEXT, AND CONTINUOUS INPUTS GO HERE ---
@@ -92,7 +96,7 @@ func _process(delta: float) -> void:
 
 func hold_item(item: Node):
 	item.reparent(hand)
-	item.transform = hand.transform
+	item.transform = Transform3D.IDENTITY
 	held_item = item
 
 func drop_held_item():
@@ -110,8 +114,27 @@ func clear_current_viewed_interactable():
 	# Safely clear the reference out afterward
 	currentViewedInteractable = null
 
+func get_held_item() -> Node:
+	return held_item
+
 func is_holding_fishing_rod() -> bool:
 	return held_item != null and held_item.item_name.to_lower() == "fishing_rod"
 
 func _on_leak_spot_leak_repair() -> void:
 	pass # Replace with function body.
+	
+func lock_movement() -> void:
+	isLockedMovement = true
+	pass
+	
+func unlock_movement() -> void:
+	isLockedMovement = false
+	pass
+	
+func lock_rotation() -> void:
+	isLockedRotation = true
+	pass
+	
+func unlock_rotation() -> void:
+	isLockedRotation = false
+	pass
