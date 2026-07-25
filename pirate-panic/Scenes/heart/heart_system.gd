@@ -1,5 +1,5 @@
 extends Node3D
-class_name LeakSystem
+class_name HeartSystem
 
 class Leak:
 	var index: int
@@ -28,7 +28,7 @@ signal leak_max
 	
 func _ready() -> void:
 	for n in get_children():
-		if (n is LeakSpot):
+		if (n is HeartSpot):
 			var new_leak_spot = Leak.new()
 			new_leak_spot.index = leaks.size()
 			new_leak_spot.node_ref = n

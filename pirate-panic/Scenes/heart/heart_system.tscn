@@ -25,3 +25,8 @@ transform = Transform3D(0.40808758, 0.28890228, 0, -0.28890228, 0.40808758, 0, 0
 transform = Transform3D(0.5, 0, 0, 0, 0.45699355, -0.20287164, 0, 0.20287164, 0.45699355, 0.3436867, 0.16009524, 0.98236144)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="leak_repair" from="HeartSpot" to="." method="_on_leak_spot_leak_repair"]
+[connection signal="leak_repair" from="HeartSpot2" to="." method="_on_leak_spot_leak_repair"]
+[connection signal="leak_repair" from="HeartSpot3" to="." method="_on_leak_spot_leak_repair"]
+[connection signal="leak_repair" from="HeartSpot4" to="." method="_on_leak_spot_leak_repair"]
+[connection signal="leak_repair" from="HeartSpot5" to="." method="_on_leak_spot_leak_repair"]

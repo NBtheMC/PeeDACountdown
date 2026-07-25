@@ -1,7 +1,8 @@
 extends Node3D
-class_name LeakSpot
+class_name HeartSpot
 
 var index: int
+var active : bool = false
 
 @export var screen_text: Node
 @export var sfx_leak_spew : AudioStreamPlayer3D
@@ -10,13 +11,15 @@ var index: int
 signal leak_repair
 
 func on_activate() -> void:
+	active = true
 	sfx_leak_spew.play()
 
 func on_deactivate() -> void:
+	active = false
 	sfx_leak_spew.stop()
 
 func _on_interactable_interacted(interactor: Node) -> void:
-	if (interactor.held_item != null && interactor.held_item.item_name == "mallet"):
+	if active:
 		leak_repair.emit(index)
 		sfx_leak_fix.play()
 
