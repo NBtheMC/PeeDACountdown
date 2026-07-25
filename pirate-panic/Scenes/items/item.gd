@@ -4,12 +4,14 @@ class_name Item
 @export var item_name: String
 @export var text : RichTextLabel
 
+var starting_parent: Node3D
 var starting_transform: Transform3D # we need this to avoid clipping when items are dropped lol
 
 func _ready():
 	if text != null:
 		text.visible = false
 	starting_transform = transform
+	starting_parent = get_parent()
 	print("starting transform of ", item_name, "is: ", starting_transform)
 
 func _on_interactable_interacted(interactor: Node) -> void:
