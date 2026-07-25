@@ -110,6 +110,8 @@ func clear_current_viewed_interactable():
 	# Safely clear the reference out afterward
 	currentViewedInteractable = null
 
+func is_holding_fishing_rod() -> bool:
+	return held_item != null and held_item.item_name.to_lower() == "fishing_rod"
 
 func _on_leak_spot_leak_repair() -> void:
 	pass # Replace with function body.
