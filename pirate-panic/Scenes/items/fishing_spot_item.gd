@@ -13,6 +13,11 @@ func _on_interactable_interacted(interactor: Node) -> void:
 		# Safety check to make sure you aren't casting twice at the same spot
 		if not is_active_fishing_spot:
 			start_fishing_at_spot(interactor.get_held_item())
+			interactor.lock_rotation()
+			interactor.lock_movement()
+		else:
+			clear_fishing_spot()
+			interactor.unlock_rotation()
 		return
 			
 	print("You need a fishing rod to fish here!")

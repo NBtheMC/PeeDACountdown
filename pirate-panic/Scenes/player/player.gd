@@ -122,19 +122,19 @@ func is_holding_fishing_rod() -> bool:
 
 func _on_leak_spot_leak_repair() -> void:
 	pass # Replace with function body.
-	
+
 func lock_movement() -> void:
 	isLockedMovement = true
 	pass
-	
+
 func unlock_movement() -> void:
 	isLockedMovement = false
 	pass
-	
+
 func lock_rotation() -> void:
 	isLockedRotation = true
 	pass
-	
+
 func unlock_rotation() -> void:
 	isLockedRotation = false
 	pass
