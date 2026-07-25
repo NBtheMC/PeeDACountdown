@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://bqpeleo7kkogg" path="res://Scenes/items/fishing_rod_item.gd" id="10_ne2mb"]
 [ext_resource type="Texture2D" uid="uid://ca5o8ocahfcdm" path="res://Art/Textures/FishingSpot_01.png" id="11_xs8j8"]
 [ext_resource type="PackedScene" uid="uid://bm417dbu1c2o6" path="res://Scenes/misc/Interactable.tscn" id="13_3piwx"]
-[ext_resource type="PackedScene" uid="uid://ws4t6k2lao2p" path="res://Scenes/fishing_pole_hook.tscn" id="13_dstl4"]
+[ext_resource type="PackedScene" uid="uid://doghaxt2hq6r8" path="res://Scenes/fishing_pole_hook.tscn" id="13_dstl4"]
 [ext_resource type="Script" uid="uid://c4rohau6pyyqi" path="res://Scenes/items/fishing_spot_item.gd" id="13_ne2mb"]
 [ext_resource type="Material" uid="uid://4m4pg5x4gbc5" path="res://Art/Materials/fishing_line_material.tres" id="14_dstl4"]
 
@@ -116,27 +116,27 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.009601593, -0.060106754, 0
 [node name="PirateShip_V1_0" parent="Environment" unique_id=129218166 instance=ExtResource("5_pmtd4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24830651, 0.16907257, 1.1120892)
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Environment/PirateShip_V1_0/Boat2" parent_id_path=PackedInt32Array(129218166, 1771949127) index="0" unique_id=1166215402]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Environment/PirateShip_V1_0/Boat2" parent_id_path=PackedInt32Array(129218166, 1514002807) index="0" unique_id=1166215402]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PirateShip_V1_0/Boat2/StaticBody3D2" unique_id=1746499532]
 shape = SubResource("ConcavePolygonShape3D_qw3yb")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0/Lantern" parent_id_path=PackedInt32Array(129218166, 243364407) index="0" unique_id=1003267592]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0/Lantern" parent_id_path=PackedInt32Array(129218166, 1812483468) index="0" unique_id=1003267592]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PirateShip_V1_0/Lantern/StaticBody3D" unique_id=696535991]
 shape = SubResource("ConcavePolygonShape3D_3puld")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0/Lightpost" parent_id_path=PackedInt32Array(129218166, 912850326) index="0" unique_id=499625183]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0/Lightpost" parent_id_path=PackedInt32Array(129218166, 619328690) index="0" unique_id=499625183]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PirateShip_V1_0/Lightpost/StaticBody3D" unique_id=2061870100]
 shape = SubResource("ConcavePolygonShape3D_rb7gu")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0/OarLocks" parent_id_path=PackedInt32Array(129218166, 824129983) index="0" unique_id=999696434]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0/OarLocks" parent_id_path=PackedInt32Array(129218166, 1703954428) index="0" unique_id=999696434]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PirateShip_V1_0/OarLocks/StaticBody3D" unique_id=865025107]
 shape = SubResource("ConcavePolygonShape3D_ppg3r")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0/prow2" parent_id_path=PackedInt32Array(129218166, 1999139063) index="0" unique_id=1031394903]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0/prow2" parent_id_path=PackedInt32Array(129218166, 1423085325) index="0" unique_id=1031394903]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PirateShip_V1_0/prow2/StaticBody3D" unique_id=769616194]
 shape = SubResource("ConcavePolygonShape3D_pmtd4")
@@ -165,6 +165,10 @@ surface_material_override/0 = SubResource("ShaderMaterial_yuhor")
 
 [node name="Oars" parent="Environment" unique_id=998845485 instance=ExtResource("8_ppi7r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.19010639, 1.10298)
+
+[node name="Skeleton3D" parent="Environment/Oars/OarArmatuiree" parent_id_path=PackedInt32Array(998845485, 1401639564) index="0" unique_id=594989576]
+bones/0/rotation = Quaternion(0.8662246, 0.4120287, -0.1692086, 0.22639741)
+bones/2/rotation = Quaternion(-0.8662246, 0.4120287, -0.1692086, -0.22639741)
 
 [node name="RowingObject" parent="Environment" unique_id=1267491984 node_paths=PackedStringArray("oar_animation_player", "world_objects") instance=ExtResource("6_3puld")]
 transform = Transform3D(0.78058046, 0, 0, 0, 1, 0, 0, 0, 1, -0.34215546, 0.36353314, 1.1244775)
@@ -213,12 +217,12 @@ item_name = "fishing_rod"
 text = NodePath("CanvasLayer/FishingRodText")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/FishingRod" unique_id=790088202]
-transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0.05958128, 0.15551859, 0.0015544891)
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0.05958128, 0, 0.0015544891)
 visible = false
 mesh = SubResource("BoxMesh_ne2mb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/FishingRod" unique_id=799127337]
-transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0.05958128, 0.15551859, 0.0015544891)
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0.05958128, 0, 0.0015544891)
 shape = SubResource("BoxShape3D_dstl4")
 
 [node name="Interactable" parent="Environment/FishingRod" unique_id=279760389 instance=ExtResource("13_3piwx")]
@@ -239,10 +243,13 @@ vertical_alignment = 1
 [node name="FishingPoleHook" parent="Environment/FishingRod" unique_id=621556733 instance=ExtResource("13_dstl4")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.06798971, -0.15444058, 0)
 
-[node name="FishingSpot" type="StaticBody3D" parent="Environment" unique_id=1710543335]
+[node name="FishingSpot" type="StaticBody3D" parent="Environment" unique_id=1710543335 node_paths=PackedStringArray("hook_spawn_marker", "text")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47486138, 0, 0)
+collision_layer = 2
 script = ExtResource("13_ne2mb")
-item_name = null
+hook_spawn_marker = NodePath("HookSpot")
+item_name = "fishing_spot"
+text = NodePath("CanvasLayer/FishingSpotText")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/FishingSpot" unique_id=1383832948]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29051358, 0)
@@ -271,6 +278,8 @@ theme_override_font_sizes/normal_font_size = 46
 text = "E to cast rod"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HookSpot" type="Node3D" parent="Environment/FishingSpot" unique_id=1103979055]
 
 [connection signal="interacted" from="Environment/FishingRod/Interactable" to="Environment/FishingRod" method="_on_interactable_interacted"]
 [connection signal="showText" from="Environment/FishingRod/Interactable" to="Environment/FishingRod" method="_on_interactable_show_text"]

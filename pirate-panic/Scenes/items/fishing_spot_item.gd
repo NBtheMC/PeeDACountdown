@@ -2,7 +2,7 @@ extends Item
 class_name FishingSpotItem
 
 # The spot just needs to know where the hook should land
-@export var hook_spawn_marker: Marker3D 
+@export var hook_spawn_marker: Node3D 
 
 var is_active_fishing_spot: bool = false
 
