@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dop1cxrvsdxu3"]
+
+[ext_resource type="Texture2D" uid="uid://cic4ijreqdf6v" path="res://Art/Textures/Monster_body_Base_Color.png" id="1_m4ebn"]
+
+[resource]
+albedo_texture = ExtResource("1_m4ebn")
+roughness = 0.9

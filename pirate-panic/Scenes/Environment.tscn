@@ -53,22 +53,22 @@ shader_parameter/distortion_strength = 0.0
 [node name="PirateShip_V1_0" parent="." unique_id=129218166 instance=ExtResource("1_ijv5j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24830651, 0.16907257, 1.1120892)
 
-[node name="Bench" parent="PirateShip_V1_0" index="0" unique_id=976381667]
+[node name="Bench" parent="PirateShip_V1_0" index="0" unique_id=1711420130]
 surface_material_override/0 = ExtResource("2_06vh4")
 
-[node name="Boat2" parent="PirateShip_V1_0" index="1" unique_id=2114509085]
+[node name="Boat2" parent="PirateShip_V1_0" index="1" unique_id=337393108]
 surface_material_override/0 = ExtResource("3_opv53")
 
-[node name="Lantern" parent="PirateShip_V1_0" index="2" unique_id=786533428]
+[node name="Lantern" parent="PirateShip_V1_0" index="2" unique_id=1581302783]
 surface_material_override/0 = ExtResource("4_vggki")
 
-[node name="Lightpost" parent="PirateShip_V1_0" index="3" unique_id=814776617]
+[node name="Lightpost" parent="PirateShip_V1_0" index="3" unique_id=1862447349]
 surface_material_override/0 = ExtResource("5_ttho4")
 
-[node name="OarLocks" parent="PirateShip_V1_0" index="4" unique_id=1408851218]
+[node name="OarLocks" parent="PirateShip_V1_0" index="4" unique_id=1826406455]
 surface_material_override/0 = ExtResource("6_sd3sa")
 
-[node name="prow2" parent="PirateShip_V1_0" index="5" unique_id=1164056339]
+[node name="prow2" parent="PirateShip_V1_0" index="5" unique_id=1137565753]
 surface_material_override/0 = ExtResource("7_cgeuw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1117270177]
@@ -102,7 +102,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_yuhor")
 [node name="Oars" parent="." unique_id=998845485 instance=ExtResource("4_c0q54")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.19010639, 1.10298)
 
-[node name="Oars" parent="Oars/OarArmatuiree/Skeleton3D" parent_id_path=PackedInt32Array(998845485, 2120873174) index="0" unique_id=1942016941]
+[node name="Oars" parent="Oars/OarArmatuiree/Skeleton3D" parent_id_path=PackedInt32Array(998845485, 1887424890) index="0" unique_id=282733552]
 surface_material_override/0 = ExtResource("11_opv53")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1232709242]
