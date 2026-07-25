@@ -111,27 +111,27 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.009601593, -0.060106754, 0
 [node name="PirateShip_V1_0" parent="Environment" unique_id=129218166 instance=ExtResource("5_pmtd4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24830651, 0.16907257, 1.1120892)
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Environment/PirateShip_V1_0/Boat2" parent_id_path=PackedInt32Array(129218166, 350534310) index="0" unique_id=1166215402]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Environment/PirateShip_V1_0/Boat2" parent_id_path=PackedInt32Array(129218166, 1151490513) index="0" unique_id=1166215402]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PirateShip_V1_0/Boat2/StaticBody3D2" unique_id=1746499532]
 shape = SubResource("ConcavePolygonShape3D_qw3yb")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0/Lantern" parent_id_path=PackedInt32Array(129218166, 1885637836) index="0" unique_id=1003267592]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0/Lantern" parent_id_path=PackedInt32Array(129218166, 1027817402) index="0" unique_id=1003267592]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PirateShip_V1_0/Lantern/StaticBody3D" unique_id=696535991]
 shape = SubResource("ConcavePolygonShape3D_3puld")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0/Lightpost" parent_id_path=PackedInt32Array(129218166, 932273367) index="0" unique_id=499625183]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0/Lightpost" parent_id_path=PackedInt32Array(129218166, 1696814391) index="0" unique_id=499625183]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PirateShip_V1_0/Lightpost/StaticBody3D" unique_id=2061870100]
 shape = SubResource("ConcavePolygonShape3D_rb7gu")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0/OarLocks" parent_id_path=PackedInt32Array(129218166, 1547671726) index="0" unique_id=999696434]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0/OarLocks" parent_id_path=PackedInt32Array(129218166, 363663496) index="0" unique_id=999696434]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PirateShip_V1_0/OarLocks/StaticBody3D" unique_id=865025107]
 shape = SubResource("ConcavePolygonShape3D_ppg3r")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0/prow2" parent_id_path=PackedInt32Array(129218166, 1271274942) index="0" unique_id=1031394903]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0/prow2" parent_id_path=PackedInt32Array(129218166, 540988893) index="0" unique_id=1031394903]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PirateShip_V1_0/prow2/StaticBody3D" unique_id=769616194]
 shape = SubResource("ConcavePolygonShape3D_pmtd4")
@@ -206,15 +206,21 @@ transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
 mesh = SubResource("PlaneMesh_st70h")
 surface_material_override/0 = SubResource("ShaderMaterial_7522t")
 
-[node name="FishingRod" parent="Environment" unique_id=892319930 instance=ExtResource("12_ne2mb")]
+[node name="FishingRod" parent="Environment" unique_id=892319930 node_paths=PackedStringArray("text") instance=ExtResource("12_ne2mb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1919952, 0.27869126, 2.1209729)
+text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 
-[node name="FishingSpot" parent="Environment" unique_id=2077910226 node_paths=PackedStringArray("player") instance=ExtResource("13_dstl4")]
+[node name="FishingSpot" parent="Environment" unique_id=2077910226 node_paths=PackedStringArray("player", "text") instance=ExtResource("13_dstl4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47486138, 0, 0)
 player = NodePath("../../Player")
+text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 
-[node name="Mallet" parent="Environment" unique_id=532419465 instance=ExtResource("14_4j1fj")]
+[node name="Mallet" parent="Environment" unique_id=532419465 node_paths=PackedStringArray("text") instance=ExtResource("14_4j1fj")]
 transform = Transform3D(0.19, 0, 0, 0, 0.19, 0, 0, 0, 0.19, -0.001306951, 0.16600525, 1.8308382)
+text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
+
+[node name="MalletText" parent="Environment/Mallet/CanvasLayer" parent_id_path=PackedInt32Array(532419465, 75364972) index="0" unique_id=917845243]
+visible = false
 
 [node name="UI" parent="." unique_id=54619041 instance=ExtResource("20_vid44")]
 
@@ -223,6 +229,7 @@ transform = Transform3D(0.19, 0, 0, 0, 0.19, 0, 0, 0, 0.19, -0.001306951, 0.1660
 [editable path="Environment/Oars"]
 [editable path="Environment/RowingObject"]
 [editable path="Environment/RowingObject2"]
+[editable path="Environment/Mallet"]
 [editable path="UI"]
 [editable path="UI/CountdownHandler"]
 [editable path="UI/CountdownHandler/TimerUI"]
