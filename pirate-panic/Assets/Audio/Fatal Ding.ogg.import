@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://31fok8ycyneu"
+path="res://.godot/imported/Fatal Ding.ogg-39d863ae961ece8ffb3db3bdd1b7ceee.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Fatal Ding.ogg"
+dest_files=["res://.godot/imported/Fatal Ding.ogg-39d863ae961ece8ffb3db3bdd1b7ceee.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

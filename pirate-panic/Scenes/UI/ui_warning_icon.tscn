@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://c26ksem4rjvns" path="res://Scenes/UI/icon_anim.gd" id="1_spvl1"]
 [ext_resource type="Texture2D" uid="uid://61rik3niqj8s" path="res://Art/UI/stomach icon general warning.png" id="2_spvl1"]
 [ext_resource type="Texture2D" uid="uid://cgbxhtygcdb5b" path="res://Art/UI/stomach icon fatal warning.png" id="3_i55wi"]
+[ext_resource type="AudioStream" uid="uid://dua1ssssfug0t" path="res://Assets/Audio/Warning Ding.ogg" id="4_emsw4"]
+[ext_resource type="AudioStream" uid="uid://31fok8ycyneu" path="res://Assets/Audio/Fatal Ding.ogg" id="5_ni01x"]
 
 [node name="UI_Warning_Icon" type="Control" unique_id=65061495]
 custom_minimum_size = Vector2(150, 150)
@@ -50,3 +52,9 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("2_spvl1")
 expand_mode = 2
+
+[node name="SFX_Warning" type="AudioStreamPlayer" parent="." unique_id=1632411678]
+stream = ExtResource("4_emsw4")
+
+[node name="SFX_Fatal" type="AudioStreamPlayer" parent="." unique_id=1835255662]
+stream = ExtResource("5_ni01x")

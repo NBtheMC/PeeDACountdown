@@ -38,6 +38,7 @@ func _ready() -> void:
 
 ### PUBLIC CALL FUNCTIONS ###
 func start_warning() -> void:
+	$SFX_Warning.play()
 	update_texture(icon)
 	spawn()
 	anim_wiggle()
@@ -47,6 +48,7 @@ func stop_warning() -> void:
 	despawn()
 
 func start_fatal_warning() -> void:
+	$SFX_Fatal.play()
 	update_texture(fatal_icon)
 	anim_afterimage()
 
@@ -90,7 +92,6 @@ func stop_afterimage() -> void:
 
 func anim_wiggle() -> void:
 	rotate_tween = get_tree().create_tween().bind_node(self)
-	self.rotation_degrees = -rotation_amount
 	rotate_tween.set_loops() # loop infinitely
 	rotate_tween.tween_property($Icon, "rotation_degrees", rotation_amount, rotate_cycle_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT) 
 	rotate_tween.tween_property($Icon, "rotation_degrees", -rotation_amount, rotate_cycle_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
