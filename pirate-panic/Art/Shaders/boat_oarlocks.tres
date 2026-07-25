@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dr6nhx47opvvk"]
+
+[ext_resource type="Texture2D" uid="uid://bpudlsaa5bkcr" path="res://Art/Textures/boat_oarlocks_BaseColor.png" id="1_505it"]
+
+[resource]
+albedo_texture = ExtResource("1_505it")
+roughness = 0.9

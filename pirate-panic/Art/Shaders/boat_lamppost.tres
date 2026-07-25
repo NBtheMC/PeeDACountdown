@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cceu1gwtddle4"]
+
+[ext_resource type="Texture2D" uid="uid://8qu2psxrxxjl" path="res://Art/Textures/boat_lamppost_BaseColor.png" id="1_58mik"]
+
+[resource]
+albedo_texture = ExtResource("1_58mik")
+roughness = 0.9
