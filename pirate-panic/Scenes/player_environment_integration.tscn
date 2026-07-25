@@ -169,9 +169,9 @@ surface_material_override/0 = SubResource("ShaderMaterial_yuhor")
 [node name="Oars" parent="Environment" unique_id=998845485 instance=ExtResource("8_ppi7r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.19010639, 1.10298)
 
-[node name="Skeleton3D" parent="Environment/Oars/OarArmatuiree" parent_id_path=PackedInt32Array(998845485, 1463128091) index="0" unique_id=1581120764]
-bones/0/rotation = Quaternion(0.8662246, 0.4120287, -0.1692086, 0.22639741)
-bones/2/rotation = Quaternion(-0.8662246, 0.4120287, -0.1692086, -0.22639741)
+[node name="Skeleton3D" parent="Environment/Oars/OarArmatuiree" parent_id_path=PackedInt32Array(998845485, 516363908) index="0" unique_id=2075860071]
+bones/0/rotation = Quaternion(0.56828296, 0.76695794, -0.056618936, -0.2926165)
+bones/2/rotation = Quaternion(-0.56828296, 0.76695794, -0.056618936, 0.2926165)
 
 [node name="RowingObject" parent="Environment" unique_id=1267491984 node_paths=PackedStringArray("oar_animation_player", "world_objects") instance=ExtResource("6_3puld")]
 transform = Transform3D(0.78058046, 0, 0, 0, 1, 0, 0, 0, 1, -0.34215546, 0.36353314, 1.1244775)
