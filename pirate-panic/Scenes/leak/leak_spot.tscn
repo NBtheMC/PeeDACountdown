@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://dt0pp3p5hmvxe" path="res://Art/Shaders/DamageArea_MajorDamage.tres" id="4_j13rd"]
 [ext_resource type="PackedScene" uid="uid://bm417dbu1c2o6" path="res://Scenes/misc/Interactable.tscn" id="4_titiu"]
 [ext_resource type="Material" uid="uid://bsa4at162y4os" path="res://Art/Shaders/DamageArea_Frame_Undamaged.tres" id="6_kqoor"]
+[ext_resource type="PackedScene" uid="uid://btqwk3i3wpr0a" path="res://Art/Particles/LeakParticles.tscn" id="7_o1nvt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kmt4r"]
 size = Vector3(0.27526855, 0.06454468, 0.27679443)
@@ -36,18 +37,21 @@ shape = SubResource("BoxShape3D_kmt4r")
 
 [node name="Damaged" parent="." unique_id=1761617188 instance=ExtResource("2_kcako")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-visible = false
 
-[node name="DamageArea_Undamaged" parent="Damaged" index="0" unique_id=1310943195]
+[node name="DamageArea_Undamaged" parent="Damaged" index="0" unique_id=1628379374]
 surface_material_override/0 = ExtResource("3_titiu")
 
-[node name="Damage_Major" parent="Damaged" index="1" unique_id=1564677720]
+[node name="Damage_Major" parent="Damaged" index="1" unique_id=980903822]
 surface_material_override/0 = ExtResource("4_j13rd")
+
+[node name="LeakParticles" parent="Damaged" unique_id=957249723 instance=ExtResource("7_o1nvt")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 
 [node name="Undamaged" parent="." unique_id=1935994453 instance=ExtResource("3_vmw6b")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+visible = false
 
-[node name="DamageArea_Undamaged" parent="Undamaged" index="0" unique_id=218967007]
+[node name="DamageArea_Undamaged" parent="Undamaged" index="0" unique_id=471738505]
 surface_material_override/0 = ExtResource("6_kqoor")
 
 [node name="Interactable" parent="." unique_id=279760389 instance=ExtResource("4_titiu")]
