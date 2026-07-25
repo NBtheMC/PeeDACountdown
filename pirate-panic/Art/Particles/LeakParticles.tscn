@@ -13,8 +13,8 @@ _data = [Vector2(0, 0.4867257), 0.0, 0.0, 0, 0, Vector2(0.18120806, 0.9646018), 
 point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_8l463"]
-offsets = PackedFloat32Array(0, 0.20588236, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.08699998, 0.3252832, 0.58, 1, 0.054, 0.2453999, 0.45, 0)
+offsets = PackedFloat32Array(0, 0.073529415, 0.14705883, 0.4742647, 1)
+colors = PackedColorArray(0.1728327, 0.17283267, 0.17283267, 1, 1, 1, 1, 1, 0.2250117, 0.4272753, 0.6434884, 1, 0.08699998, 0.3252832, 0.58, 1, 0.054, 0.2453999, 0.45, 0)
 
 [node name="LeakParticles" type="Node3D" unique_id=957249723]
 
@@ -25,13 +25,15 @@ lifetime = 0.65
 lifetime_randomness = 0.43
 mesh = SubResource("SphereMesh_ophcw")
 emission_shape = 3
-emission_box_extents = Vector3(0.1, 0.1, 0.1)
+emission_box_extents = Vector3(0.01, 0.01, 0.01)
+direction = Vector3(0, 1, 0)
 spread = 10.4
+gravity = Vector3(0, -6, 0)
 initial_velocity_min = 3.0
-initial_velocity_max = 5.0
+initial_velocity_max = 4.0
 damping_min = 1.0
 damping_max = 1.0
-scale_amount_min = 0.1
-scale_amount_max = 0.2
+scale_amount_min = 0.01
+scale_amount_max = 0.02
 scale_amount_curve = SubResource("Curve_614oj")
 color_ramp = SubResource("Gradient_8l463")
