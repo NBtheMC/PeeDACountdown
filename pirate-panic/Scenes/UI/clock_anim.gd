@@ -16,6 +16,7 @@ var last_tick : float = 0.0
 
 @export var clock_hand : TextureRect
 var sfx_clock_tick
+@export var clock_progress_shader : TextureProgressBar
 
 @export var tick_sfx_min_volume : float
 @export var tick_sfx_max_volume : float
@@ -43,4 +44,5 @@ func animate_hand() -> void:
 	tick_tween = get_tree().create_tween().bind_node(self)
 	var new_rotation = deg_to_rad(((1 - progress) * starting_rotation) + (progress * final_rotation))
 	tick_tween.tween_property(clock_hand, "offset_transform_rotation", new_rotation, 0.5).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	clock_progress_shader.value = progress * 100
 	sfx_clock_tick.play()

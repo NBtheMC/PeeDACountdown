@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bm417dbu1c2o6" path="res://Scenes/misc/Interactable.tscn" id="3_viqbx"]
 [ext_resource type="Script" uid="uid://ce7mqmiqtourj" path="res://Scenes/leak/leak_system.gd" id="4_pej23"]
 [ext_resource type="PackedScene" uid="uid://b2s6n06ug5yvj" path="res://Scenes/leak/leak_spot.tscn" id="5_viqbx"]
+[ext_resource type="PackedScene" uid="uid://b47pg3djscc2m" path="res://Scenes/items/mallet.tscn" id="6_pej23"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ss858"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -65,6 +66,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1574311, 0, 2.732133)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90361834, 0, 3.9594746)
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1192491573]
+
+[node name="Mallet" parent="." unique_id=532419465 instance=ExtResource("6_pej23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4051136, 0, 0)
 
 [connection signal="interacted" from="Box/Interactable" to="Box" method="_on_interactable_interacted"]
 [connection signal="timeout" from="LeakSystem/Timer" to="LeakSystem" method="_on_timer_timeout"]

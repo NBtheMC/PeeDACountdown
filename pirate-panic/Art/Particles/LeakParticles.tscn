@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://btqwk3i3wpr0a"]
+
+[ext_resource type="Shader" uid="uid://3ltsgxemytb5" path="res://Art/Shaders/waterparticles.tres" id="1_oi8dx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ufusk"]
+render_priority = 0
+shader = ExtResource("1_oi8dx")
+
+[sub_resource type="SphereMesh" id="SphereMesh_ophcw"]
+
+[sub_resource type="Curve" id="Curve_614oj"]
+_data = [Vector2(0, 0.4867257), 0.0, 0.0, 0, 0, Vector2(0.18120806, 0.9646018), 0.0, 0.0, 0, 0, Vector2(0.99328864, 0.07079649), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_8l463"]
+offsets = PackedFloat32Array(0, 0.20588236, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.08699998, 0.3252832, 0.58, 1, 0.054, 0.2453999, 0.45, 0)
+
+[node name="LeakParticles" type="Node3D" unique_id=957249723]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1778354974]
+material_override = SubResource("ShaderMaterial_ufusk")
+amount = 50
+lifetime = 0.65
+lifetime_randomness = 0.43
+mesh = SubResource("SphereMesh_ophcw")
+emission_shape = 3
+emission_box_extents = Vector3(0.1, 0.1, 0.1)
+spread = 10.4
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+damping_min = 1.0
+damping_max = 1.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_614oj")
+color_ramp = SubResource("Gradient_8l463")

@@ -11,24 +11,12 @@ offset_bottom = 40.0
 
 [node name="CountdownHandler" parent="." unique_id=2133827847 instance=ExtResource("1_de23q")]
 
-[node name="HungerHandler" parent="CountdownHandler/TimerUI" parent_id_path=PackedInt32Array(2133827847, 251125843) index="0" unique_id=331275145]
-countdown_loss_speed = 10.0
-
-[node name="PsycheHandler" parent="CountdownHandler/TimerUI" parent_id_path=PackedInt32Array(2133827847, 251125843) index="1" unique_id=1293033673]
-countdown_loss_speed = 10.0
-
 [node name="UI_Main" parent="." unique_id=776437626 instance=ExtResource("2_c7mb3")]
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 1920.0
 offset_bottom = 1080.0
-
-[node name="Timer_Container" parent="UI_Main/MarginContainer" parent_id_path=PackedInt32Array(776437626, 2044965301) index="0" unique_id=309307705]
-time_until_completion = 15.0
-
-[node name="Background" parent="UI_Main/MarginContainer/Timer_Container" index="0" unique_id=811479078]
-z_index = 3
 
 [node name="Warning_Icon_Container" parent="UI_Main/MarginContainer" parent_id_path=PackedInt32Array(776437626, 2044965301) index="2" unique_id=48865670]
 size_flags_horizontal = 8
