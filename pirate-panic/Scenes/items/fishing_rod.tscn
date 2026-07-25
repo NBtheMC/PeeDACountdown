@@ -12,7 +12,7 @@ metadata/__load_path__ = "res://Art/Materials/fishing_line_material.tres"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dstl4"]
 
-[node name="FishingRod" type="StaticBody3D" unique_id=892319930 node_paths=PackedStringArray("pole_tip", "fishing_pole_hook", "text")]
+[node name="FishingRod" type="StaticBody3D" unique_id=892319930 node_paths=PackedStringArray("pole_tip", "fishing_pole_hook")]
 collision_layer = 2
 script = ExtResource("1_lyd5f")
 pole_tip = NodePath("FishingPoleHook/PoleTip")
@@ -20,7 +20,6 @@ fishing_pole_hook = NodePath("FishingPoleHook/FishingPole_Hook")
 line_material = SubResource("Resource_xysg7")
 cast_sound = ExtResource("2_bmjrk")
 item_name = "fishing_rod"
-text = NodePath("")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=744478198]
 transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0.05958128, 0, 0.0015544891)

@@ -165,6 +165,18 @@ surface_material_override/0 = SubResource("ShaderMaterial_yuhor")
 [node name="LeakSystem" parent="Environment" unique_id=1166897192 instance=ExtResource("6_xysg7")]
 transform = Transform3D(1, 0, 0, 0, 0.9999288, -0.011948594, 0, 0.011948594, 0.9999288, 0, 0.022503853, 0)
 
+[node name="LeakSpot" parent="Environment/LeakSystem" index="1" unique_id=810583223 node_paths=PackedStringArray("screen_text")]
+screen_text = NodePath("../../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
+
+[node name="LeakSpot2" parent="Environment/LeakSystem" index="2" unique_id=1014307901 node_paths=PackedStringArray("screen_text")]
+screen_text = NodePath("../../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
+
+[node name="LeakSpot3" parent="Environment/LeakSystem" index="3" unique_id=1946699106 node_paths=PackedStringArray("screen_text")]
+screen_text = NodePath("../../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
+
+[node name="LeakSpot4" parent="Environment/LeakSystem" index="4" unique_id=1377250199 node_paths=PackedStringArray("screen_text")]
+screen_text = NodePath("../../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
+
 [node name="HeartSystem" parent="Environment" unique_id=1764984908 instance=ExtResource("8_dstl4")]
 
 [node name="Oars2" parent="Environment" unique_id=884779015 instance=ExtResource("7_vid44")]
@@ -239,9 +251,12 @@ visible = false
 
 [editable path="Player"]
 [editable path="Environment/PirateShip_V1_0"]
+[editable path="Environment/LeakSystem"]
 [editable path="Environment/Oars"]
 [editable path="Environment/RowingObject"]
 [editable path="Environment/RowingObject2"]
+[editable path="Environment/FishingRod"]
+[editable path="Environment/FishingRod/FishingPoleHook"]
 [editable path="Environment/Mallet"]
 [editable path="UI"]
 [editable path="UI/CountdownHandler"]
