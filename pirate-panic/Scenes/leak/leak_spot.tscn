@@ -22,9 +22,12 @@ sfx_leak_fix = NodePath("SFX_LeakFix")
 
 [node name="SFX_LeakFix" type="AudioStreamPlayer" parent="." unique_id=1689368890]
 stream = ExtResource("2_kqoor")
+volume_db = -15.053
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=488407218]
 stream = ExtResource("2_j13rd")
+volume_db = -16.842
+attenuation_filter_db = -8.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1507162949]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.000219726, 0.0129821785, 0.013073731)
