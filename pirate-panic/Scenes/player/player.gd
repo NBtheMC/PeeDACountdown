@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export var SPEED = 0.5
 @export var SENSITIVITY = 0.005
 
-@onready var main_node = $".."
+@onready var main_node = $"../Environment"
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var raycast = $Head/Camera3D/RayCast3D
@@ -103,8 +103,8 @@ func drop_held_item():
 	if (held_item == null):
 		return
 	held_item.reparent(main_node)
-	held_item.transform = transform
-	held_item.transform.origin.y = held_item.starting_y
+	held_item.transform = held_item.starting_transform
+	# held_item.transform.origin.y = held_item.starting_y
 	
 func clear_current_viewed_interactable():
 	# print("clear_current_viewed_interactable")
