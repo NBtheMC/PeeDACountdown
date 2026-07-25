@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://tmkvni7nsl0m"]
+
+[ext_resource type="Texture2D" uid="uid://cocefevoi78pq" path="res://Art/Textures/boat_bench_BaseColor.png" id="1_oexlf"]
+
+[resource]
+albedo_texture = ExtResource("1_oexlf")
+roughness = 0.9

@@ -2,9 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://dwmhyk12txjql" path="res://Art/PirateShip_V1_0.fbx" id="1_ijv5j"]
 [ext_resource type="Shader" uid="uid://bkydm4h6o6hyo" path="res://Art/Shaders/WaterSurface.tres" id="2_3hnbd"]
+[ext_resource type="Material" uid="uid://tmkvni7nsl0m" path="res://Art/Shaders/boat_bench.tres" id="2_06vh4"]
 [ext_resource type="Shader" uid="uid://xxok7fpeu6is" path="res://Art/Shaders/PostProcess_Possession.gdshader" id="3_c0q54"]
+[ext_resource type="Material" uid="uid://coe2hvo16n1vh" path="res://Art/Shaders/boat_hull.tres" id="3_opv53"]
 [ext_resource type="PackedScene" uid="uid://cchx6b282edus" path="res://Art/Oars.fbx" id="4_c0q54"]
+[ext_resource type="Material" uid="uid://sk51llkpjf7r" path="res://Art/Shaders/boat_lamp.tres" id="4_vggki"]
 [ext_resource type="Texture2D" uid="uid://bktddt1y7klu1" path="res://Art/Textures/LightGlare_01.png" id="5_hr7o0"]
+[ext_resource type="Material" uid="uid://cceu1gwtddle4" path="res://Art/Shaders/boat_lamppost.tres" id="5_ttho4"]
+[ext_resource type="Material" uid="uid://dr6nhx47opvvk" path="res://Art/Shaders/boat_oarlocks.tres" id="6_sd3sa"]
+[ext_resource type="Material" uid="uid://ckrbcednt11gy" path="res://Art/Shaders/boat_prow.tres" id="7_cgeuw"]
+[ext_resource type="Material" uid="uid://c3vn8t5vau6wl" path="res://Art/Shaders/oars.tres" id="11_opv53"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_st70h"]
 
@@ -46,8 +53,26 @@ shader_parameter/distortion_strength = 0.0
 [node name="PirateShip_V1_0" parent="." unique_id=129218166 instance=ExtResource("1_ijv5j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24830651, 0.16907257, 1.1120892)
 
+[node name="Bench" parent="PirateShip_V1_0" index="0" unique_id=976381667]
+surface_material_override/0 = ExtResource("2_06vh4")
+
+[node name="Boat2" parent="PirateShip_V1_0" index="1" unique_id=2114509085]
+surface_material_override/0 = ExtResource("3_opv53")
+
+[node name="Lantern" parent="PirateShip_V1_0" index="2" unique_id=786533428]
+surface_material_override/0 = ExtResource("4_vggki")
+
+[node name="Lightpost" parent="PirateShip_V1_0" index="3" unique_id=814776617]
+surface_material_override/0 = ExtResource("5_ttho4")
+
+[node name="OarLocks" parent="PirateShip_V1_0" index="4" unique_id=1408851218]
+surface_material_override/0 = ExtResource("6_sd3sa")
+
+[node name="prow2" parent="PirateShip_V1_0" index="5" unique_id=1164056339]
+surface_material_override/0 = ExtResource("7_cgeuw")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1117270177]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -4.87566e-05, 1.1920929e-07, -0.0031194687)
 mesh = SubResource("PlaneMesh_st70h")
 surface_material_override/0 = SubResource("ShaderMaterial_7522t")
 
@@ -60,12 +85,13 @@ transform = Transform3D(1, 0, 0, 0, -0.9987037, 0.05090024, 0, -0.05090024, -0.9
 light_color = Color(0.42517173, 0.40284103, 0.3117427, 1)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1022709639]
-transform = Transform3D(1, 0, 0, 0, 0.4034509, 0.91500133, 0, -0.91500133, 0.4034509, 0.23344496, 0.8800632, 2.1254497)
+transform = Transform3D(1, 0, 0, 0, 0.4541605, 0.8909198, 0, -0.8909198, 0.4541605, 0.23344496, 0.8800632, 2.1254497)
 light_color = Color(0.75691044, 0.77776664, 0.5455352, 1)
+light_energy = 7.095
 shadow_enabled = true
-spot_attenuation = -0.22
-spot_angle = 51.59
-spot_angle_attenuation = 0.8408963
+spot_attenuation = -0.76
+spot_angle = 75.91
+spot_angle_attenuation = 1.9318721
 
 [node name="PostProcessPlane" type="MeshInstance3D" parent="." unique_id=900379967]
 transform = Transform3D(-0.69757676, -0.7089118, -0.10407088, -0.004189093, 0.14927956, -0.98878616, 0.7164979, -0.6893183, -0.107103646, 0, -0.9663972, 0)
@@ -76,7 +102,18 @@ surface_material_override/0 = SubResource("ShaderMaterial_yuhor")
 [node name="Oars" parent="." unique_id=998845485 instance=ExtResource("4_c0q54")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.19010639, 1.10298)
 
+[node name="Oars" parent="Oars/OarArmatuiree/Skeleton3D" parent_id_path=PackedInt32Array(998845485, 2120873174) index="0" unique_id=1942016941]
+surface_material_override/0 = ExtResource("11_opv53")
+
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1232709242]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.25171167, 1.0088221, 2.134068)
 billboard = 1
 texture = ExtResource("5_hr7o0")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=933440087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24880579, 1.0113441, 2.1251452)
+light_color = Color(0.85215914, 0.7427434, 0.45613295, 1)
+light_energy = 1.395
+
+[editable path="PirateShip_V1_0"]
+[editable path="Oars"]

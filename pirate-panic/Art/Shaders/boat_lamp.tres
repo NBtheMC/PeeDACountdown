@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://sk51llkpjf7r"]
+
+[ext_resource type="Texture2D" uid="uid://drslcveqyhtd" path="res://Art/Textures/boat_lamp_BaseColor.png" id="1_vbqlp"]
+[ext_resource type="Texture2D" uid="uid://b8h26m17d1pha" path="res://Art/Textures/boat_lamp_Emissive.png" id="2_xg1k3"]
+
+[resource]
+albedo_texture = ExtResource("1_vbqlp")
+roughness = 0.9
+emission_enabled = true
+emission_energy_multiplier = 4.3
+emission_texture = ExtResource("2_xg1k3")

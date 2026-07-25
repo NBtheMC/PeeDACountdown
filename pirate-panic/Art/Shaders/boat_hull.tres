@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://coe2hvo16n1vh"]
+
+[ext_resource type="Texture2D" uid="uid://ccniixclvyr6d" path="res://Art/Textures/boat_hull_BaseColor.png" id="1_fn3b0"]
+
+[resource]
+albedo_texture = ExtResource("1_fn3b0")
+anisotropy = -0.3

@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c3vn8t5vau6wl"]
+
+[ext_resource type="Texture2D" uid="uid://div7le6whndlj" path="res://Art/Textures/Oars_BaseColor.png" id="1_c0rnx"]
+
+[resource]
+albedo_texture = ExtResource("1_c0rnx")
+anisotropy = -0.3

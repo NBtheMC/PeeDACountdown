@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b47pg3djscc2m"]
+
+[ext_resource type="Script" uid="uid://b5tq3he4t555u" path="res://Scenes/items/item.gd" id="1_0b5ce"]
+[ext_resource type="PackedScene" uid="uid://cyd1o5kcgun06" path="res://Art/Mallet.fbx" id="2_d353r"]
+[ext_resource type="PackedScene" uid="uid://bm417dbu1c2o6" path="res://Scenes/misc/Interactable.tscn" id="3_v2t4x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kmt4r"]
+size = Vector3(0.6665039, 1.2388306, 1)
+
+[node name="Mallet" type="StaticBody3D" unique_id=532419465 node_paths=PackedStringArray("text")]
+collision_layer = 2
+script = ExtResource("1_0b5ce")
+item_name = "mallet"
+text = NodePath("CanvasLayer/MalletText")
+
+[node name="Mallet" parent="." unique_id=1462124587 instance=ExtResource("2_d353r")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1053835945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032470703, 0.5418396, 0)
+shape = SubResource("BoxShape3D_kmt4r")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=75364972]
+
+[node name="MalletText" type="RichTextLabel" parent="CanvasLayer" unique_id=917845243]
+offset_left = 539.0
+offset_top = 459.0
+offset_right = 1470.0
+offset_bottom = 623.0
+theme_override_font_sizes/normal_font_size = 46
+text = "E to pick up mallet"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Interactable" parent="." unique_id=279760389 instance=ExtResource("3_v2t4x")]
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="showText" from="Interactable" to="." method="_on_interactable_show_text"]
+[connection signal="unshowText" from="Interactable" to="." method="_on_interactable_unshow_text"]

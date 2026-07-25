@@ -8,7 +8,8 @@ var index: int
 signal leak_repair
 
 func _on_interactable_interacted(interactor: Node) -> void:
-	leak_repair.emit(index)
+	if (interactor.held_item != null && interactor.held_item.item_name == "mallet"):
+		leak_repair.emit(index)
 
 
 func _on_interactable_show_text(interactor: Node) -> void:

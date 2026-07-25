@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cp3vqy31k8hrb"]
+
+[ext_resource type="Texture2D" uid="uid://ubj5n8bxee1p" path="res://Art/Textures/Damage_Minor_BaseColor.png" id="1_ylan5"]
+
+[resource]
+albedo_texture = ExtResource("1_ylan5")
+roughness = 0.9
