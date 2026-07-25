@@ -13,12 +13,13 @@ var psyche_status : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	hunger_nominal.connect(set_hunger_status.bind(0))
-	hunger_low.connect(set_hunger_status.bind(1))
-	hunger_fatal.connect(set_hunger_status.bind(2))
-	psyche_nominal.connect(set_psyche_status.bind(0))
-	psyche_low.connect(set_psyche_status.bind(1))
-	psyche_fatal.connect(set_psyche_status.bind(2))
+	pass
+	#hunger_nominal.connect(set_hunger_status.bind(0))
+	#hunger_low.connect(set_hunger_status.bind(1))
+	#hunger_fatal.connect(set_hunger_status.bind(2))
+	#psyche_nominal.connect(set_psyche_status.bind(0))
+	#psyche_low.connect(set_psyche_status.bind(1))
+	#psyche_fatal.connect(set_psyche_status.bind(2))
 	
 func set_hunger_status(status: int):
 	hunger_status = status

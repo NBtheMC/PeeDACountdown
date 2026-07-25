@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/Leak Spew.ogg-c2e80b4ad0aa897f3b585af6a89ab72
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
-beat_count=0
+loop=true
+loop_offset=2.0
+bpm=120.0
+beat_count=10
 bar_beats=4

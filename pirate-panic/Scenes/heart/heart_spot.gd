@@ -1,5 +1,5 @@
 extends Node3D
-class_name LeakSpot
+class_name HeartSpot
 
 var index: int
 var active : bool = false
@@ -19,7 +19,7 @@ func on_deactivate() -> void:
 	sfx_leak_spew.stop()
 
 func _on_interactable_interacted(interactor: Node) -> void:
-	if (active && interactor.held_item != null && interactor.held_item.item_name == "mallet"):
+	if active:
 		leak_repair.emit(index)
 		sfx_leak_fix.play()
 

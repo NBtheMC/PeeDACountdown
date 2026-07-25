@@ -4,3 +4,5 @@
 
 [node name="Interactable" type="Node" unique_id=279760389]
 script = ExtResource("1_aorg3")
+
+[node name="SFX_Pickup" type="AudioStreamPlayer" parent="." unique_id=1157001835]

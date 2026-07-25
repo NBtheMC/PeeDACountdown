@@ -14,6 +14,7 @@ var is_active_fishing_spot: bool = false
 
 @onready var audio_player: AudioStreamPlayer
 @export var fish_sound: AudioStream
+var is_fish_biting = false
 @export var catch_sound: AudioStream
 
 @export var player : Player
@@ -25,22 +26,39 @@ func _ready() -> void:
 	add_child(audio_player)
 	minigame_timer.timeout.connect(fail_fishing)
 
-func _on_interactable_interacted(interactor: Node) -> void:
-	print("Interacted with fishing spot")
-	if interactor.is_holding_fishing_rod():
-		print("Holding fishing rod")
-		# Safety check to make sure you aren't casting twice at the same spot
-		if not is_active_fishing_spot:
-			start_fishing_at_spot(interactor.get_held_item())
-			player.lock_rotation()
-			player.lock_movement()
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		print("Pressed accept on time")
+		# Check if the timer exists AND is actively running
+		if minigame_timer and not minigame_timer.is_stopped():
+			success_fishing()
 		else:
-			clear_fishing_spot()
-			player.unlock_rotation()
-			player.unlock_movement()
+			print("You pressed too late or the minigame hasn't started!")
+	pass
+
+func _on_interactable_interacted(interactor: Node) -> void: 
+	print("Interacted with fishing spot") 
+	
+	# Early exit if the player doesn't have a rod
+	if not interactor.is_holding_fishing_rod():
+		print("You need a fishing rod to fish here!")
 		return
-			
-	print("You need a fishing rod to fish here!")
+
+	print("Holding fishing rod") 
+	
+	# Safety check to make sure you aren't casting twice at the same spot 
+	if not is_active_fishing_spot: 
+		if minigame_timer and not minigame_timer.is_stopped(): 
+			# currently fishing and pressed during the timer window
+			success_fishing() 
+		else: 
+			# start fishing 
+			start_fishing_at_spot(player.get_held_item()) 
+			player.lock_rotation() 
+			player.lock_movement() 
+	else: 
+		# Pressed too early/late while already actively fishing
+		fail_fishing() 
 
 func start_fishing_at_spot(rod: Node) -> void:
 	print("Start fishing")
@@ -67,6 +85,7 @@ func start_fishing() -> void:
 
 	minigame_timer.wait_time = minigame_time
 	audio_player.stream = fish_sound
+	is_fish_biting = true
 	audio_player.play()
 	minigame_timer.start()
 	pass
@@ -89,11 +108,13 @@ func success_fishing() -> void:
 	print("SUCCESS: Caught fish")
 	audio_player.stream = catch_sound
 	audio_player.play()
-	# Do fishing eating stuff here
+	is_fish_biting = false
 
 func fail_fishing() -> void:
 	clear_fishing_spot()
 	player.unlock_rotation()
 	player.unlock_movement()
+	player.get_held_item().reel_in()
+	is_fish_biting = false
 	print("FAIL: Fish got away")
 	pass

@@ -3,8 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dxue7rjdqqnho" path="res://Scenes/player/player.tscn" id="1_qmsjm"]
 [ext_resource type="Script" uid="uid://b5tq3he4t555u" path="res://Scenes/items/item.gd" id="2_lr162"]
 [ext_resource type="PackedScene" uid="uid://bm417dbu1c2o6" path="res://Scenes/misc/Interactable.tscn" id="3_viqbx"]
-[ext_resource type="Script" uid="uid://ce7mqmiqtourj" path="res://Scenes/leak/leak_system.gd" id="4_pej23"]
-[ext_resource type="PackedScene" uid="uid://b2s6n06ug5yvj" path="res://Scenes/leak/leak_spot.tscn" id="5_viqbx"]
+[ext_resource type="PackedScene" uid="uid://byj210nycfxtn" path="res://Scenes/leak/leak_system.tscn" id="4_viqbx"]
 [ext_resource type="PackedScene" uid="uid://b47pg3djscc2m" path="res://Scenes/items/mallet.tscn" id="6_pej23"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ss858"]
@@ -54,16 +53,7 @@ shape = SubResource("BoxShape3D_jvbdo")
 
 [node name="Interactable" parent="Box" unique_id=279760389 instance=ExtResource("3_viqbx")]
 
-[node name="LeakSystem" type="Node3D" parent="." unique_id=1958816275]
-script = ExtResource("4_pej23")
-
-[node name="Timer" type="Timer" parent="LeakSystem" unique_id=2045361253]
-
-[node name="LeakSpot" parent="LeakSystem" unique_id=810583223 instance=ExtResource("5_viqbx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1574311, 0, 2.732133)
-
-[node name="LeakSpot2" parent="LeakSystem" unique_id=1048119753 instance=ExtResource("5_viqbx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90361834, 0, 3.9594746)
+[node name="LeakSystem" parent="." unique_id=1166897192 instance=ExtResource("4_viqbx")]
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1192491573]
 
@@ -71,6 +61,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90361834, 0, 3.9594746)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4051136, 0, 0)
 
 [connection signal="interacted" from="Box/Interactable" to="Box" method="_on_interactable_interacted"]
-[connection signal="timeout" from="LeakSystem/Timer" to="LeakSystem" method="_on_timer_timeout"]
-[connection signal="leak_repair" from="LeakSystem/LeakSpot" to="LeakSystem" method="_on_leak_spot_leak_repair"]
-[connection signal="leak_repair" from="LeakSystem/LeakSpot2" to="LeakSystem" method="_on_leak_spot_leak_repair"]
