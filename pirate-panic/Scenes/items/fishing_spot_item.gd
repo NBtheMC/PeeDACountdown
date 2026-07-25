@@ -8,12 +8,11 @@ var is_active_fishing_spot: bool = false
 
 @export var min_wait_time: float = 2.0
 @export var max_wait_time: float = 6.0
-var is_fish_biting: bool = false
 
 @onready var minigame_timer: Timer = $Timer
 @export var minigame_time: float = 2.0
 
-@onready var audio_player: AudioStreamPlayer = $AudioPlayer
+@onready var audio_player: AudioStreamPlayer
 @export var fish_sound: AudioStream
 @export var catch_sound: AudioStream
 
@@ -22,6 +21,8 @@ var is_fish_biting: bool = false
 func _ready() -> void:
 	minigame_timer = Timer.new()
 	add_child(minigame_timer)
+	audio_player = AudioStreamPlayer.new()
+	add_child(audio_player)
 	minigame_timer.timeout.connect(fail_fishing)
 
 func _on_interactable_interacted(interactor: Node) -> void:
@@ -60,8 +61,6 @@ func clear_fishing_spot() -> void:
 	is_active_fishing_spot = false
 	
 func start_fishing() -> void:
-	is_fish_biting = false
-	
 	var random_time: float = randf_range(min_wait_time, max_wait_time)
 	# Create a one-shot timer directly in code
 	await get_tree().create_timer(random_time).timeout

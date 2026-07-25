@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bm417dbu1c2o6" path="res://Scenes/misc/Interactable.tscn" id="13_3piwx"]
 [ext_resource type="PackedScene" uid="uid://ws4t6k2lao2p" path="res://Scenes/fishing_pole_hook.tscn" id="13_dstl4"]
 [ext_resource type="Script" uid="uid://c4rohau6pyyqi" path="res://Scenes/items/fishing_spot_item.gd" id="13_ne2mb"]
-[ext_resource type="Material" uid="uid://4m4pg5x4gbc5" path="res://Art/Materials/fishing_line_material.tres" id="14_dstl4"]
+[ext_resource type="Material" path="res://Art/Materials/fishing_line_material.tres" id="14_dstl4"]
 [ext_resource type="AudioStream" uid="uid://c8xp4iho1dyya" path="res://Assets/Audio/Fish Bite-001.ogg" id="16_21urw"]
 [ext_resource type="AudioStream" uid="uid://f85krih22lab" path="res://Assets/Audio/Catch Fish.ogg" id="17_vid44"]
 [ext_resource type="PackedScene" uid="uid://doe6sn26ingvw" path="res://Scenes/UI/ui.tscn" id="20_vid44"]
@@ -172,10 +172,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_yuhor")
 
 [node name="Oars" parent="Environment" unique_id=998845485 instance=ExtResource("8_ppi7r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.19010639, 1.10298)
-
-[node name="Skeleton3D" parent="Environment/Oars/OarArmatuiree" parent_id_path=PackedInt32Array(998845485, 31121314) index="0" unique_id=622394749]
-bones/0/rotation = Quaternion(0.8662246, 0.4120287, -0.1692086, 0.22639741)
-bones/2/rotation = Quaternion(-0.8662246, 0.4120287, -0.1692086, -0.22639741)
 
 [node name="RowingObject" parent="Environment" unique_id=1267491984 node_paths=PackedStringArray("oar_animation_player", "world_objects") instance=ExtResource("6_3puld")]
 transform = Transform3D(0.78058046, 0, 0, 0, 1, 0, 0, 0, 1, -0.34215546, 0.36353314, 1.1244775)
