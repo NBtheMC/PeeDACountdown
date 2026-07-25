@@ -84,11 +84,13 @@ func start_leak(index: int):
 	
 func enable_damage_mesh(index: int):
 	var leak_node = leaks[index].node_ref
+	leak_node.on_activate()
 	leak_node.get_node("Damaged").visible = true
 	leak_node.get_node("Undamaged").visible = false
 
 func disable_damage_mesh(index: int):
 	var leak_node = leaks[index].node_ref
+	leak_node.on_deactivate()
 	leak_node.get_node("Damaged").visible = false
 	leak_node.get_node("Undamaged").visible = true
 

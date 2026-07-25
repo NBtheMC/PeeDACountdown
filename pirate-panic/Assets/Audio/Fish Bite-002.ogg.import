@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://doh4do5lv00x7"
+path="res://.godot/imported/Fish Bite-002.ogg-b2cee8f63b24ac3984aa4416c89e1fcc.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Fish Bite-002.ogg"
+dest_files=["res://.godot/imported/Fish Bite-002.ogg-b2cee8f63b24ac3984aa4416c89e1fcc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://xh3b4wwa6tww"
+path="res://.godot/imported/Fix Leak_Single.ogg-d65d44586ceeb17afc59a947aa706d9b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Fix Leak_Single.ogg"
+dest_files=["res://.godot/imported/Fix Leak_Single.ogg-d65d44586ceeb17afc59a947aa706d9b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

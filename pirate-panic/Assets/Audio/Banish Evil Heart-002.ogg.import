@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cd02n5u64eowq"
+path="res://.godot/imported/Banish Evil Heart-002.ogg-658c3b825e17abb966331251e081482e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Banish Evil Heart-002.ogg"
+dest_files=["res://.godot/imported/Banish Evil Heart-002.ogg-658c3b825e17abb966331251e081482e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

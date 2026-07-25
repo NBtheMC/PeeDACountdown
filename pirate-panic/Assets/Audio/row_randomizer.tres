@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://bvymfylwni7pp"]
+
+[ext_resource type="AudioStream" uid="uid://ddwo1ksmilh32" path="res://Assets/Audio/Row Boat-001.ogg" id="1_8ai2g"]
+[ext_resource type="AudioStream" uid="uid://c1ald6tr4450h" path="res://Assets/Audio/Row Boat-002.ogg" id="2_125ve"]
+[ext_resource type="AudioStream" uid="uid://8y4pj4iernf3" path="res://Assets/Audio/Row Boat-003.ogg" id="3_cne6t"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_8ai2g")
+stream_1/stream = ExtResource("2_125ve")
+stream_2/stream = ExtResource("3_cne6t")

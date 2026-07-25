@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://b2s6n06ug5yvj"]
 
 [ext_resource type="Script" uid="uid://dfnvsbg1gvoh4" path="res://Scenes/leak/leak_spot.gd" id="1_kcako"]
+[ext_resource type="AudioStream" uid="uid://b58ukhvygvxen" path="res://Assets/Audio/Leak Spew.ogg" id="2_j13rd"]
 [ext_resource type="PackedScene" uid="uid://bkq51qpqsxemt" path="res://Art/DamageArea_MajorDamage.fbx" id="2_kcako"]
+[ext_resource type="AudioStream" uid="uid://xh3b4wwa6tww" path="res://Assets/Audio/Fix Leak_Single.ogg" id="2_kqoor"]
 [ext_resource type="Material" uid="uid://iews211bly32" path="res://Art/Shaders/DamageArea_Frame_MajorDamage.tres" id="3_titiu"]
 [ext_resource type="PackedScene" uid="uid://b2xlaa05tn6mu" path="res://Art/DamageArea_Undamaged.fbx" id="3_vmw6b"]
 [ext_resource type="Material" uid="uid://dt0pp3p5hmvxe" path="res://Art/Shaders/DamageArea_MajorDamage.tres" id="4_j13rd"]
@@ -11,10 +13,22 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_kmt4r"]
 size = Vector3(0.27526855, 0.06454468, 0.27679443)
 
-[node name="LeakSpot" type="StaticBody3D" unique_id=810583223 node_paths=PackedStringArray("screen_text")]
+[node name="LeakSpot" type="StaticBody3D" unique_id=810583223 node_paths=PackedStringArray("screen_text", "sfx_leak_spew", "sfx_leak_fix")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 2
 script = ExtResource("1_kcako")
 screen_text = NodePath("CanvasLayer/ScreenText")
+sfx_leak_spew = NodePath("AudioStreamPlayer3D")
+sfx_leak_fix = NodePath("SFX_LeakFix")
+
+[node name="SFX_LeakFix" type="AudioStreamPlayer" parent="." unique_id=1689368890]
+stream = ExtResource("2_kqoor")
+volume_db = -15.053
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=488407218]
+stream = ExtResource("2_j13rd")
+volume_db = -16.842
+attenuation_filter_db = -8.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1507162949]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.000219726, 0.0129821785, 0.013073731)
@@ -24,16 +38,16 @@ shape = SubResource("BoxShape3D_kmt4r")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 visible = false
 
-[node name="DamageArea_Undamaged" parent="Damaged" index="0" unique_id=1628379374]
+[node name="DamageArea_Undamaged" parent="Damaged" index="0" unique_id=1310943195]
 surface_material_override/0 = ExtResource("3_titiu")
 
-[node name="Damage_Major" parent="Damaged" index="1" unique_id=980903822]
+[node name="Damage_Major" parent="Damaged" index="1" unique_id=1564677720]
 surface_material_override/0 = ExtResource("4_j13rd")
 
 [node name="Undamaged" parent="." unique_id=1935994453 instance=ExtResource("3_vmw6b")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 
-[node name="DamageArea_Undamaged" parent="Undamaged" index="0" unique_id=471738505]
+[node name="DamageArea_Undamaged" parent="Undamaged" index="0" unique_id=218967007]
 surface_material_override/0 = ExtResource("6_kqoor")
 
 [node name="Interactable" parent="." unique_id=279760389 instance=ExtResource("4_titiu")]

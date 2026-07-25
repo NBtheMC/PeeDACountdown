@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://byj210nycfxtn"]
+
+[ext_resource type="Script" uid="uid://ce7mqmiqtourj" path="res://Scenes/leak/leak_system.gd" id="1_vi44a"]
+[ext_resource type="PackedScene" uid="uid://b2s6n06ug5yvj" path="res://Scenes/leak/leak_spot.tscn" id="2_lxyp5"]
+
+[node name="LeakSystem" type="Node3D" unique_id=1166897192]
+script = ExtResource("1_vi44a")
+
+[node name="Timer" type="Timer" parent="." unique_id=718340071]
+
+[node name="LeakSpot" parent="." unique_id=810583223 instance=ExtResource("2_lxyp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21152222, 0.13929757, 2.0382683)
+
+[node name="LeakSpot2" parent="." unique_id=1014307901 instance=ExtResource("2_lxyp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16158769, 0.08479935, 0.12305209)
+
+[node name="LeakSpot3" parent="." unique_id=1946699106 instance=ExtResource("2_lxyp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51591504, 0.100465626, 0.7442879)
+
+[node name="LeakSpot4" parent="." unique_id=1377250199 instance=ExtResource("2_lxyp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05527526, 0.15150225, 1.4695084)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="leak_repair" from="LeakSpot" to="." method="_on_leak_spot_leak_repair"]
+[connection signal="leak_repair" from="LeakSpot2" to="." method="_on_leak_spot_leak_repair"]
