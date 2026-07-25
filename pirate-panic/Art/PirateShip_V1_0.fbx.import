@@ -43,7 +43,7 @@ _subresources={
 "materials": {
 "boat_hull": {
 "use_external/enabled": true,
-"use_external/fallback_path": "",
+"use_external/fallback_path": "res://Art/Shaders/boat_hull.tres",
 "use_external/path": "uid://coe2hvo16n1vh"
 }
 }
