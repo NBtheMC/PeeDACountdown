@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://x2y6mnc30fkb"]
 
+[ext_resource type="PackedScene" uid="uid://c6s81be7w6mjq" path="res://Scenes/audio/ingame_music.tscn" id="1_4j1fj"]
 [ext_resource type="PackedScene" uid="uid://dxue7rjdqqnho" path="res://Scenes/player/player.tscn" id="1_6rik4"]
 [ext_resource type="AudioStream" uid="uid://ckb0wmirwaw3a" path="res://Assets/Audio/731164__nammedit__seagulls_fighting_for_food.ogg" id="2_qw3yb"]
 [ext_resource type="AudioStream" uid="uid://dx1glh7vl4yjt" path="res://Assets/Audio/31574__walter_odington__ship_creak.ogg" id="3_3puld"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://byj210nycfxtn" path="res://Scenes/leak/leak_system.tscn" id="6_xysg7"]
 [ext_resource type="Shader" uid="uid://dcr8wjkvk2roo" path="res://Art/Shaders/ppnodez.tres" id="7_s3gpa"]
 [ext_resource type="PackedScene" uid="uid://y6mengsuwlal" path="res://Art/oars.tscn" id="7_vid44"]
+[ext_resource type="PackedScene" uid="uid://xjj7d6yur3kj" path="res://Scenes/heart/heart_system.tscn" id="8_dstl4"]
 [ext_resource type="PackedScene" uid="uid://cchx6b282edus" path="res://Art/Oars.fbx" id="8_ppi7r"]
 [ext_resource type="PackedScene" uid="uid://c4in6nsw7cjxr" path="res://Scenes/items/fishing_rod.tscn" id="12_ne2mb"]
 [ext_resource type="PackedScene" uid="uid://bsawxlfwrqpdp" path="res://Scenes/items/fishing_spot.tscn" id="13_dstl4"]
@@ -71,6 +73,8 @@ shader = ExtResource("6_lv5r4")
 shader_parameter/WaveSpeed = 0.3
 
 [node name="Node3D2" type="Node3D" unique_id=1577513873]
+
+[node name="Ingame Music" parent="." unique_id=230669202 instance=ExtResource("1_4j1fj")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1826098984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.676655, -0.4995, 5.55587)
@@ -161,6 +165,8 @@ surface_material_override/0 = SubResource("ShaderMaterial_yuhor")
 [node name="LeakSystem" parent="Environment" unique_id=1166897192 instance=ExtResource("6_xysg7")]
 transform = Transform3D(1, 0, 0, 0, 0.9999288, -0.011948594, 0, 0.011948594, 0.9999288, 0, 0.022503853, 0)
 
+[node name="HeartSystem" parent="Environment" unique_id=1764984908 instance=ExtResource("8_dstl4")]
+
 [node name="Oars2" parent="Environment" unique_id=884779015 instance=ExtResource("7_vid44")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29480532, 0.19037, 1.1280442)
 
@@ -223,6 +229,13 @@ text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 visible = false
 
 [node name="UI" parent="." unique_id=54619041 instance=ExtResource("20_vid44")]
+
+[connection signal="countdown_fatal" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [2]]
+[connection signal="countdown_low" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [1]]
+[connection signal="countdown_nominal" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [0]]
+[connection signal="countdown_fatal" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="Ingame Music" method="set_psyche_status" binds= [2]]
+[connection signal="countdown_low" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="Ingame Music" method="set_psyche_status" binds= [1]]
+[connection signal="countdown_nominal" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="Ingame Music" method="set_psyche_status" binds= [0]]
 
 [editable path="Player"]
 [editable path="Environment/PirateShip_V1_0"]

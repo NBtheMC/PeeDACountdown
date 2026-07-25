@@ -99,6 +99,7 @@ func _process(delta: float) -> void:
 		currentViewedInteractable.hold_interact(self)
 
 func hold_item(item: Node):
+	if (held_item): return
 	item.reparent(hand)
 	item.transform = Transform3D.IDENTITY
 	held_item = item
@@ -109,6 +110,7 @@ func drop_held_item():
 		return
 	held_item.reparent(held_item.starting_parent)
 	held_item.transform = held_item.starting_transform
+	held_item = null
 	# held_item.transform.origin.y = held_item.starting_y
 	sfx_item_drop.play() #sfx
 	
