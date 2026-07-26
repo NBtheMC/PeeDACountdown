@@ -16,6 +16,8 @@ class Leak:
 # how many times the player needs to hit interact to repair the leak
 @export var REPAIR_COUNT = 5
 
+@export var MAX_POSSIBLE_LEAKS = 1
+
 var leaks: Array[Leak]
 var active_leaks: int
 var max_leaks: int # equal to leaks.size()
@@ -59,7 +61,7 @@ func _start_timer():
 
 func _on_timer_timeout():
 	# print("timer timeout")
-	if (active_leaks == max_leaks):
+	if (active_leaks == max_leaks || active_leaks >= MAX_POSSIBLE_LEAKS):
 		_start_timer()
 		return
 		
