@@ -5,13 +5,11 @@
 [ext_resource type="Material" uid="uid://tmkvni7nsl0m" path="res://Art/Shaders/boat_bench.tres" id="2_06vh4"]
 [ext_resource type="Shader" uid="uid://xxok7fpeu6is" path="res://Art/Shaders/PostProcess_Possession.gdshader" id="3_c0q54"]
 [ext_resource type="Material" uid="uid://coe2hvo16n1vh" path="res://Art/Shaders/boat_hull.tres" id="3_opv53"]
-[ext_resource type="PackedScene" uid="uid://cchx6b282edus" path="res://Art/Oars.fbx" id="4_c0q54"]
 [ext_resource type="Material" uid="uid://sk51llkpjf7r" path="res://Art/Shaders/boat_lamp.tres" id="4_vggki"]
 [ext_resource type="Texture2D" uid="uid://bktddt1y7klu1" path="res://Art/Textures/LightGlare_01.png" id="5_hr7o0"]
 [ext_resource type="Material" uid="uid://cceu1gwtddle4" path="res://Art/Shaders/boat_lamppost.tres" id="5_ttho4"]
 [ext_resource type="Material" uid="uid://dr6nhx47opvvk" path="res://Art/Shaders/boat_oarlocks.tres" id="6_sd3sa"]
 [ext_resource type="Material" uid="uid://ckrbcednt11gy" path="res://Art/Shaders/boat_prow.tres" id="7_cgeuw"]
-[ext_resource type="Material" uid="uid://c3vn8t5vau6wl" path="res://Art/Shaders/oars.tres" id="11_opv53"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_st70h"]
 
@@ -99,12 +97,6 @@ extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_ophcw")
 surface_material_override/0 = SubResource("ShaderMaterial_yuhor")
 
-[node name="Oars" parent="." unique_id=998845485 instance=ExtResource("4_c0q54")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.19010639, 1.10298)
-
-[node name="Oars" parent="Oars/OarArmatuiree/Skeleton3D" parent_id_path=PackedInt32Array(998845485, 1887424890) index="0" unique_id=282733552]
-surface_material_override/0 = ExtResource("11_opv53")
-
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1232709242]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.25171167, 1.0088221, 2.134068)
 billboard = 1
@@ -116,4 +108,3 @@ light_color = Color(0.85215914, 0.7427434, 0.45613295, 1)
 light_energy = 1.395
 
 [editable path="PirateShip_V1_0"]
-[editable path="Oars"]
