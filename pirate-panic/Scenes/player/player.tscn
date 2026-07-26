@@ -16,6 +16,33 @@ streams_count = 2
 stream_0/stream = ExtResource("3_ca0mu")
 stream_1/stream = ExtResource("4_6upyo")
 
+[sub_resource type="Animation" id="Animation_ca0mu"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera3D/Hand")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_e41v5"]
+resource_name = "interact"
+length = 0.26666668
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera3D/Hand")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.13333334, 1, -0.44546878, 0, 0, 0.89529747, 0.26666668, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ca0mu"]
+_data = {
+&"RESET": SubResource("Animation_ca0mu"),
+&"interact": SubResource("Animation_e41v5")
+}
+
 [node name="Player" type="CharacterBody3D" unique_id=180760236 node_paths=PackedStringArray("sfx_item_drop", "sfx_item_pickup")]
 script = ExtResource("1_8p05u")
 sfx_item_drop = NodePath("SFX_ItemDrop")
@@ -41,7 +68,7 @@ target_position = Vector3(0, 0, 1.5)
 collision_mask = 2
 
 [node name="Hand" type="Node3D" parent="Head/Camera3D" unique_id=2013009740]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46840495, -0.25, -0.67199695)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10372347, -0.25, -0.42611188)
 
 [node name="SFX_ItemDrop" type="AudioStreamPlayer" parent="." unique_id=317480180]
 stream = ExtResource("2_e41v5")
@@ -52,3 +79,6 @@ bus = &"SFX"
 stream = SubResource("AudioStreamRandomizer_d6es2")
 volume_db = -9.579
 bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1454728255]
+libraries/ = SubResource("AnimationLibrary_ca0mu")

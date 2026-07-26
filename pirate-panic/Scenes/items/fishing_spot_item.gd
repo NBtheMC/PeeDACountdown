@@ -134,7 +134,7 @@ func fail_fishing() -> void:
 	clear_fishing_spot()
 	player.unlock_rotation()
 	player.unlock_movement()
-	if (player.get_held_item()):
+	if (player.get_held_item().item_name.to_lower() == "fishing_rod"):
 		player.get_held_item().reel_in()
 	is_fish_biting = false
 	sprite_ref.texture = regular_sprite

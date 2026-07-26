@@ -9,6 +9,7 @@ class_name Player
 @onready var camera = $Head/Camera3D
 @onready var raycast = $Head/Camera3D/RayCast3D
 @onready var hand = $Head/Camera3D/Hand
+@onready var animator = $AnimationPlayer
 
 var held_item
 
@@ -50,6 +51,9 @@ func _input(event: InputEvent) -> void:
 		# print("Pressed interact key")
 		if currentViewedInteractable != null:
 			currentViewedInteractable.interact(self)
+		# play interact anim
+		animator.stop();
+		animator.play("interact");
 			
 	if Input.is_action_just_released("interact"):
 		# print("Released interact key on " + str(currentViewedInteractable))
@@ -101,7 +105,7 @@ func _process(delta: float) -> void:
 func hold_item(item: Node):
 	if (held_item): return
 	item.reparent(hand)
-	item.transform = Transform3D.IDENTITY
+	item.transform = hand.transform #Transform3D.IDENTITY 
 	held_item = item
 	sfx_item_pickup.play() # sfx
 
