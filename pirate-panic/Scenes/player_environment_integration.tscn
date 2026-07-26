@@ -179,8 +179,21 @@ screen_text = NodePath("../../../UI/UI_Main/MarginContainer/Reticle/InteractTool
 [node name="HeartSystem" parent="Environment" unique_id=1764984908 node_paths=PackedStringArray("countdown_reference") instance=ExtResource("8_dstl4")]
 countdown_reference = NodePath("../../UI/CountdownHandler/TimerUI/PsycheHandler")
 
-[node name="HeartSpot" parent="Environment/HeartSystem" index="1" unique_id=810583223]
+[node name="HeartSpot" parent="Environment/HeartSystem" index="1" unique_id=810583223 node_paths=PackedStringArray("screen_text")]
 transform = Transform3D(0.5, 0, 0, 0, 0.35394207, 0.3531643, 0, -0.3531643, 0.35394207, 0.34645778, 0.14962417, -0.14683415)
+screen_text = NodePath("../../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
+
+[node name="HeartSpot2" parent="Environment/HeartSystem" index="2" unique_id=145599421 node_paths=PackedStringArray("screen_text")]
+screen_text = NodePath("../../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
+
+[node name="HeartSpot3" parent="Environment/HeartSystem" index="3" unique_id=1201112614 node_paths=PackedStringArray("screen_text")]
+screen_text = NodePath("../../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
+
+[node name="HeartSpot4" parent="Environment/HeartSystem" index="4" unique_id=239795194 node_paths=PackedStringArray("screen_text")]
+screen_text = NodePath("../../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
+
+[node name="HeartSpot5" parent="Environment/HeartSystem" index="5" unique_id=68488773 node_paths=PackedStringArray("screen_text")]
+screen_text = NodePath("../../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 
 [node name="RowingObject" parent="Environment" unique_id=1267491984 node_paths=PackedStringArray("rowing_text", "oar_animation_player", "world_objects", "other_rowing_object") instance=ExtResource("6_3puld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34215546, 0.36353314, 1.1244775)
