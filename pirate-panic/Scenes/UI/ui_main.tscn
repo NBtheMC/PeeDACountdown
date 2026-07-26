@@ -2,10 +2,10 @@
 
 [ext_resource type="Theme" uid="uid://bcya1rsak86it" path="res://Scenes/UI/UI_theme.tres" id="1_rad5t"]
 [ext_resource type="Script" uid="uid://bwghgobssqdfv" path="res://Scenes/UI/clock_anim.gd" id="2_ch3em"]
-[ext_resource type="Texture2D" uid="uid://x1vouhwipxg4" path="res://TempAssets/Clock-Hand-Temp.png" id="2_h3s1k"]
 [ext_resource type="PackedScene" uid="uid://daqrngoxfmyul" path="res://Scenes/UI/text_box.tscn" id="2_rad5t"]
 [ext_resource type="PackedScene" uid="uid://dtvfi44kmsghu" path="res://Scenes/UI/warning_icon_container.tscn" id="3_b2hoh"]
-[ext_resource type="Texture2D" uid="uid://botjnwh6hkfh7" path="res://TempAssets/pirate game temp clock.png" id="3_ch3em"]
+[ext_resource type="Texture2D" uid="uid://duiwgmua1kxkr" path="res://Art/UI/Clockwatch_No_Hand.png" id="3_mnjlg"]
+[ext_resource type="Texture2D" uid="uid://cagpmacdipuvq" path="res://Art/UI/Clockwatch_Hand.png" id="4_mnjlg"]
 [ext_resource type="AudioStream" uid="uid://sxm7xyk8c13j" path="res://Assets/Audio/Clock Tick-001.ogg" id="5_mnjlg"]
 [ext_resource type="AudioStream" uid="uid://dkvb4gkiftvwc" path="res://Assets/Audio/Clock Tick-002.ogg" id="6_t0c6f"]
 [ext_resource type="AudioStream" uid="uid://d3p7marirkl3" path="res://Assets/Audio/Clock Tick-003.ogg" id="7_ei2ab"]
@@ -16,8 +16,8 @@
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Gradient" id="Gradient_mnjlg"]
-offsets = PackedFloat32Array(0.6926407, 0.7619048)
-colors = PackedColorArray(1, 0, 0, 0.39215687, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0.3030303, 0.47186148, 0.53246754)
+colors = PackedColorArray(1, 0, 0, 0.11372549, 1, 0, 0, 0.39215687, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4dirt"]
 gradient = SubResource("Gradient_mnjlg")
@@ -63,11 +63,11 @@ offset_bottom = 1080.0
 theme = ExtResource("1_rad5t")
 
 [node name="Timer_Container" type="PanelContainer" parent="MarginContainer" unique_id=309307705 node_paths=PackedStringArray("clock_hand", "clock_progress_shader")]
+propagate_maximum_size = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 offset_transform_enabled = true
-offset_transform_scale = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_uirjc")
 script = ExtResource("2_ch3em")
 final_rotation = 360.0
@@ -81,23 +81,13 @@ z_index = -2
 z_as_relative = false
 custom_minimum_size = Vector2(750, 750)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 offset_transform_enabled = true
-offset_transform_position = Vector2(-400, -400)
-texture = ExtResource("3_ch3em")
+offset_transform_position = Vector2(-250, -225)
+offset_transform_scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_mnjlg")
 stretch_mode = 4
-
-[node name="ClockHand" type="TextureRect" parent="MarginContainer/Timer_Container/Background" unique_id=161325825]
-z_as_relative = false
-custom_maximum_size = Vector2(82, 550)
-layout_mode = 0
-offset_left = 345.0
-offset_top = 29.0
-offset_right = 427.0
-offset_bottom = 579.0
-scale = Vector2(0.645, 0.645)
-offset_transform_enabled = true
-offset_transform_pivot = Vector2(0, 200)
-texture = ExtResource("2_h3s1k")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/Timer_Container/Background" unique_id=252812748]
 z_index = -1
@@ -105,14 +95,27 @@ z_as_relative = false
 custom_minimum_size = Vector2(300, 300)
 custom_maximum_size = Vector2(300, 300)
 layout_mode = 0
-offset_left = 87.0
-offset_top = 49.0
-offset_right = 387.0
-offset_bottom = 349.0
-scale = Vector2(0.71, 0.71)
+offset_left = 115.0
+offset_top = 110.0
+offset_right = 415.0
+offset_bottom = 410.0
+scale = Vector2(0.65, 0.65)
 step = 0.001
 fill_mode = 4
 texture_progress = SubResource("GradientTexture2D_4dirt")
+
+[node name="ClockHand" type="TextureRect" parent="MarginContainer/Timer_Container/Background" unique_id=161325825]
+z_as_relative = false
+layout_mode = 0
+offset_left = 250.0
+offset_top = 230.0
+offset_right = 1000.0
+offset_bottom = 980.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-250, -230)
+texture = ExtResource("4_mnjlg")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="SFX_ClockTick" type="AudioStreamPlayer" parent="MarginContainer/Timer_Container" unique_id=1002985017]
 stream = SubResource("AudioStreamRandomizer_emsw4")
@@ -121,7 +124,11 @@ volume_db = -21.211
 [node name="SFX_TimeRunningOut" type="AudioStreamPlayer" parent="MarginContainer/Timer_Container" unique_id=696639998]
 
 [node name="TextBox" parent="MarginContainer" unique_id=1858019659 instance=ExtResource("2_rad5t")]
+visible = false
 layout_mode = 2
+
+[node name="UI_Bark_Textbox" parent="MarginContainer/TextBox" index="0" unique_id=535929687]
+visible = false
 
 [node name="Warning_Icon_Container" parent="MarginContainer" unique_id=48865670 instance=ExtResource("3_b2hoh")]
 layout_mode = 2
