@@ -2,7 +2,7 @@ extends CharacterBody3D
 class_name Player
 
 @export var SPEED = 0.5
-@export var SENSITIVITY = 0.005
+@export var SENSITIVITY = 0.0005
 
 # @onready var main_node = $"../Environment"
 @onready var head = $Head
