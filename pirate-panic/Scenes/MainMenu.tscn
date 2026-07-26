@@ -49,9 +49,9 @@ script = ExtResource("1_tt5f1")
 
 [node name="Game Logo" type="TextureRect" parent="." unique_id=1428447333]
 layout_mode = 0
-offset_left = 132.0
+offset_left = 84.0
 offset_top = 52.0
-offset_right = 896.0
+offset_right = 848.0
 offset_bottom = 562.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_8um5k")
@@ -66,9 +66,9 @@ offset_transform_enabled = true
 
 [node name="Start Game" type="Button" parent="Main Menu Page" unique_id=2116269482]
 layout_mode = 0
-offset_top = -288.0
+offset_top = -289.0
 offset_right = 512.0
-offset_bottom = -160.0
+offset_bottom = -161.0
 theme_override_fonts/font = ExtResource("2_853f1")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxTexture_if7li")
@@ -78,9 +78,9 @@ text = "START GAME"
 
 [node name="Credits" type="Button" parent="Main Menu Page" unique_id=1437764524]
 layout_mode = 0
-offset_top = -122.0
+offset_top = -123.0
 offset_right = 512.0
-offset_bottom = 6.0
+offset_bottom = 5.0
 theme_override_fonts/font = ExtResource("2_853f1")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxTexture_if7li")
