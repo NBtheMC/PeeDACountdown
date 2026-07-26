@@ -152,9 +152,12 @@ light_color = Color(0.4152844, 0.40308145, 0.3373677, 1)
 [node name="SpotLight3D" type="SpotLight3D" parent="Environment" unique_id=1022709639]
 transform = Transform3D(1, 0, 0, 0, 0.4034509, 0.91500133, 0, -0.91500133, 0.4034509, 0.23344496, 0.8800632, 2.1254497)
 light_color = Color(0.8055289, 0.7514873, 0.6066799, 1)
+light_energy = 2.0
 shadow_enabled = true
+shadow_blur = 4.32
+spot_range = 10.0
 spot_attenuation = -0.22
-spot_angle = 51.59
+spot_angle = 60.0
 spot_angle_attenuation = 0.8408963
 
 [node name="PostProcessPlane" type="MeshInstance3D" parent="Environment" unique_id=900379967]
