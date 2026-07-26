@@ -27,6 +27,7 @@ SPEED = 1.0
 
 [node name="MeshInstance3D" parent="Player" index="0" unique_id=461900358]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1188965, 0)
+cast_shadow = 0
 
 [node name="Hand" parent="Player/Head/Camera3D" parent_id_path=PackedInt32Array(180760236, 880816880) index="1" unique_id=2013009740]
 transform = Transform3D(0.9997239, -0.023497758, 0, 0.023497758, 0.9997239, 0, 0, 0, 1, -0.575861, -0.24759655, -0.56743586)
