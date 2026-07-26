@@ -347,6 +347,7 @@ offset_left = 477.0
 offset_top = 281.0
 offset_right = 1559.0
 offset_bottom = 336.0
+focus_mode = 0
 theme = ExtResource("27_bbd8u")
 bbcode_enabled = true
 text = "[color=#bbbbbb][font_size=50][b]ROW[/b][/font_size] for your [font_size=50][color=#ff3333][b]LIFE[/b][/color][/font_size][/color]"
