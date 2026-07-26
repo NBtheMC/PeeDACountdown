@@ -27,6 +27,7 @@
 [ext_resource type="Material" uid="uid://c3vn8t5vau6wl" path="res://Art/Shaders/oars.tres" id="22_bbd8u"]
 [ext_resource type="Texture2D" uid="uid://bktddt1y7klu1" path="res://Art/Textures/LightGlare_01.png" id="23_6e77c"]
 [ext_resource type="Script" uid="uid://du7fshcyc2dmn" path="res://Scenes/monster/monster.gd" id="24_1scuh"]
+[ext_resource type="Theme" uid="uid://bcya1rsak86it" path="res://Scenes/UI/UI_theme.tres" id="27_bbd8u"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ldmme"]
 
@@ -299,8 +300,31 @@ death_text = "You starved..."
 death_condition = "You died!"
 death_text = "You went crazy!"
 
+[node name="ReticleHorizontal" parent="UI/UI_Main/MarginContainer/Reticle" parent_id_path=PackedInt32Array(54619041, 776437626, 1996595663) index="0" unique_id=267156225]
+visible = false
+
+[node name="ReticleVertical" parent="UI/UI_Main/MarginContainer/Reticle" parent_id_path=PackedInt32Array(54619041, 776437626, 1996595663) index="1" unique_id=407970851]
+visible = false
+
 [node name="Cursor" parent="UI/UI_Main/MarginContainer" parent_id_path=PackedInt32Array(54619041, 776437626, 2044965301) index="4" unique_id=1693252210]
 position = Vector2(999, 529)
+
+[node name="UI_InstructionTextbox" type="Control" parent="UI" unique_id=2008580529]
+anchors_preset = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -200)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/UI_InstructionTextbox" unique_id=1181902561]
+layout_mode = 0
+offset_left = 477.0
+offset_top = 281.0
+offset_right = 1559.0
+offset_bottom = 336.0
+theme = ExtResource("27_bbd8u")
+bbcode_enabled = true
+text = "[color=#bbbbbb][font_size=50][b]ROW[/b][/font_size] for your [font_size=50][color=#ff3333][b]LIFE[/b][/color][/font_size][/color]"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Monster" parent="." unique_id=1095326937 instance=ExtResource("18_3mmx0")]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0.19705439, -2.178043, 26.310383)
