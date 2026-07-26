@@ -325,11 +325,11 @@ visible = false
 visible = false
 
 [node name="InteractTooltip" parent="UI/UI_Main/MarginContainer/Reticle" parent_id_path=PackedInt32Array(54619041, 776437626, 1996595663) index="2" unique_id=1261964841]
+visible = false
 bbcode_enabled = true
 text = "[color=#bbbbbb]E"
 
 [node name="DropTooltip" parent="UI/UI_Main/MarginContainer/Reticle" parent_id_path=PackedInt32Array(54619041, 776437626, 1996595663) index="3" unique_id=112383082]
-visible = true
 text = "[color=#bbbbbb]q to drop"
 autowrap_mode = 0
 
@@ -350,6 +350,7 @@ offset_bottom = 336.0
 theme = ExtResource("27_bbd8u")
 bbcode_enabled = true
 text = "[color=#bbbbbb][font_size=50][b]ROW[/b][/font_size] for your [font_size=50][color=#ff3333][b]LIFE[/b][/color][/font_size][/color]"
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
