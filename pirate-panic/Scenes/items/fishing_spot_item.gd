@@ -13,9 +13,9 @@ var is_active_fishing_spot: bool = false
 @export var minigame_time: float = 2.0
 
 @onready var audio_player: AudioStreamPlayer
-@export var fish_sound: AudioStream
+@export var fish_sound: AudioStreamPlayer3D
 var is_fish_biting = false
-@export var catch_sound: AudioStream
+@export var catch_sound: AudioStreamPlayer
 
 @export var player : Player
 
@@ -84,9 +84,8 @@ func start_fishing() -> void:
 	await get_tree().create_timer(random_time).timeout
 
 	minigame_timer.wait_time = minigame_time
-	audio_player.stream = fish_sound
 	is_fish_biting = true
-	audio_player.play()
+	fish_sound.play()
 	minigame_timer.start()
 	pass
 
@@ -106,8 +105,7 @@ func _on_interactable_unshow_text(interactor: Node) -> void:
 func success_fishing() -> void:
 	minigame_timer.stop()
 	print("SUCCESS: Caught fish")
-	audio_player.stream = catch_sound
-	audio_player.play()
+	catch_sound.play()
 	is_fish_biting = false
 
 func fail_fishing() -> void:

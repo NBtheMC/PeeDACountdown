@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c4in6nsw7cjxr"]
+[gd_scene format=3 uid="uid://qsygvpm5vesf"]
 
 [ext_resource type="Script" uid="uid://bqpeleo7kkogg" path="res://Scenes/items/fishing_rod_item.gd" id="1_lyd5f"]
 [ext_resource type="AudioStream" uid="uid://cii5eytswjtrc" path="res://Assets/Audio/Cast Fishing Rod.ogg" id="2_bmjrk"]
@@ -12,14 +12,18 @@ metadata/__load_path__ = "res://Art/Materials/fishing_line_material.tres"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dstl4"]
 
-[node name="FishingRod" type="StaticBody3D" unique_id=892319930 node_paths=PackedStringArray("pole_tip", "fishing_pole_hook")]
+[node name="FishingRod" type="StaticBody3D" unique_id=892319930 node_paths=PackedStringArray("pole_tip", "fishing_pole_hook", "cast_sound")]
 collision_layer = 2
 script = ExtResource("1_lyd5f")
 pole_tip = NodePath("FishingPoleHook/PoleTip")
 fishing_pole_hook = NodePath("FishingPoleHook/FishingPole_Hook")
 line_material = SubResource("Resource_xysg7")
-cast_sound = ExtResource("2_bmjrk")
+cast_sound = NodePath("SFX_CastRod")
 item_name = "fishing_rod"
+
+[node name="SFX_CastRod" type="AudioStreamPlayer" parent="." unique_id=438294166]
+stream = ExtResource("2_bmjrk")
+bus = &"SFX"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=744478198]
 transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0.05958128, 0, 0.0015544891)
