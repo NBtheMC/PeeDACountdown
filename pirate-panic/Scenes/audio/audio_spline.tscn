@@ -26,6 +26,7 @@ volume_db = -24.87
 unit_size = 20.0
 autoplay = true
 max_distance = 10.0
+bus = &"SFX"
 parameters/looping = true
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="PathFollow3D/Waves_Close" unique_id=840150725]

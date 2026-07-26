@@ -14,12 +14,14 @@ stream = ExtResource("1_qusfv")
 volume_db = -5.0
 autoplay = true
 attenuation = 1e-05
+bus = &"Music"
 
 [node name="Music-PsycheLayer" type="AudioStreamPlayer2D" parent="." unique_id=528667950]
 stream = ExtResource("2_uj3dp")
 volume_db = -80.0
 autoplay = true
 attenuation = 1e-05
+bus = &"Music"
 script = ExtResource("4_cdlv1")
 fadeInSpeed = 3.0
 fadeOutSpeed = 4.0
@@ -27,4 +29,5 @@ fadeOutSpeed = 4.0
 [node name="Music-VinylLayer" type="AudioStreamPlayer2D" parent="." unique_id=443544554]
 stream = ExtResource("3_uj3dp")
 autoplay = true
+bus = &"Music"
 parameters/looping = true
