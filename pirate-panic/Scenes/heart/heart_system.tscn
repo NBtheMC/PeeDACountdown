@@ -10,19 +10,19 @@ REPAIR_COUNT = 1
 [node name="Timer" type="Timer" parent="." unique_id=718340071]
 
 [node name="HeartSpot" parent="." unique_id=810583223 instance=ExtResource("2_otey4")]
-transform = Transform3D(0.5, 0, 0, 0, 0.35394207, 0.3531643, 0, -0.3531643, 0.35394207, 0.16808462, 0.13897851, -0.15959793)
+transform = Transform3D(0.5, 0, 0, 0, 0.35394207, 0.3531643, 0, -0.3531643, 0.35394207, 0.16808462, 0.14962417, -0.14683415)
 
 [node name="HeartSpot2" parent="." unique_id=145599421 instance=ExtResource("2_otey4")]
-transform = Transform3D(0.5, 0, 0, 0, 0.46256465, 0.1898261, 0, -0.1898261, 0.46256465, 0.16078031, 0.1825896, 1.2639964)
+transform = Transform3D(0.5, 0, 0, 0, 0.46256465, 0.1898261, 0, -0.1898261, 0.46256465, 0.16078031, 0.19303651, 1.2741386)
 
 [node name="HeartSpot3" parent="." unique_id=1201112614 instance=ExtResource("2_otey4")]
-transform = Transform3D(0.10634424, 0.33951917, 0.35130847, -0.47714207, 0.1494505, 0, -0.10500645, -0.33524808, 0.35578415, 0.72045344, 0.17717986, 1.5083376)
+transform = Transform3D(0.10634424, 0.33951917, 0.35130847, -0.47714207, 0.1494505, 0, -0.10500645, -0.33524808, 0.35578415, 0.7081238, 0.18588983, 1.5083376)
 
 [node name="HeartSpot4" parent="." unique_id=239795194 instance=ExtResource("2_otey4")]
-transform = Transform3D(0.40808758, 0.28890228, 0, -0.28890228, 0.40808758, 0, 0, 0, 0.5, 0.123744264, 0.28690296, 2.4826598)
+transform = Transform3D(0.40808758, 0.28890228, 0, -0.28890228, 0.40808758, 0, 0, 0, 0.5, 0.113195345, 0.30699143, 2.4826598)
 
 [node name="HeartSpot5" parent="." unique_id=68488773 instance=ExtResource("2_otey4")]
-transform = Transform3D(0.5, 0, 0, 0, 0.45699355, -0.20287164, 0, 0.20287164, 0.45699355, 0.3436867, 0.16009524, 0.98236144)
+transform = Transform3D(0.5, 0, 0, 0, 0.45699355, -0.20287164, 0, 0.20287164, 0.45699355, 0.3436867, 0.16920616, 0.95246184)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="leak_repair" from="HeartSpot" to="." method="_on_leak_spot_leak_repair"]

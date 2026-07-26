@@ -28,7 +28,7 @@ volume_db = -15.053
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=488407218]
 stream = ExtResource("2_j13rd")
-volume_db = -16.842
+volume_db = -23.158
 attenuation_filter_db = -8.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1507162949]
