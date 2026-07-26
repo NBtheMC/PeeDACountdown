@@ -26,6 +26,7 @@
 [ext_resource type="Material" uid="uid://ckrbcednt11gy" path="res://Art/Shaders/boat_prow.tres" id="22_6e77c"]
 [ext_resource type="Material" uid="uid://c3vn8t5vau6wl" path="res://Art/Shaders/oars.tres" id="22_bbd8u"]
 [ext_resource type="Script" uid="uid://du7fshcyc2dmn" path="res://Scenes/monster/monster.gd" id="24_1scuh"]
+[ext_resource type="Texture2D" uid="uid://bktddt1y7klu1" path="res://Art/Textures/LightGlare_01.png" id="24_bbd8u"]
 [ext_resource type="Script" uid="uid://bc3auk67i4w7v" path="res://Scenes/endgame_handler.gd" id="25_ihkmo"]
 [ext_resource type="PackedScene" uid="uid://b6ywl0s35tqs3" path="res://Scenes/Ending.tscn" id="26_0lvn8"]
 [ext_resource type="Script" uid="uid://b403rcrnxwfor" path="res://Scenes/UI/black_fade.gd" id="27_1scuh"]
@@ -195,6 +196,12 @@ countdown_reference = NodePath("../../UI/CountdownHandler/TimerUI/PsycheHandler"
 [node name="HeartSpot" parent="Environment/HeartSystem" index="1" unique_id=810583223]
 transform = Transform3D(0.5, 0, 0, 0, 0.35394207, 0.3531643, 0, -0.3531643, 0.35394207, 0.34645778, 0.14962417, -0.14683415)
 
+[node name="HeartSpot3" parent="Environment/HeartSystem" index="3" unique_id=1201112614]
+transform = Transform3D(-0.276382, 0.10158968, -0.40409467, -0.38898018, 0.110910356, 0.29392734, 0.14935651, 0.47684214, 0.017725557, 0.7081238, 0.18588983, 1.5083376)
+
+[node name="HeartSpot5" parent="Environment/HeartSystem" index="5" unique_id=68488773]
+transform = Transform3D(-0.46777248, -0.07165581, -0.16141361, -0.10368508, 0.48137105, 0.086783215, 0.14296263, 0.11466196, -0.46520352, 0.3436867, 0.16920616, 0.95246184)
+
 [node name="RowingObject" parent="Environment" unique_id=1267491984 node_paths=PackedStringArray("rowing_text", "oar_animation_player", "world_objects") instance=ExtResource("6_3puld")]
 transform = Transform3D(0.78058046, 0, 0, 0, 1, 0, 0, 0, 1, -0.34215546, 0.36353314, 1.1244775)
 rowing_text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
@@ -272,6 +279,15 @@ surface_material_override/0 = ExtResource("22_bbd8u")
 [node name="Oars" parent="Environment" unique_id=998845485 instance=ExtResource("8_ppi7r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.2833525, 1.10298)
 visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="Environment" unique_id=1228931251]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.25171167, 1.0088221, 2.134068)
+transparency = 0.4
+cast_shadow = 0
+lod_bias = 0.001
+billboard = 1
+alpha_cut = 2
+texture = ExtResource("24_bbd8u")
 
 [node name="UI" parent="." unique_id=54619041 instance=ExtResource("20_vid44")]
 
