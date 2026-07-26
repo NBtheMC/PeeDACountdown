@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c6s81be7w6mjq" path="res://Scenes/audio/ingame_music.tscn" id="1_4j1fj"]
 [ext_resource type="PackedScene" uid="uid://dxue7rjdqqnho" path="res://Scenes/player/player.tscn" id="1_6rik4"]
 [ext_resource type="AudioStream" uid="uid://dx1glh7vl4yjt" path="res://Assets/Audio/31574__walter_odington__ship_creak.ogg" id="3_3puld"]
+[ext_resource type="Texture2D" uid="uid://lq8und5vdndf" path="res://Art/Textures/lighthouse_night_overlay.png" id="4_bbd8u"]
 [ext_resource type="PackedScene" uid="uid://dwmhyk12txjql" path="res://Art/PirateShip_V1_0.fbx" id="5_pmtd4"]
 [ext_resource type="PackedScene" uid="uid://dl2vwih1ckeu1" path="res://Scenes/items/rowing_object.tscn" id="6_3puld"]
 [ext_resource type="Shader" uid="uid://bkydm4h6o6hyo" path="res://Art/Shaders/WaterSurface.tres" id="6_lv5r4"]
@@ -126,8 +127,13 @@ shape = SubResource("CylinderShape3D_ldmme")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WorldObjects/Lighthouse/StaticBody3D" unique_id=394796682]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_7f8lw")
 surface_material_override/0 = SubResource("StandardMaterial3D_pmtd4")
+
+[node name="Sprite3D" type="Sprite3D" parent="WorldObjects/Lighthouse" unique_id=1558775439]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0.2000201, 0)
+texture = ExtResource("4_bbd8u")
 
 [node name="Ocean" type="MeshInstance3D" parent="WorldObjects" unique_id=1117270177]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.0053493977, -0.003973484, 0.007687688)
