@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://doe6sn26ingvw" path="res://Scenes/UI/ui.tscn" id="20_vid44"]
 [ext_resource type="Material" uid="uid://dr6nhx47opvvk" path="res://Art/Shaders/boat_oarlocks.tres" id="21_jkfk2"]
 [ext_resource type="Material" uid="uid://ckrbcednt11gy" path="res://Art/Shaders/boat_prow.tres" id="22_6e77c"]
+[ext_resource type="Script" uid="uid://bc3auk67i4w7v" path="res://Scenes/endgame_handler.gd" id="25_ihkmo"]
 
 [sub_resource type="Environment" id="Environment_66mwo"]
 background_mode = 1
@@ -229,6 +230,9 @@ shape = SubResource("ConcavePolygonShape3D_scxk2")
 
 [node name="UI" parent="." unique_id=54619041 instance=ExtResource("20_vid44")]
 
+[node name="Cursor" parent="UI/UI_Main/MarginContainer" parent_id_path=PackedInt32Array(54619041, 776437626, 2044965301) index="4" unique_id=1693252210]
+position = Vector2(999, 529)
+
 [node name="Monster" parent="." unique_id=1095326937 instance=ExtResource("18_3mmx0")]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0.19705439, 0.128883, 9.720951)
 
@@ -239,12 +243,21 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.58000904, 0.32063323, 2.301
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.4283984, 0.32010603, 2.251457)
 visible = false
 
+[node name="EndgameHandler" type="Node" parent="." unique_id=1581665583]
+script = ExtResource("25_ihkmo")
+
+[connection signal="leak_max" from="Environment/LeakSystem" to="EndgameHandler" method="_on_leak_system_leak_max"]
+[connection signal="leak_repair" from="Environment/LeakSystem/LeakSpot3" to="Environment/LeakSystem" method="_on_leak_spot_leak_repair" binds= [2]]
+[connection signal="leak_repair" from="Environment/LeakSystem/LeakSpot4" to="Environment/LeakSystem" method="_on_leak_spot_leak_repair" binds= [3]]
 [connection signal="countdown_fatal" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [2]]
 [connection signal="countdown_low" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [1]]
 [connection signal="countdown_nominal" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [0]]
+[connection signal="countdown_zero" from="UI/CountdownHandler/TimerUI/HungerHandler" to="EndgameHandler" method="_on_hunger_handler_countdown_zero"]
 [connection signal="countdown_fatal" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="Ingame Music" method="set_psyche_status" binds= [2]]
 [connection signal="countdown_low" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="Ingame Music" method="set_psyche_status" binds= [1]]
 [connection signal="countdown_nominal" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="Ingame Music" method="set_psyche_status" binds= [0]]
+[connection signal="countdown_zero" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="EndgameHandler" method="_on_psyche_handler_countdown_zero"]
+[connection signal="countdown_finished" from="UI/CountdownHandler/TimerUI/MainTimer" to="EndgameHandler" method="_on_main_timer_countdown_finished"]
 
 [editable path="Player"]
 [editable path="Environment/LeakSystem"]

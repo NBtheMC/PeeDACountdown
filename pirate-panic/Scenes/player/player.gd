@@ -22,7 +22,7 @@ var isLockedRotation: bool = false
 @export var sfx_item_pickup : AudioStreamPlayer
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	currentViewedInteractable = null
 	
 func _input(event: InputEvent) -> void:
