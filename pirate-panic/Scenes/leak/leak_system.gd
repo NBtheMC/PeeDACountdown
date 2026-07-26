@@ -22,11 +22,18 @@ var max_leaks: int # equal to leaks.size()
 var leak_meter: float
 var boat_sank: bool = false
 @onready var timer: Timer = $Timer
+
+@export var boat : Node3D
+@export var original_boat_offset : float
+@export var final_boat_offset : float = -0.4
 	
 # gets emitted when leak_meter = 100
 signal leak_max
 	
 func _ready() -> void:
+	original_boat_offset = boat.position.y
+	print(original_boat_offset)
+	
 	for n in get_children():
 		if (n is LeakSpot):
 			var new_leak_spot = Leak.new()
@@ -46,6 +53,9 @@ func _process(delta: float) -> void:
 	if (boat_sank):
 		return
 	leak_meter += (LEAK_SPEED * active_leaks * delta)
+	# translate boat as it sinks
+	if (leak_meter != 0):
+		boat.position.y = lerpf(original_boat_offset, final_boat_offset, leak_meter / 100)
 	if (leak_meter >= 100):
 		print("Too manmy leaks! The boat has sank!")
 		boat_sank = true
