@@ -10,6 +10,7 @@ var target_message: String = ""
 
 func _ready() -> void:
 	# 3. Safely update your UI elements now that they are ready in the tree!
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	ending_header.text = target_condition
 	text_label.text = target_message
 	$"Replay".pressed.connect(retry_game)

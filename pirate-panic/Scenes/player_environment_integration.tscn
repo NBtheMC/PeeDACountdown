@@ -143,13 +143,13 @@ transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.0053493977, -0.003973484
 mesh = SubResource("PlaneMesh_st70h")
 surface_material_override/0 = SubResource("ShaderMaterial_7522t")
 
-[node name="FishingSpot" parent="WorldObjects" unique_id=2077910226 node_paths=PackedStringArray("player", "text") instance=ExtResource("13_dstl4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47486138, 0, 0)
-player = NodePath("../../Player")
-text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
-
 [node name="Environment" type="Node3D" parent="." unique_id=342448898]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.009601593, -0.24659896, 0.04549694)
+
+[node name="FishingSpot" parent="Environment" unique_id=2077910226 node_paths=PackedStringArray("player", "text") instance=ExtResource("13_dstl4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47486138, 0.16534759, 0)
+player = NodePath("../../Player")
+text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=264558032]
 environment = SubResource("Environment_66mwo")
@@ -181,6 +181,7 @@ boat = NodePath("..")
 screen_text = NodePath("../../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 
 [node name="LeakSpot2" parent="Environment/LeakSystem" index="2" unique_id=1014307901 node_paths=PackedStringArray("screen_text")]
+transform = Transform3D(0.5, 0, 0, 0, 0.49999997, -4.656613e-10, 0, 4.656613e-10, 0.49999997, 0.35588145, 0.08479935, 0.1230521)
 screen_text = NodePath("../../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 
 [node name="LeakSpot3" parent="Environment/LeakSystem" index="3" unique_id=1946699106 node_paths=PackedStringArray("screen_text")]
@@ -189,7 +190,8 @@ screen_text = NodePath("../../../UI/UI_Main/MarginContainer/Reticle/InteractTool
 [node name="LeakSpot4" parent="Environment/LeakSystem" index="4" unique_id=1377250199 node_paths=PackedStringArray("screen_text")]
 screen_text = NodePath("../../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 
-[node name="HeartSystem" parent="Environment" unique_id=1764984908 instance=ExtResource("8_dstl4")]
+[node name="HeartSystem" parent="Environment" unique_id=1764984908 node_paths=PackedStringArray("countdown_reference") instance=ExtResource("8_dstl4")]
+countdown_reference = NodePath("../../UI/CountdownHandler/TimerUI/PsycheHandler")
 
 [node name="RowingObject" parent="Environment" unique_id=1267491984 node_paths=PackedStringArray("rowing_text", "oar_animation_player", "world_objects") instance=ExtResource("6_3puld")]
 transform = Transform3D(0.78058046, 0, 0, 0, 1, 0, 0, 0, 1, -0.34215546, 0.36353314, 1.1244775)
@@ -286,6 +288,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_jkfk2")
 script = ExtResource("27_1scuh")
 
 [connection signal="area_entered" from="WorldObjects/Lighthouse/StaticBody3D" to="EndgameHandler" method="_on_lighthouse_reached"]
+[connection signal="fish_caught" from="Environment/FishingSpot" to="UI/CountdownHandler/TimerUI/HungerHandler" method="increase_countdown"]
 [connection signal="leak_max" from="Environment/LeakSystem" to="EndgameHandler" method="_on_leak_system_leak_max"]
 [connection signal="countdown_fatal" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [2]]
 [connection signal="countdown_low" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [1]]

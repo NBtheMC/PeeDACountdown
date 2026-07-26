@@ -16,6 +16,8 @@ var is_active_fishing_spot: bool = false
 @export var fish_sound: AudioStreamPlayer3D
 var is_fish_biting = false
 @export var catch_sound: AudioStreamPlayer
+@export var fish_value : float = 50
+signal fish_caught(value : float)
 
 @export var player : Player
 
@@ -117,6 +119,7 @@ func success_fishing() -> void:
 		player.get_held_item().reel_in()
 	catch_sound.play()
 	is_fish_biting = false
+	fish_caught.emit(fish_value)
 
 func fail_fishing() -> void:
 	minigame_timer.stop()
