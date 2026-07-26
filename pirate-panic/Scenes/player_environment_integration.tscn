@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://c6s81be7w6mjq" path="res://Scenes/audio/ingame_music.tscn" id="1_4j1fj"]
 [ext_resource type="PackedScene" uid="uid://dxue7rjdqqnho" path="res://Scenes/player/player.tscn" id="1_6rik4"]
-[ext_resource type="AudioStream" uid="uid://ckb0wmirwaw3a" path="res://Assets/Audio/731164__nammedit__seagulls_fighting_for_food.ogg" id="2_qw3yb"]
 [ext_resource type="AudioStream" uid="uid://dx1glh7vl4yjt" path="res://Assets/Audio/31574__walter_odington__ship_creak.ogg" id="3_3puld"]
 [ext_resource type="PackedScene" uid="uid://h5bj62d3ytjc" path="res://Scenes/audio/audio_spline.tscn" id="4_rb7gu"]
 [ext_resource type="PackedScene" uid="uid://dwmhyk12txjql" path="res://Art/PirateShip_V1_0.fbx" id="5_pmtd4"]
@@ -24,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://doe6sn26ingvw" path="res://Scenes/UI/ui.tscn" id="20_vid44"]
 [ext_resource type="Material" uid="uid://dr6nhx47opvvk" path="res://Art/Shaders/boat_oarlocks.tres" id="21_jkfk2"]
 [ext_resource type="Material" uid="uid://ckrbcednt11gy" path="res://Art/Shaders/boat_prow.tres" id="22_6e77c"]
+[ext_resource type="Script" uid="uid://du7fshcyc2dmn" path="res://Scenes/monster/monster.gd" id="24_1scuh"]
 [ext_resource type="Script" uid="uid://bc3auk67i4w7v" path="res://Scenes/endgame_handler.gd" id="25_ihkmo"]
 [ext_resource type="PackedScene" uid="uid://b6ywl0s35tqs3" path="res://Scenes/Ending.tscn" id="26_0lvn8"]
 [ext_resource type="Script" uid="uid://b403rcrnxwfor" path="res://Scenes/UI/black_fade.gd" id="27_1scuh"]
@@ -103,18 +103,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1591282, 0)
 [node name="Hand" parent="Player/Head/Camera3D" parent_id_path=PackedInt32Array(180760236, 880816880) index="1" unique_id=2013009740]
 transform = Transform3D(0.9997239, -0.023497758, 0, 0.023497758, 0.9997239, 0, 0, 0, 1, -0.575861, -0.24759655, -0.56743586)
 
-[node name="AmbientSeagulls" type="AudioStreamPlayer3D" parent="Player" unique_id=103034582]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2502519, 0)
-stream = ExtResource("2_qw3yb")
-volume_db = -22.105
-pitch_scale = 0.84
-autoplay = true
-
 [node name="AmbientOcean" type="AudioStreamPlayer3D" parent="Player" unique_id=1842469470]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5005038, 0)
 stream = ExtResource("3_3puld")
 volume_db = -23.158
 autoplay = true
+bus = &"SFX"
 
 [node name="Audio_Waves_Spline" parent="." unique_id=2022735341 node_paths=PackedStringArray("player") instance=ExtResource("4_rb7gu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17923355, 1, 1.3908057)
@@ -193,6 +187,9 @@ screen_text = NodePath("../../../UI/UI_Main/MarginContainer/Reticle/InteractTool
 [node name="HeartSystem" parent="Environment" unique_id=1764984908 node_paths=PackedStringArray("countdown_reference") instance=ExtResource("8_dstl4")]
 countdown_reference = NodePath("../../UI/CountdownHandler/TimerUI/PsycheHandler")
 
+[node name="HeartSpot" parent="Environment/HeartSystem" index="1" unique_id=810583223]
+transform = Transform3D(0.5, 0, 0, 0, 0.35394207, 0.3531643, 0, -0.3531643, 0.35394207, 0.34645778, 0.14962417, -0.14683415)
+
 [node name="RowingObject" parent="Environment" unique_id=1267491984 node_paths=PackedStringArray("rowing_text", "oar_animation_player", "world_objects") instance=ExtResource("6_3puld")]
 transform = Transform3D(0.78058046, 0, 0, 0, 1, 0, 0, 0, 1, -0.34215546, 0.36353314, 1.1244775)
 rowing_text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
@@ -268,7 +265,11 @@ visible = false
 position = Vector2(999, 529)
 
 [node name="Monster" parent="." unique_id=1095326937 instance=ExtResource("18_3mmx0")]
-transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0.19705439, 0.128883, 9.720951)
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0.19705439, -2.178043, 26.310383)
+script = ExtResource("24_1scuh")
+start_position = Vector3(0.197, -2.178, 26.31)
+end_position = Vector3(0.197, 1.097, 6.701)
+time_limit = 120.0
 
 [node name="EndgameHandler" type="Node" parent="." unique_id=1581665583]
 script = ExtResource("25_ihkmo")
@@ -292,16 +293,19 @@ script = ExtResource("27_1scuh")
 [connection signal="leak_max" from="Environment/LeakSystem" to="EndgameHandler" method="_on_leak_system_leak_max"]
 [connection signal="countdown_fatal" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [2]]
 [connection signal="countdown_low" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [1]]
+[connection signal="countdown_nominal" from="UI/CountdownHandler/TimerUI/HungerHandler" to="UI/UI_Main/MarginContainer/Warning_Icon_Container/Hunger_Warning_Icon" method="stop_fatal_warning"]
 [connection signal="countdown_nominal" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [0]]
 [connection signal="countdown_zero" from="UI/CountdownHandler/TimerUI/HungerHandler" to="EndgameHandler" method="_on_hunger_handler_countdown_zero"]
 [connection signal="countdown_fatal" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="Ingame Music" method="set_psyche_status" binds= [2]]
 [connection signal="countdown_low" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="Ingame Music" method="set_psyche_status" binds= [1]]
+[connection signal="countdown_nominal" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="UI/UI_Main/MarginContainer/Warning_Icon_Container/Psyche_Warning_Icon" method="stop_fatal_warning"]
 [connection signal="countdown_nominal" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="Ingame Music" method="set_psyche_status" binds= [0]]
 [connection signal="countdown_zero" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="EndgameHandler" method="_on_psyche_handler_countdown_zero"]
 [connection signal="countdown_finished" from="UI/CountdownHandler/TimerUI/MainTimer" to="EndgameHandler" method="_on_main_timer_countdown_finished"]
 
 [editable path="Player"]
 [editable path="Environment/LeakSystem"]
+[editable path="Environment/HeartSystem"]
 [editable path="Environment/RowingObject"]
 [editable path="Environment/RowingObject2"]
 [editable path="Environment/FishingRod"]
