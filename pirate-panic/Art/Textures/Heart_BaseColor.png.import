@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw0pbo5ycu0yv"
-path.s3tc="res://.godot/imported/FishingPole_BaseColor.png-cd048184d97731306d88a7799f68e8f8.s3tc.ctex"
+uid="uid://cfudspxbb6ysk"
+path.s3tc="res://.godot/imported/Heart_BaseColor.png-27ef4bd3593a8df9e75e9aac109dadde.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Art/Textures/FishingPole_BaseColor.png"
-dest_files=["res://.godot/imported/FishingPole_BaseColor.png-cd048184d97731306d88a7799f68e8f8.s3tc.ctex"]
+source_file="res://Art/Textures/Heart_BaseColor.png"
+dest_files=["res://.godot/imported/Heart_BaseColor.png-27ef4bd3593a8df9e75e9aac109dadde.s3tc.ctex"]
 
 [params]
 

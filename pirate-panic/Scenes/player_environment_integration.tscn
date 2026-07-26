@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dwmhyk12txjql" path="res://Art/PirateShip_V1_0.fbx" id="5_pmtd4"]
 [ext_resource type="PackedScene" uid="uid://dl2vwih1ckeu1" path="res://Scenes/items/rowing_object.tscn" id="6_3puld"]
 [ext_resource type="Shader" uid="uid://bkydm4h6o6hyo" path="res://Art/Shaders/WaterSurface.tres" id="6_lv5r4"]
-[ext_resource type="PackedScene" uid="uid://cpul75jnmqetr" path="res://Scenes/leak/leak_system.tscn" id="6_xysg7"]
+[ext_resource type="PackedScene" uid="uid://byj210nycfxtn" path="res://Scenes/leak/leak_system.tscn" id="6_xysg7"]
 [ext_resource type="Shader" uid="uid://dcr8wjkvk2roo" path="res://Art/Shaders/ppnodez.tres" id="7_s3gpa"]
 [ext_resource type="PackedScene" uid="uid://y6mengsuwlal" path="res://Art/oars.tscn" id="7_vid44"]
 [ext_resource type="PackedScene" uid="uid://xjj7d6yur3kj" path="res://Scenes/heart/heart_system.tscn" id="8_dstl4"]
 [ext_resource type="PackedScene" uid="uid://cchx6b282edus" path="res://Art/Oars.fbx" id="8_ppi7r"]
+[ext_resource type="Material" uid="uid://oyaac5cykbtq" path="res://Art/Shaders/fishingpole.tres" id="12_jkfk2"]
 [ext_resource type="PackedScene" uid="uid://qsygvpm5vesf" path="res://Scenes/items/fishing_rod.tscn" id="12_ne2mb"]
 [ext_resource type="PackedScene" uid="uid://bsawxlfwrqpdp" path="res://Scenes/items/fishing_spot.tscn" id="13_dstl4"]
 [ext_resource type="PackedScene" uid="uid://b47pg3djscc2m" path="res://Scenes/items/mallet.tscn" id="14_4j1fj"]
@@ -22,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://doe6sn26ingvw" path="res://Scenes/UI/ui.tscn" id="20_vid44"]
 [ext_resource type="Material" uid="uid://dr6nhx47opvvk" path="res://Art/Shaders/boat_oarlocks.tres" id="21_jkfk2"]
 [ext_resource type="Material" uid="uid://ckrbcednt11gy" path="res://Art/Shaders/boat_prow.tres" id="22_6e77c"]
+[ext_resource type="Material" uid="uid://c3vn8t5vau6wl" path="res://Art/Shaders/oars.tres" id="22_bbd8u"]
 [ext_resource type="Script" uid="uid://du7fshcyc2dmn" path="res://Scenes/monster/monster.gd" id="24_1scuh"]
 [ext_resource type="Script" uid="uid://bc3auk67i4w7v" path="res://Scenes/endgame_handler.gd" id="25_ihkmo"]
 [ext_resource type="PackedScene" uid="uid://b6ywl0s35tqs3" path="res://Scenes/Ending.tscn" id="26_0lvn8"]
@@ -212,6 +214,12 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 0.49728775, 0.86758566, 0, -0.86758566, 0.49728775, 0.035582587, 0.18252394, -0.12917425)
 text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 
+[node name="FishingPole_Hook" parent="Environment/FishingRod/FishingPoleHook" parent_id_path=PackedInt32Array(892319930, 621556733) index="0" unique_id=2046563292]
+surface_material_override/0 = ExtResource("12_jkfk2")
+
+[node name="FishingPole_Pole" parent="Environment/FishingRod/FishingPoleHook" parent_id_path=PackedInt32Array(892319930, 621556733) index="1" unique_id=1651152092]
+surface_material_override/0 = ExtResource("12_jkfk2")
+
 [node name="Mallet" parent="Environment" unique_id=532419465 node_paths=PackedStringArray("text") instance=ExtResource("14_4j1fj")]
 transform = Transform3D(-0.06600505, -0.033711746, 0.17494816, -0.00097060174, 0.1866331, 0.03559718, -0.17816396, 0.011472575, -0.06500761, -0.0725033, 0.16600525, 1.8308382)
 text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
@@ -222,22 +230,22 @@ visible = false
 [node name="PirateShip_V1_0" parent="Environment" unique_id=1316455037 instance=ExtResource("5_pmtd4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24830651, 0.16907257, 1.1120892)
 
-[node name="Bench" parent="Environment/PirateShip_V1_0" index="0" unique_id=105275112]
+[node name="Bench" parent="Environment/PirateShip_V1_0" index="0" unique_id=1711420130]
 surface_material_override/0 = ExtResource("17_scxk2")
 
-[node name="Boat2" parent="Environment/PirateShip_V1_0" index="1" unique_id=350534310]
+[node name="Boat2" parent="Environment/PirateShip_V1_0" index="1" unique_id=337393108]
 surface_material_override/0 = ExtResource("18_ihkmo")
 
-[node name="Lantern" parent="Environment/PirateShip_V1_0" index="2" unique_id=1885637836]
+[node name="Lantern" parent="Environment/PirateShip_V1_0" index="2" unique_id=1581302783]
 surface_material_override/0 = ExtResource("19_0lvn8")
 
-[node name="Lightpost" parent="Environment/PirateShip_V1_0" index="3" unique_id=932273367]
+[node name="Lightpost" parent="Environment/PirateShip_V1_0" index="3" unique_id=1862447349]
 surface_material_override/0 = ExtResource("20_1scuh")
 
-[node name="OarLocks" parent="Environment/PirateShip_V1_0" index="4" unique_id=1547671726]
+[node name="OarLocks" parent="Environment/PirateShip_V1_0" index="4" unique_id=1826406455]
 surface_material_override/0 = ExtResource("21_jkfk2")
 
-[node name="prow2" parent="Environment/PirateShip_V1_0" index="5" unique_id=1271274942]
+[node name="prow2" parent="Environment/PirateShip_V1_0" index="5" unique_id=1137565753]
 surface_material_override/0 = ExtResource("22_6e77c")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0" unique_id=509454190]
@@ -248,6 +256,9 @@ shape = SubResource("ConcavePolygonShape3D_scxk2")
 
 [node name="Oars2" parent="Environment" unique_id=884779015 instance=ExtResource("7_vid44")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29480532, 0.17864498, 1.1152465)
+
+[node name="Oars" parent="Environment/Oars2/OarArmatuiree/Skeleton3D" parent_id_path=PackedInt32Array(884779015, 1887424890) index="0" unique_id=282733552]
+surface_material_override/0 = ExtResource("22_bbd8u")
 
 [node name="Oars" parent="Environment" unique_id=998845485 instance=ExtResource("8_ppi7r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.2833525, 1.10298)
@@ -305,6 +316,7 @@ script = ExtResource("27_1scuh")
 [editable path="Environment/FishingRod"]
 [editable path="Environment/FishingRod/FishingPoleHook"]
 [editable path="Environment/Mallet"]
+[editable path="Environment/Mallet/Mallet"]
 [editable path="Environment/PirateShip_V1_0"]
 [editable path="Environment/Oars2"]
 [editable path="Environment/Oars"]
