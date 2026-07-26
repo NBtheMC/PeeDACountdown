@@ -13,9 +13,11 @@ var is_active_fishing_spot: bool = false
 @export var minigame_time: float = 2.0
 
 @onready var audio_player: AudioStreamPlayer
-@export var fish_sound: AudioStream
+@export var fish_sound: AudioStreamPlayer3D
 var is_fish_biting = false
-@export var catch_sound: AudioStream
+@export var catch_sound: AudioStreamPlayer
+@export var fish_value : float = 50
+signal fish_caught(value : float)
 
 @export var player : Player
 
@@ -42,20 +44,23 @@ func _on_interactable_interacted(interactor: Node) -> void:
 	# Early exit if the player doesn't have a rod
 	if not interactor.is_holding_fishing_rod():
 		print("You need a fishing rod to fish here!")
+		if minigame_timer:
+			fail_fishing()
 		return
 
 	print("Holding fishing rod") 
 	
 	# Safety check to make sure you aren't casting twice at the same spot 
 	if not is_active_fishing_spot: 
-		if minigame_timer and not minigame_timer.is_stopped(): 
-			# currently fishing and pressed during the timer window
-			success_fishing() 
-		else: 
-			# start fishing 
-			start_fishing_at_spot(player.get_held_item()) 
-			player.lock_rotation() 
-			player.lock_movement() 
+		# start fishing 
+		start_fishing_at_spot(player.get_held_item()) 
+		player.lock_rotation() 
+		player.lock_movement() 
+		return
+	
+	if minigame_timer and not minigame_timer.is_stopped(): 
+		# currently fishing and pressed during the timer window
+		success_fishing() 
 	else: 
 		# Pressed too early/late while already actively fishing
 		fail_fishing() 
@@ -83,22 +88,23 @@ func start_fishing() -> void:
 	# Create a one-shot timer directly in code
 	await get_tree().create_timer(random_time).timeout
 
+	if (not is_active_fishing_spot): return
+
 	minigame_timer.wait_time = minigame_time
-	audio_player.stream = fish_sound
-	is_fish_biting = true
-	audio_player.play()
 	minigame_timer.start()
+	is_fish_biting = true
+	fish_sound.play()
 	pass
 
 func _on_interactable_show_text(interactor: Node) -> void:
 	if !is_active_fishing_spot and interactor.is_holding_fishing_rod():
-		print("Showing text of " + item_name)
+		#print("Showing text of " + item_name)
 		if text != null:
 			text.visible = true
 	pass # Replace with function body.
 
 func _on_interactable_unshow_text(interactor: Node) -> void:
-	print("Unshowing text of " + item_name)
+	#print("Unshowing text of " + item_name)
 	if text != null:
 		text.visible = false
 	pass # Replace with function body.
@@ -106,15 +112,22 @@ func _on_interactable_unshow_text(interactor: Node) -> void:
 func success_fishing() -> void:
 	minigame_timer.stop()
 	print("SUCCESS: Caught fish")
-	audio_player.stream = catch_sound
-	audio_player.play()
-	is_fish_biting = false
-
-func fail_fishing() -> void:
 	clear_fishing_spot()
 	player.unlock_rotation()
 	player.unlock_movement()
-	player.get_held_item().reel_in()
+	if (player.get_held_item()):
+		player.get_held_item().reel_in()
+	catch_sound.play()
+	is_fish_biting = false
+	fish_caught.emit(fish_value)
+
+func fail_fishing() -> void:
+	minigame_timer.stop()
+	clear_fishing_spot()
+	player.unlock_rotation()
+	player.unlock_movement()
+	if (player.get_held_item()):
+		player.get_held_item().reel_in()
 	is_fish_biting = false
 	print("FAIL: Fish got away")
 	pass

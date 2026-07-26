@@ -16,12 +16,16 @@ class Leak:
 # how many times the player needs to hit interact to repair the leak
 @export var REPAIR_COUNT = 5
 
+@export var MAX_POSSIBLE_LEAKS = 1
+
 var leaks: Array[Leak]
 var active_leaks: int
 var max_leaks: int # equal to leaks.size()
 var leak_meter: float
 var boat_sank: bool = false
 @onready var timer: Timer = $Timer
+
+@export var countdown_reference : Sprite2D
 	
 # gets emitted when leak_meter = 100
 signal leak_max
@@ -37,6 +41,7 @@ func _ready() -> void:
 			leaks.insert(leaks.size(), new_leak_spot)
 	# print("Inserted %d leak spots" % leaks.size())
 	active_leaks = 0
+	countdown_reference.deactivate_countdown()
 	max_leaks = leaks.size()
 
 	timer.one_shot = true
@@ -59,7 +64,7 @@ func _start_timer():
 
 func _on_timer_timeout():
 	# print("timer timeout")
-	if (active_leaks == max_leaks):
+	if (active_leaks == max_leaks || active_leaks >= MAX_POSSIBLE_LEAKS):
 		_start_timer()
 		return
 		
@@ -80,6 +85,7 @@ func start_leak(index: int):
 	leaks[index].active = true
 	leaks[index].repair = REPAIR_COUNT
 	enable_damage_mesh(index)
+	countdown_reference.activate_countdown()
 	active_leaks+=1
 	
 func enable_damage_mesh(index: int):
@@ -101,4 +107,5 @@ func _on_leak_spot_leak_repair(index: int) -> void:
 	if (leaks[index].repair <= 0):
 		leaks[index].active = false
 		active_leaks-=1
+		countdown_reference.deactivate_countdown()
 		disable_damage_mesh(index)

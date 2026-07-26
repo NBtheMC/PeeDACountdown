@@ -22,7 +22,7 @@ var isLockedRotation: bool = false
 @export var sfx_item_pickup : AudioStreamPlayer
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	currentViewedInteractable = null
 	
 func _input(event: InputEvent) -> void:
@@ -110,6 +110,10 @@ func drop_held_item():
 		return
 	held_item.reparent(held_item.starting_parent)
 	held_item.transform = held_item.starting_transform
+	if is_holding_fishing_rod(): 
+		held_item.reel_in()
+		unlock_rotation()
+		unlock_movement()
 	held_item = null
 	# held_item.transform.origin.y = held_item.starting_y
 	sfx_item_drop.play() #sfx

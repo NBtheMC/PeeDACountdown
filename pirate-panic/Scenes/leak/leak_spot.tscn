@@ -25,10 +25,12 @@ sfx_leak_fix = NodePath("SFX_LeakFix")
 [node name="SFX_LeakFix" type="AudioStreamPlayer" parent="." unique_id=1689368890]
 stream = ExtResource("2_kqoor")
 volume_db = -15.053
+bus = &"SFX"
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=488407218]
 stream = ExtResource("2_j13rd")
-volume_db = -16.842
+volume_db = -23.158
+bus = &"SFX"
 attenuation_filter_db = -8.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1507162949]
@@ -37,11 +39,12 @@ shape = SubResource("BoxShape3D_kmt4r")
 
 [node name="Damaged" parent="." unique_id=1761617188 instance=ExtResource("2_kcako")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+visible = false
 
-[node name="DamageArea_Undamaged" parent="Damaged" index="0" unique_id=1628379374]
+[node name="DamageArea_Undamaged" parent="Damaged" index="0" unique_id=1310943195]
 surface_material_override/0 = ExtResource("3_titiu")
 
-[node name="Damage_Major" parent="Damaged" index="1" unique_id=980903822]
+[node name="Damage_Major" parent="Damaged" index="1" unique_id=1564677720]
 surface_material_override/0 = ExtResource("4_j13rd")
 
 [node name="LeakParticles" parent="Damaged" unique_id=957249723 instance=ExtResource("7_o1nvt")]
@@ -49,9 +52,8 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 
 [node name="Undamaged" parent="." unique_id=1935994453 instance=ExtResource("3_vmw6b")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-visible = false
 
-[node name="DamageArea_Undamaged" parent="Undamaged" index="0" unique_id=471738505]
+[node name="DamageArea_Undamaged" parent="Undamaged" index="0" unique_id=218967007]
 surface_material_override/0 = ExtResource("6_kqoor")
 
 [node name="Interactable" parent="." unique_id=279760389 instance=ExtResource("4_titiu")]

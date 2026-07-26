@@ -8,6 +8,7 @@ var countdown_value
 
 enum state {NOMINAL, LOW, FATAL}
 var countdown_state : state = state.NOMINAL
+var is_countdown_active : bool = true
 
 signal countdown_nominal
 signal countdown_low
@@ -23,7 +24,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# Calculate the flat amount that represents X% of the max value
 	# Move value down toward 0 safely
-	countdown_value -= countdown_loss_speed * delta
+	if (is_countdown_active): countdown_value -= countdown_loss_speed * delta
 	
 	#print("countdown_value= " + str(countdown_value))
 	
@@ -41,7 +42,17 @@ func _process(delta: float) -> void:
 	elif countdown_value <= 0:
 		on_countdown_empty()
 
-	pass
+func activate_countdown() -> void:
+	is_countdown_active = true
+
+func deactivate_countdown() -> void:
+	is_countdown_active = false
+
+func increase_countdown(value : float) -> void:
+	countdown_value += value
+
+func decrease_countdown(value : float) -> void:
+	countdown_value -= value
 	
 func on_countdown_empty() -> void:
 	countdown_zero.emit()
