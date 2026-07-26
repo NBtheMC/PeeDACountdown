@@ -358,8 +358,8 @@ vertical_alignment = 1
 [node name="Monster" parent="." unique_id=1095326937 instance=ExtResource("18_3mmx0")]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0.19705439, -2.178043, 26.310383)
 script = ExtResource("24_1scuh")
-start_position = Vector3(0.197, -2.178, 26.31)
-end_position = Vector3(0.197, 1.097, 6.701)
+start_position = Vector3(0.5, -1.5, 20)
+end_position = Vector3(0.5, 3.6, 6)
 time_limit = 120.0
 
 [connection signal="fish_caught" from="Environment/FishingSpot" to="UI/CountdownHandler/TimerUI/HungerHandler" method="increase_countdown"]

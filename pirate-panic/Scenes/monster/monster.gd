@@ -9,4 +9,4 @@ var current_time : float
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	current_time += delta
-	self.position = lerp(start_position, end_position, current_time/time_limit)
+	self.position = lerp(start_position, end_position, clamp(current_time/time_limit, 0.0, 1.0))
