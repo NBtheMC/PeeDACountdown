@@ -27,4 +27,7 @@ func _on_main_timer_countdown_finished() -> void:
 func _on_leak_system_leak_max() -> void:
 	pass # Replace with function body.
 
-# TODO: WIN CONDITIONS
+# WIN CONDITIONS
+
+func _on_lighthouse_reached(area: Area3D) -> void:
+	pass # Replace with function body.

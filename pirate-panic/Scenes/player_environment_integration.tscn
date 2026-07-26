@@ -51,6 +51,8 @@ size = Vector2(2, 2)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yuhor"]
 shader = ExtResource("7_s3gpa")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ldmme"]
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_7f8lw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmtd4"]
@@ -176,7 +178,14 @@ visible = false
 [node name="Lighthouse" type="Node3D" parent="Environment/WorldObjects" unique_id=593051121]
 transform = Transform3D(9.999999, 0, 0, 0, 9.999999, 0, 0, 0, 9.999999, 0, 0.7767438, -37.23124)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/WorldObjects/Lighthouse" unique_id=394796682]
+[node name="StaticBody3D" type="Area3D" parent="Environment/WorldObjects/Lighthouse" unique_id=528710857]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/WorldObjects/Lighthouse/StaticBody3D" unique_id=521577269]
+transform = Transform3D(1.1816415, 0, 0, 0, 1.0000001, 0, 0, 0, 1.1881269, 0, 0, 0)
+shape = SubResource("CylinderShape3D_ldmme")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/WorldObjects/Lighthouse/StaticBody3D" unique_id=394796682]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
 mesh = SubResource("CylinderMesh_7f8lw")
 surface_material_override/0 = SubResource("StandardMaterial3D_pmtd4")
 
@@ -204,22 +213,22 @@ visible = false
 [node name="PirateShip_V1_0" parent="Environment" unique_id=1316455037 instance=ExtResource("5_pmtd4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24830651, 0.16907257, 1.1120892)
 
-[node name="Bench" parent="Environment/PirateShip_V1_0" index="0" unique_id=105275112]
+[node name="Bench" parent="Environment/PirateShip_V1_0" index="0" unique_id=1281523527]
 surface_material_override/0 = ExtResource("17_scxk2")
 
-[node name="Boat2" parent="Environment/PirateShip_V1_0" index="1" unique_id=350534310]
+[node name="Boat2" parent="Environment/PirateShip_V1_0" index="1" unique_id=1151490513]
 surface_material_override/0 = ExtResource("18_ihkmo")
 
-[node name="Lantern" parent="Environment/PirateShip_V1_0" index="2" unique_id=1885637836]
+[node name="Lantern" parent="Environment/PirateShip_V1_0" index="2" unique_id=1027817402]
 surface_material_override/0 = ExtResource("19_0lvn8")
 
-[node name="Lightpost" parent="Environment/PirateShip_V1_0" index="3" unique_id=932273367]
+[node name="Lightpost" parent="Environment/PirateShip_V1_0" index="3" unique_id=1696814391]
 surface_material_override/0 = ExtResource("20_1scuh")
 
-[node name="OarLocks" parent="Environment/PirateShip_V1_0" index="4" unique_id=1547671726]
+[node name="OarLocks" parent="Environment/PirateShip_V1_0" index="4" unique_id=363663496]
 surface_material_override/0 = ExtResource("21_jkfk2")
 
-[node name="prow2" parent="Environment/PirateShip_V1_0" index="5" unique_id=1271274942]
+[node name="prow2" parent="Environment/PirateShip_V1_0" index="5" unique_id=540988893]
 surface_material_override/0 = ExtResource("22_6e77c")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0" unique_id=509454190]
@@ -247,6 +256,7 @@ visible = false
 script = ExtResource("25_ihkmo")
 
 [connection signal="leak_max" from="Environment/LeakSystem" to="EndgameHandler" method="_on_leak_system_leak_max"]
+[connection signal="area_entered" from="Environment/WorldObjects/Lighthouse/StaticBody3D" to="EndgameHandler" method="_on_lighthouse_reached"]
 [connection signal="countdown_fatal" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [2]]
 [connection signal="countdown_low" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [1]]
 [connection signal="countdown_nominal" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [0]]
