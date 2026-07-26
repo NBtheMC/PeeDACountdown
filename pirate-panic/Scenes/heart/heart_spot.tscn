@@ -67,6 +67,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Damaged" parent="." unique_id=1631991804 instance=ExtResource("8_gl64w")]
+visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Damaged" unique_id=290067667]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.036800686, 0.0779406, 0)
