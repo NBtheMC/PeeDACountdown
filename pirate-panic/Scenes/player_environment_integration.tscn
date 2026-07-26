@@ -189,11 +189,12 @@ countdown_reference = NodePath("../../UI/CountdownHandler/TimerUI/PsycheHandler"
 [node name="HeartSpot" parent="Environment/HeartSystem" index="1" unique_id=810583223]
 transform = Transform3D(0.5, 0, 0, 0, 0.35394207, 0.3531643, 0, -0.3531643, 0.35394207, 0.34645778, 0.14962417, -0.14683415)
 
-[node name="RowingObject" parent="Environment" unique_id=1267491984 node_paths=PackedStringArray("rowing_text", "oar_animation_player", "world_objects") instance=ExtResource("6_3puld")]
+[node name="RowingObject" parent="Environment" unique_id=1267491984 node_paths=PackedStringArray("rowing_text", "oar_animation_player", "world_objects", "other_rowing_object") instance=ExtResource("6_3puld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34215546, 0.36353314, 1.1244775)
 rowing_text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 oar_animation_player = NodePath("../Oars2/AnimationPlayer")
 world_objects = NodePath("../../WorldObjects")
+other_rowing_object = NodePath("../RowingObject2")
 
 [node name="MeshInstance3D" parent="Environment/RowingObject" index="0" unique_id=118222880]
 transform = Transform3D(0.33354592, 0, 0, 0, 0.55624425, 0, 0, 0, 0.5594557, 0, 0, 0)
@@ -201,11 +202,12 @@ transform = Transform3D(0.33354592, 0, 0, 0, 0.55624425, 0, 0, 0, 0.5594557, 0, 
 [node name="RowingText" parent="Environment/RowingObject/CanvasLayer" parent_id_path=PackedInt32Array(1267491984, 1372377046) index="0" unique_id=1496855677]
 visible = false
 
-[node name="RowingObject2" parent="Environment" unique_id=1684298204 node_paths=PackedStringArray("rowing_text", "oar_animation_player", "world_objects") instance=ExtResource("6_3puld")]
+[node name="RowingObject2" parent="Environment" unique_id=1684298204 node_paths=PackedStringArray("rowing_text", "oar_animation_player", "world_objects", "other_rowing_object") instance=ExtResource("6_3puld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8376088, 0.36353314, 1.1244775)
 rowing_text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 oar_animation_player = NodePath("../Oars2/AnimationPlayer")
 world_objects = NodePath("../../WorldObjects")
+other_rowing_object = NodePath("../RowingObject")
 
 [node name="MeshInstance3D" parent="Environment/RowingObject2" index="0" unique_id=118222880]
 transform = Transform3D(0.33354592, 0, 0, 0, 0.55624425, 0, 0, 0, 0.5594557, 0, 0, 0)
@@ -299,6 +301,8 @@ script = ExtResource("27_1scuh")
 [connection signal="area_entered" from="WorldObjects/Lighthouse/StaticBody3D" to="EndgameHandler" method="_on_lighthouse_reached"]
 [connection signal="fish_caught" from="Environment/FishingSpot" to="UI/CountdownHandler/TimerUI/HungerHandler" method="increase_countdown"]
 [connection signal="leak_max" from="Environment/LeakSystem" to="EndgameHandler" method="_on_leak_system_leak_max"]
+[connection signal="reached_ending" from="Environment/RowingObject" to="EndgameHandler" method="end_game" binds= ["You won!", "You reached land!"]]
+[connection signal="reached_ending" from="Environment/RowingObject2" to="EndgameHandler" method="end_game" binds= ["You won!", "You reached land!"]]
 [connection signal="countdown_fatal" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [2]]
 [connection signal="countdown_low" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [1]]
 [connection signal="countdown_nominal" from="UI/CountdownHandler/TimerUI/HungerHandler" to="UI/UI_Main/MarginContainer/Warning_Icon_Container/Hunger_Warning_Icon" method="stop_fatal_warning"]

@@ -13,6 +13,9 @@ var oar_anim: String = ""
 var rowed_distance: float = 0.0
 var is_rowing: bool = false
 @export var world_objects: Node3D
+@export var other_rowing_object : RowingObject
+
+signal reached_ending
 
 func _ready() -> void:
 	# 1. Ensure the animation machine is dead-silent on load
@@ -55,6 +58,7 @@ func _process(delta: float) -> void:
 	
 	# Increase distance smoothly based on frame rate (delta)
 	rowed_distance += rowing_speed * delta
+	other_rowing_object.rowed_distance += rowing_speed * delta
 	rowed_distance = min(rowed_distance, total_distance)
 	print("rowed_distance = " + str(rowed_distance))
 	
@@ -64,6 +68,7 @@ func _process(delta: float) -> void:
 	# Check if the player reached the goal
 	if rowed_distance >= total_distance:
 		print("Rowing complete!")
+		reached_ending.emit()
 		stop_rowing() # Safely handles the state cleanup and animation pausing
 
 func _on_interactable_show_text(interactor: Node) -> void:
