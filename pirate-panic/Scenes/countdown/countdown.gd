@@ -15,6 +15,9 @@ signal countdown_low
 signal countdown_fatal
 signal countdown_zero
 
+@export var death_condition : String
+@export var death_text : String
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	countdown_value = countdown_max_value
@@ -56,4 +59,5 @@ func decrease_countdown(value : float) -> void:
 	
 func on_countdown_empty() -> void:
 	countdown_zero.emit()
+	FadeManager.get_child(0).lose_game_routine(death_condition, death_text)
 	print("Dead from exhaustion! SEND DEATH EVENT HERE")

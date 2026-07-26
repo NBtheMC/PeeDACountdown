@@ -36,6 +36,7 @@ func _process(delta: float) -> void:
 	if (progress >= 1.0): 
 		progress = 1.0
 		on_timer_end.emit()
+		FadeManager.get_child(0).lose_game_routine("You died!", "The monster caught up to you...")
 		return
 	
 	if (time_elapsed > last_tick + tick_frequency):

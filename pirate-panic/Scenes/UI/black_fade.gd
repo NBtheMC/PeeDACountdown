@@ -7,6 +7,7 @@ var tween : Tween
 @export var endgame_handler : Node
 
 @export var win : bool = false
+var game_ending : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,6 +18,8 @@ func _ready() -> void:
 	fade_from_black()
 
 func beat_game_routine() -> void:
+	if (game_ending) : return
+	game_ending = true
 	start_new_tween()
 	$SFX_Win_Game.play()
 	tween.tween_property(self, "self_modulate", Color(1, 1, 1, 0), 0.0)
@@ -25,7 +28,10 @@ func beat_game_routine() -> void:
 	tween.tween_property(self, "self_modulate", Color(1, 1, 1, 0), fade_time).set_trans(Tween.TRANS_LINEAR)
 
 func lose_game_routine(condition: String, text: String) -> void:
+	if (game_ending) : return
+	game_ending = true
 	start_new_tween()
+	print("LOST GAME")
 	$SFX_Lose_Game.play()
 	tween.tween_property(self, "self_modulate", Color(0, 0, 0, 0), 0.0)
 	tween.tween_property(self, "self_modulate", Color(0, 0, 0, 1), fade_time).set_trans(Tween.TRANS_LINEAR)

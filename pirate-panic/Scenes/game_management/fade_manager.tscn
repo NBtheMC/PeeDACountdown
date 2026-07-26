@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dv7tw0dab8emn"]
 
 [ext_resource type="Script" uid="uid://b403rcrnxwfor" path="res://Scenes/UI/black_fade.gd" id="1_vl5d0"]
-[ext_resource type="AudioStream" uid="uid://cw7qblhes0eyn" path="res://Assets/Audio/Death.ogg" id="2_rq2i2"]
 [ext_resource type="AudioStream" uid="uid://d2cvw8xhnggj" path="res://Assets/Audio/Win Game.ogg" id="2_us3rc"]
+[ext_resource type="AudioStream" uid="uid://4g7wsn0o22ew" path="res://Assets/Audio/Death_2.ogg" id="3_us3rc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0wyw"]
 content_margin_left = 0.0
@@ -38,6 +38,6 @@ volume_db = -10.532
 bus = &"SFX"
 
 [node name="SFX_Lose_Game" type="AudioStreamPlayer" parent="Panel" unique_id=1792792817]
-stream = ExtResource("2_rq2i2")
+stream = ExtResource("3_us3rc")
 volume_db = -11.19
 bus = &"SFX"
