@@ -80,12 +80,25 @@ theme_override_styles/hover = ExtResource("6_rrcx7")
 text = "CREDITS
 "
 
+[node name="Quit" type="Button" parent="Main Menu Page" unique_id=1765120998]
+layout_mode = 0
+offset_top = 42.0
+offset_right = 512.0
+offset_bottom = 170.0
+theme_override_fonts/font = ExtResource("2_853f1")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("4_loo7a")
+theme_override_styles/pressed = ExtResource("5_if7li")
+theme_override_styles/hover = ExtResource("6_rrcx7")
+text = "QUIT
+"
+
 [node name="AudioSlider" type="Control" parent="Main Menu Page" unique_id=67040988]
 anchors_preset = 0
-offset_left = 72.0
-offset_top = 94.0
-offset_right = 112.0
-offset_bottom = 134.0
+offset_left = 86.0
+offset_top = 231.0
+offset_right = 126.0
+offset_bottom = 271.0
 
 [node name="MusicSlider" type="HSlider" parent="Main Menu Page/AudioSlider" unique_id=1181876147]
 layout_mode = 0

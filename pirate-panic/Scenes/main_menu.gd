@@ -5,6 +5,7 @@ extends Control
 func _ready() -> void:
 	$"Main Menu Page/Start Game".pressed.connect(FadeManager.get_child(0).start_game_routine)
 	$"Main Menu Page/Credits".pressed.connect(open_credits)
+	$"Main Menu Page/Quit".pressed.connect(close_game)
 	
 	$"Credits Page/Back To Main Menu".pressed.connect(close_credits)
 
@@ -28,3 +29,6 @@ func close_credits():
 	$"Main Menu Page/Credits".disabled = false
 	
 	$"Credits Page/Back To Main Menu".disabled = true
+
+func close_game():
+	get_tree().quit()

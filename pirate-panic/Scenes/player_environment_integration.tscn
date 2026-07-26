@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dwmhyk12txjql" path="res://Art/PirateShip_V1_0.fbx" id="5_pmtd4"]
 [ext_resource type="PackedScene" uid="uid://dl2vwih1ckeu1" path="res://Scenes/items/rowing_object.tscn" id="6_3puld"]
 [ext_resource type="Shader" uid="uid://bkydm4h6o6hyo" path="res://Art/Shaders/WaterSurface.tres" id="6_lv5r4"]
-[ext_resource type="PackedScene" uid="uid://byj210nycfxtn" path="res://Scenes/leak/leak_system.tscn" id="6_xysg7"]
+[ext_resource type="PackedScene" uid="uid://cpul75jnmqetr" path="res://Scenes/leak/leak_system.tscn" id="6_xysg7"]
 [ext_resource type="Shader" uid="uid://dcr8wjkvk2roo" path="res://Art/Shaders/ppnodez.tres" id="7_s3gpa"]
 [ext_resource type="PackedScene" uid="uid://y6mengsuwlal" path="res://Art/oars.tscn" id="7_vid44"]
 [ext_resource type="PackedScene" uid="uid://xjj7d6yur3kj" path="res://Scenes/heart/heart_system.tscn" id="8_dstl4"]
@@ -228,10 +228,10 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 0.49728775, 0.86758566, 0, -0.86758566, 0.49728775, 0.035582587, 0.18252394, -0.12917425)
 text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 
-[node name="FishingPole_Hook" parent="Environment/FishingRod/FishingPoleHook" parent_id_path=PackedInt32Array(892319930, 621556733) index="0" unique_id=2046563292]
+[node name="FishingPole_Hook" parent="Environment/FishingRod/FishingPoleHook" parent_id_path=PackedInt32Array(892319930, 621556733) index="0" unique_id=485989579]
 surface_material_override/0 = ExtResource("12_jkfk2")
 
-[node name="FishingPole_Pole" parent="Environment/FishingRod/FishingPoleHook" parent_id_path=PackedInt32Array(892319930, 621556733) index="1" unique_id=1651152092]
+[node name="FishingPole_Pole" parent="Environment/FishingRod/FishingPoleHook" parent_id_path=PackedInt32Array(892319930, 621556733) index="1" unique_id=523604077]
 surface_material_override/0 = ExtResource("12_jkfk2")
 
 [node name="Mallet" parent="Environment" unique_id=532419465 node_paths=PackedStringArray("text") instance=ExtResource("14_4j1fj")]
@@ -244,22 +244,22 @@ visible = false
 [node name="PirateShip_V1_0" parent="Environment" unique_id=1316455037 instance=ExtResource("5_pmtd4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24830651, 0.16907257, 1.1120892)
 
-[node name="Bench" parent="Environment/PirateShip_V1_0" index="0" unique_id=1711420130]
+[node name="Bench" parent="Environment/PirateShip_V1_0" index="0" unique_id=105275112]
 surface_material_override/0 = ExtResource("17_scxk2")
 
-[node name="Boat2" parent="Environment/PirateShip_V1_0" index="1" unique_id=337393108]
+[node name="Boat2" parent="Environment/PirateShip_V1_0" index="1" unique_id=350534310]
 surface_material_override/0 = ExtResource("18_ihkmo")
 
-[node name="Lantern" parent="Environment/PirateShip_V1_0" index="2" unique_id=1581302783]
+[node name="Lantern" parent="Environment/PirateShip_V1_0" index="2" unique_id=1885637836]
 surface_material_override/0 = ExtResource("19_0lvn8")
 
-[node name="Lightpost" parent="Environment/PirateShip_V1_0" index="3" unique_id=1862447349]
+[node name="Lightpost" parent="Environment/PirateShip_V1_0" index="3" unique_id=932273367]
 surface_material_override/0 = ExtResource("20_1scuh")
 
-[node name="OarLocks" parent="Environment/PirateShip_V1_0" index="4" unique_id=1826406455]
+[node name="OarLocks" parent="Environment/PirateShip_V1_0" index="4" unique_id=1547671726]
 surface_material_override/0 = ExtResource("21_jkfk2")
 
-[node name="prow2" parent="Environment/PirateShip_V1_0" index="5" unique_id=1137565753]
+[node name="prow2" parent="Environment/PirateShip_V1_0" index="5" unique_id=1271274942]
 surface_material_override/0 = ExtResource("22_6e77c")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0" unique_id=509454190]
@@ -271,11 +271,11 @@ shape = SubResource("ConcavePolygonShape3D_scxk2")
 [node name="Oars2" parent="Environment" unique_id=884779015 instance=ExtResource("7_vid44")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29480532, 0.17864498, 1.1152465)
 
-[node name="Skeleton3D" parent="Environment/Oars2/OarArmatuiree" parent_id_path=PackedInt32Array(884779015, 1713347203) index="0" unique_id=1887424890]
+[node name="Skeleton3D" parent="Environment/Oars2/OarArmatuiree" parent_id_path=PackedInt32Array(884779015, 945879963) index="0" unique_id=1265684458]
 bones/0/rotation = Quaternion(0.58942986, 0.72763735, -0.06868613, -0.3440909)
 bones/2/rotation = Quaternion(-0.58942986, 0.72763735, -0.06868613, 0.3440909)
 
-[node name="Oars" parent="Environment/Oars2/OarArmatuiree/Skeleton3D" index="0" unique_id=282733552]
+[node name="Oars" parent="Environment/Oars2/OarArmatuiree/Skeleton3D" index="0" unique_id=205360137]
 surface_material_override/0 = ExtResource("22_bbd8u")
 
 [node name="Oars" parent="Environment" unique_id=998845485 instance=ExtResource("8_ppi7r")]
@@ -299,13 +299,13 @@ light_energy = 1.395
 [node name="GoldPile" parent="Environment" unique_id=1281457866 instance=ExtResource("25_6e77c")]
 transform = Transform3D(-0.1079855, 0.02674538, 0.27861053, 0.009665532, 0.29880545, -0.024937779, -0.27972436, 1.1175871e-09, -0.108417206, -0.03519003, 0.11387962, 0.19130799)
 
-[node name="GoldPile" parent="Environment/GoldPile" index="0" unique_id=74370701]
+[node name="GoldPile" parent="Environment/GoldPile" index="0" unique_id=1099526890]
 surface_material_override/0 = ExtResource("26_bbd8u")
 
 [node name="GoldPile2" parent="Environment" unique_id=1628312206 instance=ExtResource("25_6e77c")]
 transform = Transform3D(0.3826369, -0.027409736, 0.11330367, 0.03628724, 0.3974755, -0.026390482, -0.11078017, 0.035523627, 0.38270855, 0.36688137, 0.13129635, -0.18265146)
 
-[node name="GoldPile" parent="Environment/GoldPile2" index="0" unique_id=74370701]
+[node name="GoldPile" parent="Environment/GoldPile2" index="0" unique_id=1099526890]
 surface_material_override/0 = ExtResource("26_bbd8u")
 
 [node name="UI" parent="." unique_id=54619041 instance=ExtResource("20_vid44")]

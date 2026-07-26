@@ -5,6 +5,7 @@ extends Sprite2D
 @export var countdown_fatal_value: float = 25.0
 var countdown_value
 @export var countdown_loss_speed: float = 2
+@export var inactive_countdown_speed: float = -0.5
 
 enum state {NOMINAL, LOW, FATAL}
 var countdown_state : state = state.NOMINAL
@@ -28,6 +29,7 @@ func _process(delta: float) -> void:
 	# Calculate the flat amount that represents X% of the max value
 	# Move value down toward 0 safely
 	if (is_countdown_active): countdown_value -= countdown_loss_speed * delta
+	else: countdown_value -= inactive_countdown_speed * delta
 	
 	#print("countdown_value= " + str(countdown_value))
 	
