@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dg8iov8jllo01"
+path="res://.godot/imported/mus_main-menu_phrase_08.ogg-1510a01ad4336cb2617325bb4cca63e3.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/Main Menu/mus_main-menu_phrase_08.ogg"
+dest_files=["res://.godot/imported/mus_main-menu_phrase_08.ogg-1510a01ad4336cb2617325bb4cca63e3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

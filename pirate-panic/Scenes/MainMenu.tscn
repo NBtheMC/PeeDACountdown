@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d0tcbenk7n1ip" path="res://Scenes/main_menu.gd" id="1_tt5f1"]
 [ext_resource type="Texture2D" uid="uid://bf20maw3015uw" path="res://TempAssets/logo temp.png" id="2_8saeu"]
 [ext_resource type="FontFile" uid="uid://bff3usu1p2opd" path="res://Scenes/UI/Fonts/ARCADE_I.TTF" id="2_853f1"]
+[ext_resource type="PackedScene" uid="uid://c0nayvomxs731" path="res://Scenes/MainMenuMusic.tscn" id="4_ghw46"]
 
 [node name="MainMenu" type="Control" unique_id=928796071]
 layout_mode = 3
@@ -83,11 +84,11 @@ offset_right = 1476.0
 offset_bottom = 756.0
 theme_override_fonts/font = ExtResource("2_853f1")
 theme_override_font_sizes/font_size = 32
-text = "John Adams - economics
-John Harvard - school
-John Arbuckle - pipe
-John Smith - individuality
-John Corn - flakes
+text = "Oats - 3D modeling & lighting
+Dabmaster2000 - Programming
+MetaToshi - Design Lead, Concept / Texture Art
+riko (mewsical-shark) - Music, Programming
+Sion - Art
 John Gurbanguly-Berdimuhamedow - repression
 John John - jon"
 
@@ -100,3 +101,5 @@ offset_bottom = 968.0
 theme_override_fonts/font = ExtResource("2_853f1")
 theme_override_font_sizes/font_size = 48
 text = "BACK"
+
+[node name="MainMenuMusic" parent="." unique_id=25036679 instance=ExtResource("4_ghw46")]
