@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dh6dmyrnfkdl2"]
+
+[ext_resource type="Texture2D" uid="uid://cfudspxbb6ysk" path="res://Art/Textures/Heart_BaseColor.png" id="1_eac5a"]
+[ext_resource type="Texture2D" uid="uid://cxj4fa68wu44o" path="res://Art/Textures/heart_emissive.png" id="2_xvmd8"]
+
+[resource]
+albedo_texture = ExtResource("1_eac5a")
+roughness = 0.9
+emission_enabled = true
+emission_texture = ExtResource("2_xvmd8")

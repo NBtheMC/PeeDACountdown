@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c78jnor5ykcri"]
+
+[ext_resource type="PackedScene" uid="uid://wndfskvesslk" path="res://Art/Monster_Heart.fbx" id="1_ti8d8"]
+[ext_resource type="Material" uid="uid://dh6dmyrnfkdl2" path="res://Art/Shaders/Monster_Heart.tres" id="2_k2an8"]
+
+[node name="Monsterheart" type="Node3D" unique_id=1631991804]
+
+[node name="Monster_Heart" parent="." unique_id=1832767882 instance=ExtResource("1_ti8d8")]
+
+[node name="Heart_Body_001" parent="Monster_Heart" index="0" unique_id=1417045885]
+surface_material_override/0 = ExtResource("2_k2an8")
+
+[editable path="Monster_Heart"]
