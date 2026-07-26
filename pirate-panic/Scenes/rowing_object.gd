@@ -59,7 +59,7 @@ func _process(delta: float) -> void:
 	print("rowed_distance = " + str(rowed_distance))
 	
 	# Move environment towards player to simulate movement
-	world_objects.translate(Vector3(0, 0, 1)*delta)
+	world_objects.translate(Vector3(0, 0, 1 * (rowing_speed / 3) * delta))
 	
 	# Check if the player reached the goal
 	if rowed_distance >= total_distance:
@@ -79,3 +79,6 @@ func _on_interactable_unshow_text(interactor: Node) -> void:
 func _on_interactable_hold_interacted(interactor: Node) -> void:
 	print("_on_interactable_hold_interacted called")
 	start_rowing()
+
+func _on_mouse_exited() -> void:
+	stop_rowing()

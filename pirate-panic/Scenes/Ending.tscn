@@ -2,6 +2,26 @@
 
 [ext_resource type="Script" uid="uid://b1o47q5hnfn1r" path="res://Scenes/ending_text_handler.gd" id="1_j7kmc"]
 [ext_resource type="FontFile" uid="uid://bff3usu1p2opd" path="res://Scenes/UI/Fonts/ARCADE_I.TTF" id="1_sbbak"]
+[ext_resource type="Theme" uid="uid://bcya1rsak86it" path="res://Scenes/UI/UI_theme.tres" id="3_7ra7e"]
+[ext_resource type="PackedScene" uid="uid://du3s71np5wis" path="res://Scenes/Environment.tscn" id="3_gfgbn"]
+
+[sub_resource type="Environment" id="Environment_gfgbn"]
+background_mode = 1
+background_color = Color(0.10611739, 0.12932006, 0.14964536, 1)
+background_energy_multiplier = 0.45
+ambient_light_color = Color(0.81122595, 0.57597315, 0.70767987, 1)
+ssao_enabled = true
+ssil_enabled = true
+glow_enabled = true
+glow_intensity = 0.4
+fog_enabled = true
+fog_light_color = Color(0.06379772, 0.07367391, 0.08904172, 1)
+fog_density = 0.34
+volumetric_fog_density = 0.2712
+volumetric_fog_albedo = Color(0.13767368, 0.17941618, 0.23762587, 1)
+adjustment_enabled = true
+
+[sub_resource type="Compositor" id="Compositor_7ra7e"]
 
 [node name="Ending" type="Control" unique_id=1949452664]
 layout_mode = 3
@@ -38,6 +58,20 @@ offset_left = 128.0
 offset_top = 840.0
 offset_right = 640.0
 offset_bottom = 968.0
+theme = ExtResource("3_7ra7e")
 theme_override_fonts/font = ExtResource("1_sbbak")
 theme_override_font_sizes/font_size = 48
 text = "RETRY"
+
+[node name="Environment" parent="." unique_id=342448898 instance=ExtResource("3_gfgbn")]
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="Environment" unique_id=307100363]
+environment = SubResource("Environment_gfgbn")
+compositor = SubResource("Compositor_7ra7e")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment/WorldEnvironment2" unique_id=1495686739]
+transform = Transform3D(1, 0, 0, 0, -0.9987037, 0.05090024, 0, -0.05090024, -0.9987037, 0, 0, 0)
+light_color = Color(0.4152844, 0.40308145, 0.3373677, 1)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=844843318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08924842, 0.64260983, 1.444135)

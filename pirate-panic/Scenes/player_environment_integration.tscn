@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dwmhyk12txjql" path="res://Art/PirateShip_V1_0.fbx" id="5_pmtd4"]
 [ext_resource type="PackedScene" uid="uid://dl2vwih1ckeu1" path="res://Scenes/items/rowing_object.tscn" id="6_3puld"]
 [ext_resource type="Shader" uid="uid://bkydm4h6o6hyo" path="res://Art/Shaders/WaterSurface.tres" id="6_lv5r4"]
-[ext_resource type="PackedScene" uid="uid://byj210nycfxtn" path="res://Scenes/leak/leak_system.tscn" id="6_xysg7"]
+[ext_resource type="PackedScene" uid="uid://cpul75jnmqetr" path="res://Scenes/leak/leak_system.tscn" id="6_xysg7"]
 [ext_resource type="Shader" uid="uid://dcr8wjkvk2roo" path="res://Art/Shaders/ppnodez.tres" id="7_s3gpa"]
 [ext_resource type="PackedScene" uid="uid://y6mengsuwlal" path="res://Art/oars.tscn" id="7_vid44"]
 [ext_resource type="PackedScene" uid="uid://xjj7d6yur3kj" path="res://Scenes/heart/heart_system.tscn" id="8_dstl4"]
@@ -187,7 +187,7 @@ countdown_reference = NodePath("../../UI/CountdownHandler/TimerUI/PsycheHandler"
 transform = Transform3D(0.5, 0, 0, 0, 0.35394207, 0.3531643, 0, -0.3531643, 0.35394207, 0.34645778, 0.14962417, -0.14683415)
 
 [node name="RowingObject" parent="Environment" unique_id=1267491984 node_paths=PackedStringArray("rowing_text", "oar_animation_player", "world_objects") instance=ExtResource("6_3puld")]
-transform = Transform3D(0.78058046, 0, 0, 0, 1, 0, 0, 0, 1, -0.34215546, 0.36353314, 1.1244775)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34215546, 0.36353314, 1.1244775)
 rowing_text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 oar_animation_player = NodePath("../Oars2/AnimationPlayer")
 world_objects = NodePath("../../WorldObjects")
@@ -199,7 +199,7 @@ transform = Transform3D(0.33354592, 0, 0, 0, 0.55624425, 0, 0, 0, 0.5594557, 0, 
 visible = false
 
 [node name="RowingObject2" parent="Environment" unique_id=1684298204 node_paths=PackedStringArray("rowing_text", "oar_animation_player", "world_objects") instance=ExtResource("6_3puld")]
-transform = Transform3D(0.78058046, 0, 0, 0, 1, 0, 0, 0, 1, 0.8376088, 0.36353314, 1.1244775)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8376088, 0.36353314, 1.1244775)
 rowing_text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 oar_animation_player = NodePath("../Oars2/AnimationPlayer")
 world_objects = NodePath("../../WorldObjects")
@@ -214,10 +214,10 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 0.49728775, 0.86758566, 0, -0.86758566, 0.49728775, 0.035582587, 0.18252394, -0.12917425)
 text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 
-[node name="FishingPole_Hook" parent="Environment/FishingRod/FishingPoleHook" parent_id_path=PackedInt32Array(892319930, 621556733) index="0" unique_id=2046563292]
+[node name="FishingPole_Hook" parent="Environment/FishingRod/FishingPoleHook" parent_id_path=PackedInt32Array(892319930, 621556733) index="0" unique_id=485989579]
 surface_material_override/0 = ExtResource("12_jkfk2")
 
-[node name="FishingPole_Pole" parent="Environment/FishingRod/FishingPoleHook" parent_id_path=PackedInt32Array(892319930, 621556733) index="1" unique_id=1651152092]
+[node name="FishingPole_Pole" parent="Environment/FishingRod/FishingPoleHook" parent_id_path=PackedInt32Array(892319930, 621556733) index="1" unique_id=523604077]
 surface_material_override/0 = ExtResource("12_jkfk2")
 
 [node name="Mallet" parent="Environment" unique_id=532419465 node_paths=PackedStringArray("text") instance=ExtResource("14_4j1fj")]
@@ -230,22 +230,22 @@ visible = false
 [node name="PirateShip_V1_0" parent="Environment" unique_id=1316455037 instance=ExtResource("5_pmtd4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24830651, 0.16907257, 1.1120892)
 
-[node name="Bench" parent="Environment/PirateShip_V1_0" index="0" unique_id=1711420130]
+[node name="Bench" parent="Environment/PirateShip_V1_0" index="0" unique_id=105275112]
 surface_material_override/0 = ExtResource("17_scxk2")
 
-[node name="Boat2" parent="Environment/PirateShip_V1_0" index="1" unique_id=337393108]
+[node name="Boat2" parent="Environment/PirateShip_V1_0" index="1" unique_id=350534310]
 surface_material_override/0 = ExtResource("18_ihkmo")
 
-[node name="Lantern" parent="Environment/PirateShip_V1_0" index="2" unique_id=1581302783]
+[node name="Lantern" parent="Environment/PirateShip_V1_0" index="2" unique_id=1885637836]
 surface_material_override/0 = ExtResource("19_0lvn8")
 
-[node name="Lightpost" parent="Environment/PirateShip_V1_0" index="3" unique_id=1862447349]
+[node name="Lightpost" parent="Environment/PirateShip_V1_0" index="3" unique_id=932273367]
 surface_material_override/0 = ExtResource("20_1scuh")
 
-[node name="OarLocks" parent="Environment/PirateShip_V1_0" index="4" unique_id=1826406455]
+[node name="OarLocks" parent="Environment/PirateShip_V1_0" index="4" unique_id=1547671726]
 surface_material_override/0 = ExtResource("21_jkfk2")
 
-[node name="prow2" parent="Environment/PirateShip_V1_0" index="5" unique_id=1137565753]
+[node name="prow2" parent="Environment/PirateShip_V1_0" index="5" unique_id=1271274942]
 surface_material_override/0 = ExtResource("22_6e77c")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/PirateShip_V1_0" unique_id=509454190]
@@ -257,7 +257,7 @@ shape = SubResource("ConcavePolygonShape3D_scxk2")
 [node name="Oars2" parent="Environment" unique_id=884779015 instance=ExtResource("7_vid44")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29480532, 0.17864498, 1.1152465)
 
-[node name="Oars" parent="Environment/Oars2/OarArmatuiree/Skeleton3D" parent_id_path=PackedInt32Array(884779015, 1887424890) index="0" unique_id=282733552]
+[node name="Oars" parent="Environment/Oars2/OarArmatuiree/Skeleton3D" parent_id_path=PackedInt32Array(884779015, 1265684458) index="0" unique_id=205360137]
 surface_material_override/0 = ExtResource("22_bbd8u")
 
 [node name="Oars" parent="Environment" unique_id=998845485 instance=ExtResource("8_ppi7r")]
@@ -307,6 +307,7 @@ script = ExtResource("27_1scuh")
 [connection signal="countdown_nominal" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="Ingame Music" method="set_psyche_status" binds= [0]]
 [connection signal="countdown_zero" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="EndgameHandler" method="_on_psyche_handler_countdown_zero"]
 [connection signal="countdown_finished" from="UI/CountdownHandler/TimerUI/MainTimer" to="EndgameHandler" method="_on_main_timer_countdown_finished"]
+[connection signal="on_timer_end" from="UI/UI_Main/MarginContainer/Timer_Container" to="EndgameHandler" method="end_game" binds= ["Out of Time", "The monster caught up to you..."]]
 
 [editable path="Player"]
 [editable path="Environment/LeakSystem"]

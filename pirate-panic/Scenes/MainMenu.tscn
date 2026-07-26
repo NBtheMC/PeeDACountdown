@@ -5,20 +5,11 @@
 [ext_resource type="FontFile" uid="uid://bff3usu1p2opd" path="res://Scenes/UI/Fonts/ARCADE_I.TTF" id="2_853f1"]
 [ext_resource type="Script" uid="uid://ddynnk00nd78e" path="res://Scenes/audio/audio_slider.gd" id="4_df05h"]
 [ext_resource type="PackedScene" uid="uid://c0nayvomxs731" path="res://Scenes/MainMenuMusic.tscn" id="4_ghw46"]
-[ext_resource type="Texture2D" uid="uid://dpvfigxihsgxu" path="res://Art/UI/pirate_plank_button.png" id="4_koqhg"]
+[ext_resource type="StyleBox" uid="uid://dcdfen2dkabxg" path="res://Art/UI/style_box_texture_normal.tres" id="4_loo7a"]
 [ext_resource type="Theme" uid="uid://bcya1rsak86it" path="res://Scenes/UI/UI_theme.tres" id="5_8um5k"]
-[ext_resource type="Texture2D" uid="uid://uug3qojabbor" path="res://Art/UI/pirate_plank_button_dark_highlight.png" id="5_loo7a"]
-[ext_resource type="Texture2D" uid="uid://xoxay8636egu" path="res://Art/UI/pirate_plank_button_light_highlight.png" id="6_if7li"]
+[ext_resource type="StyleBox" uid="uid://t6wtxpvumed7" path="res://Art/UI/style_box_texture_pressed.tres" id="5_if7li"]
+[ext_resource type="StyleBox" uid="uid://du8fe7atwvfyl" path="res://Art/UI/style_box_texture_hover.tres" id="6_rrcx7"]
 [ext_resource type="PackedScene" uid="uid://du3s71np5wis" path="res://Scenes/Environment.tscn" id="7_xim88"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_if7li"]
-texture = ExtResource("4_koqhg")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cmrfp"]
-texture = ExtResource("5_loo7a")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_loo7a"]
-texture = ExtResource("6_if7li")
 
 [sub_resource type="Environment" id="Environment_xim88"]
 background_mode = 1
@@ -71,9 +62,9 @@ offset_right = 512.0
 offset_bottom = -161.0
 theme_override_fonts/font = ExtResource("2_853f1")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxTexture_if7li")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_cmrfp")
-theme_override_styles/hover = SubResource("StyleBoxTexture_loo7a")
+theme_override_styles/normal = ExtResource("4_loo7a")
+theme_override_styles/pressed = ExtResource("5_if7li")
+theme_override_styles/hover = ExtResource("6_rrcx7")
 text = "START GAME"
 
 [node name="Credits" type="Button" parent="Main Menu Page" unique_id=1437764524]
@@ -83,9 +74,9 @@ offset_right = 512.0
 offset_bottom = 5.0
 theme_override_fonts/font = ExtResource("2_853f1")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxTexture_if7li")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_cmrfp")
-theme_override_styles/hover = SubResource("StyleBoxTexture_loo7a")
+theme_override_styles/normal = ExtResource("4_loo7a")
+theme_override_styles/pressed = ExtResource("5_if7li")
+theme_override_styles/hover = ExtResource("6_rrcx7")
 text = "CREDITS
 "
 
@@ -171,9 +162,9 @@ offset_right = 640.0
 offset_bottom = 968.0
 theme_override_fonts/font = ExtResource("2_853f1")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxTexture_if7li")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_cmrfp")
-theme_override_styles/hover = SubResource("StyleBoxTexture_loo7a")
+theme_override_styles/normal = ExtResource("4_loo7a")
+theme_override_styles/pressed = ExtResource("5_if7li")
+theme_override_styles/hover = ExtResource("6_rrcx7")
 text = "BACK"
 
 [node name="MainMenuMusic" parent="." unique_id=25036679 instance=ExtResource("4_ghw46")]

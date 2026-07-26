@@ -1,0 +1,6 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://t6wtxpvumed7"]
+
+[ext_resource type="Texture2D" uid="uid://uug3qojabbor" path="res://Art/UI/pirate_plank_button_dark_highlight.png" id="1_lep88"]
+
+[resource]
+texture = ExtResource("1_lep88")

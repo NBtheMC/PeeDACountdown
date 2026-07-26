@@ -48,6 +48,7 @@ script = ExtResource("4_ped8v")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1415939119]
 transform = Transform3D(0.05, 0, 0, 0, -2.1855695e-09, -0.05, 0, 0.05, -2.1855695e-09, -0.09276414, 0.027617097, 0.0807004)
+modulate = Color(0.41598046, 0.41598043, 0.4159804, 1)
 texture = ExtResource("5_syxr7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=337235002]

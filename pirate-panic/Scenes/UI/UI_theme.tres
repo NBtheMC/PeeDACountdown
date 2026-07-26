@@ -1,9 +1,15 @@
 [gd_resource type="Theme" format=3 uid="uid://bcya1rsak86it"]
 
+[ext_resource type="StyleBox" uid="uid://du8fe7atwvfyl" path="res://Art/UI/style_box_texture_hover.tres" id="1_grn0n"]
 [ext_resource type="FontFile" uid="uid://bff3usu1p2opd" path="res://Scenes/UI/Fonts/ARCADE_I.TTF" id="1_j4hef"]
+[ext_resource type="StyleBox" uid="uid://dcdfen2dkabxg" path="res://Art/UI/style_box_texture_normal.tres" id="2_dpupd"]
+[ext_resource type="StyleBox" uid="uid://t6wtxpvumed7" path="res://Art/UI/style_box_texture_pressed.tres" id="3_ih6vq"]
 
 [resource]
 default_font_size = 25
+Button/styles/hover = ExtResource("1_grn0n")
+Button/styles/normal = ExtResource("2_dpupd")
+Button/styles/pressed = ExtResource("3_ih6vq")
 MarginContainer/constants/margin_bottom = 50
 MarginContainer/constants/margin_left = 50
 MarginContainer/constants/margin_right = 50

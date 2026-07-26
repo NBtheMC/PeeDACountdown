@@ -21,6 +21,9 @@ var sfx_clock_tick
 @export var tick_sfx_min_volume : float
 @export var tick_sfx_max_volume : float
 
+signal on_timer_end
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sfx_clock_tick = $SFX_ClockTick
@@ -32,6 +35,7 @@ func _process(delta: float) -> void:
 	time_elapsed += delta
 	if (progress >= 1.0): 
 		progress = 1.0
+		on_timer_end.emit()
 		return
 	
 	if (time_elapsed > last_tick + tick_frequency):
