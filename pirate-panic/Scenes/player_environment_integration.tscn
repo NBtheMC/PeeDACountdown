@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://c6s81be7w6mjq" path="res://Scenes/audio/ingame_music.tscn" id="1_4j1fj"]
 [ext_resource type="PackedScene" uid="uid://dxue7rjdqqnho" path="res://Scenes/player/player.tscn" id="1_6rik4"]
 [ext_resource type="AudioStream" uid="uid://dx1glh7vl4yjt" path="res://Assets/Audio/31574__walter_odington__ship_creak.ogg" id="3_3puld"]
-[ext_resource type="PackedScene" uid="uid://h5bj62d3ytjc" path="res://Scenes/audio/audio_spline.tscn" id="4_rb7gu"]
 [ext_resource type="PackedScene" uid="uid://dwmhyk12txjql" path="res://Art/PirateShip_V1_0.fbx" id="5_pmtd4"]
 [ext_resource type="PackedScene" uid="uid://dl2vwih1ckeu1" path="res://Scenes/items/rowing_object.tscn" id="6_3puld"]
 [ext_resource type="Shader" uid="uid://bkydm4h6o6hyo" path="res://Art/Shaders/WaterSurface.tres" id="6_lv5r4"]
@@ -109,11 +108,6 @@ stream = ExtResource("3_3puld")
 volume_db = -23.158
 autoplay = true
 bus = &"SFX"
-
-[node name="Audio_Waves_Spline" parent="." unique_id=2022735341 node_paths=PackedStringArray("player") instance=ExtResource("4_rb7gu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17923355, 1, 1.3908057)
-visible = false
-player = NodePath("../Player")
 
 [node name="WorldObjects" type="Node3D" parent="." unique_id=424081994]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.009601593, -0.060106754, 0.04549694)
