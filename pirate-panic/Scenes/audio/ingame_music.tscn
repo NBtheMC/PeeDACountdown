@@ -11,6 +11,7 @@ script = ExtResource("1_sgmht")
 
 [node name="Music-Base" type="AudioStreamPlayer2D" parent="." unique_id=1967533846]
 stream = ExtResource("1_qusfv")
+volume_db = -5.0
 autoplay = true
 attenuation = 1e-05
 
