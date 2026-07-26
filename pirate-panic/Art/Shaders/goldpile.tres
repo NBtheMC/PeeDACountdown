@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://k5pqbmxiqxg4"]
+
+[ext_resource type="Texture2D" uid="uid://ywqbbcj5gogc" path="res://Art/Textures/t_coin_color.png" id="1_87xk2"]
+[ext_resource type="Texture2D" uid="uid://cfemdvw18fowp" path="res://Art/Textures/t_coin_normal.png" id="2_hmk4a"]
+
+[resource]
+albedo_texture = ExtResource("1_87xk2")
+roughness = 0.9
+normal_enabled = true
+normal_texture = ExtResource("2_hmk4a")
