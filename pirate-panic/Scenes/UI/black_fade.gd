@@ -17,6 +17,13 @@ func _ready() -> void:
 		
 	fade_from_black()
 
+func start_game_routine() -> void:
+	start_new_tween()
+	tween.tween_property(self, "self_modulate", Color(0, 0, 0, 0), 0.0)
+	tween.tween_property(self, "self_modulate", Color(0, 0, 0, 1), fade_time).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_callback(get_tree().change_scene_to_file.bind("res://Scenes/player_environment_integration.tscn"))
+	tween.tween_property(self, "self_modulate", Color(0, 0, 0, 0), fade_time).set_trans(Tween.TRANS_LINEAR)
+
 func beat_game_routine() -> void:
 	if (game_ending) : return
 	game_ending = true
