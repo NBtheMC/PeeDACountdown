@@ -22,3 +22,13 @@ func fade_to_black() -> void:
 	start_new_tween()
 	tween.tween_property(self, "self_modulate", Color(0, 0, 0, 0), 0.0)
 	tween.tween_property(self, "self_modulate", Color(0, 0, 0, 1), fade_time).set_trans(Tween.TRANS_LINEAR)
+
+func fade_to_white() -> void:
+	start_new_tween()
+	tween.tween_property(self, "self_modulate", Color(1, 1, 1, 0), 0.0)
+	tween.tween_property(self, "self_modulate", Color(1, 1, 1, 1), fade_time).set_trans(Tween.TRANS_LINEAR)
+
+func fade_from_white() -> void:
+	start_new_tween()
+	tween.tween_property(self, "self_modulate", Color(1, 1, 1, 1), 0.0)
+	tween.tween_property(self, "self_modulate", Color(1, 1, 1, 0), fade_time).set_trans(Tween.TRANS_LINEAR)
