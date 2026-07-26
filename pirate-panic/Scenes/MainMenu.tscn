@@ -5,7 +5,38 @@
 [ext_resource type="FontFile" uid="uid://bff3usu1p2opd" path="res://Scenes/UI/Fonts/ARCADE_I.TTF" id="2_853f1"]
 [ext_resource type="Script" uid="uid://ddynnk00nd78e" path="res://Scenes/audio/audio_slider.gd" id="4_df05h"]
 [ext_resource type="PackedScene" uid="uid://c0nayvomxs731" path="res://Scenes/MainMenuMusic.tscn" id="4_ghw46"]
+[ext_resource type="Texture2D" uid="uid://dpvfigxihsgxu" path="res://Art/UI/pirate_plank_button.png" id="4_koqhg"]
 [ext_resource type="Theme" uid="uid://bcya1rsak86it" path="res://Scenes/UI/UI_theme.tres" id="5_8um5k"]
+[ext_resource type="Texture2D" uid="uid://uug3qojabbor" path="res://Art/UI/pirate_plank_button_dark_highlight.png" id="5_loo7a"]
+[ext_resource type="Texture2D" uid="uid://xoxay8636egu" path="res://Art/UI/pirate_plank_button_light_highlight.png" id="6_if7li"]
+[ext_resource type="PackedScene" uid="uid://du3s71np5wis" path="res://Scenes/Environment.tscn" id="7_xim88"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_if7li"]
+texture = ExtResource("4_koqhg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cmrfp"]
+texture = ExtResource("5_loo7a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_loo7a"]
+texture = ExtResource("6_if7li")
+
+[sub_resource type="Environment" id="Environment_xim88"]
+background_mode = 1
+background_color = Color(0.10611739, 0.12932006, 0.14964536, 1)
+background_energy_multiplier = 0.45
+ambient_light_color = Color(0.81122595, 0.57597315, 0.70767987, 1)
+ssao_enabled = true
+ssil_enabled = true
+glow_enabled = true
+glow_intensity = 0.4
+fog_enabled = true
+fog_light_color = Color(0.06379772, 0.07367391, 0.08904172, 1)
+fog_density = 0.34
+volumetric_fog_density = 0.2712
+volumetric_fog_albedo = Color(0.13767368, 0.17941618, 0.23762587, 1)
+adjustment_enabled = true
+
+[sub_resource type="Compositor" id="Compositor_koqhg"]
 
 [node name="MainMenu" type="Control" unique_id=928796071]
 layout_mode = 3
@@ -26,7 +57,6 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_8um5k")
 
 [node name="Main Menu Page" type="Control" parent="." unique_id=1687617056]
-visible = false
 anchors_preset = 0
 offset_left = 128.0
 offset_top = 744.0
@@ -41,6 +71,9 @@ offset_right = 512.0
 offset_bottom = -160.0
 theme_override_fonts/font = ExtResource("2_853f1")
 theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_if7li")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cmrfp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_loo7a")
 text = "START GAME"
 
 [node name="Credits" type="Button" parent="Main Menu Page" unique_id=1437764524]
@@ -50,6 +83,9 @@ offset_right = 512.0
 offset_bottom = 6.0
 theme_override_fonts/font = ExtResource("2_853f1")
 theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_if7li")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cmrfp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_loo7a")
 text = "CREDITS
 "
 
@@ -95,6 +131,7 @@ theme = ExtResource("5_8um5k")
 text = "SFX Volume"
 
 [node name="Credits Page" type="Control" parent="." unique_id=196010763]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -134,9 +171,25 @@ offset_right = 640.0
 offset_bottom = 968.0
 theme_override_fonts/font = ExtResource("2_853f1")
 theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_if7li")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cmrfp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_loo7a")
 text = "BACK"
 
 [node name="MainMenuMusic" parent="." unique_id=25036679 instance=ExtResource("4_ghw46")]
+
+[node name="Environment" parent="." unique_id=342448898 instance=ExtResource("7_xim88")]
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="Environment" unique_id=846766092]
+environment = SubResource("Environment_xim88")
+compositor = SubResource("Compositor_koqhg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment/WorldEnvironment2" unique_id=2075611327]
+transform = Transform3D(1, 0, 0, 0, -0.9987037, 0.05090024, 0, -0.05090024, -0.9987037, 0, 0, 0)
+light_color = Color(0.4152844, 0.40308145, 0.3373677, 1)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=911879171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08924842, 0.64260983, 1.444135)
 
 [connection signal="value_changed" from="Main Menu Page/AudioSlider/MusicSlider" to="Main Menu Page/AudioSlider/MusicSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="Main Menu Page/AudioSlider/SFXSlider" to="Main Menu Page/AudioSlider/SFXSlider" method="_on_value_changed"]
