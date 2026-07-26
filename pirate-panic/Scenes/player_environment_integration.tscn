@@ -81,9 +81,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.676655, -0.4995, 5.55587)
 use_collision = true
 size = Vector3(26.788216, 0.001, 21.478622)
 
-[node name="Player" parent="." unique_id=180760236 instance=ExtResource("1_6rik4")]
+[node name="Player" parent="." unique_id=180760236 node_paths=PackedStringArray("drop_tooltip") instance=ExtResource("1_6rik4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47610664, -0.46509898, 2.9106398)
 SPEED = 1.0
+drop_tooltip = NodePath("../UI/UI_Main/MarginContainer/Reticle/DropTooltip")
 
 [node name="MeshInstance3D" parent="Player" index="0" unique_id=461900358]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1591282, 0)
