@@ -324,6 +324,15 @@ visible = false
 [node name="ReticleVertical" parent="UI/UI_Main/MarginContainer/Reticle" parent_id_path=PackedInt32Array(54619041, 776437626, 1996595663) index="1" unique_id=407970851]
 visible = false
 
+[node name="InteractTooltip" parent="UI/UI_Main/MarginContainer/Reticle" parent_id_path=PackedInt32Array(54619041, 776437626, 1996595663) index="2" unique_id=1261964841]
+bbcode_enabled = true
+text = "[color=#bbbbbb]E"
+
+[node name="DropTooltip" parent="UI/UI_Main/MarginContainer/Reticle" parent_id_path=PackedInt32Array(54619041, 776437626, 1996595663) index="3" unique_id=112383082]
+visible = true
+text = "[color=#bbbbbb]q to drop"
+autowrap_mode = 0
+
 [node name="Cursor" parent="UI/UI_Main/MarginContainer" parent_id_path=PackedInt32Array(54619041, 776437626, 2044965301) index="4" unique_id=1693252210]
 position = Vector2(999, 529)
 
