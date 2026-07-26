@@ -10,6 +10,7 @@ var psyche_death_text = "Died by going crazy"
 var sink_death_text = "Died by sinking"
 var countdown_death_text = "Died by monster"
 var lighthouse_victory_text = "Reached the lighthouse"
+var victory = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

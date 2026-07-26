@@ -69,6 +69,7 @@ func _process(delta: float) -> void:
 	if rowed_distance >= total_distance:
 		print("Rowing complete!")
 		reached_ending.emit()
+		EndgameHandler.victory = true
 		FadeManager.get_child(0).beat_game_routine()
 		stop_rowing() # Safely handles the state cleanup and animation pausing
 

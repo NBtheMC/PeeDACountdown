@@ -4,6 +4,8 @@
 [ext_resource type="FontFile" uid="uid://bff3usu1p2opd" path="res://Scenes/UI/Fonts/ARCADE_I.TTF" id="1_sbbak"]
 [ext_resource type="Theme" uid="uid://bcya1rsak86it" path="res://Scenes/UI/UI_theme.tres" id="3_7ra7e"]
 [ext_resource type="PackedScene" uid="uid://du3s71np5wis" path="res://Scenes/Environment.tscn" id="3_gfgbn"]
+[ext_resource type="Texture2D" uid="uid://lq8und5vdndf" path="res://Art/Textures/lighthouse_night_overlay.png" id="5_5lsk1"]
+[ext_resource type="Script" uid="uid://d23kuwebfmjcd" path="res://Scenes/lighthouse.gd" id="6_m0wyw"]
 
 [sub_resource type="Environment" id="Environment_gfgbn"]
 background_mode = 1
@@ -72,6 +74,12 @@ compositor = SubResource("Compositor_7ra7e")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment/WorldEnvironment2" unique_id=1495686739]
 transform = Transform3D(1, 0, 0, 0, -0.9987037, 0.05090024, 0, -0.05090024, -0.9987037, 0, 0, 0)
 light_color = Color(0.4152844, 0.40308145, 0.3373677, 1)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Environment" unique_id=2146096160]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 4.3199306, 2.6753404, -5.341022)
+alpha_cut = 1
+texture = ExtResource("5_5lsk1")
+script = ExtResource("6_m0wyw")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=844843318]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08924842, 0.64260983, 1.444135)
