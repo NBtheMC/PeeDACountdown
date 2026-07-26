@@ -23,6 +23,7 @@ item_name = "fishing_rod"
 
 [node name="SFX_CastRod" type="AudioStreamPlayer" parent="." unique_id=438294166]
 stream = ExtResource("2_bmjrk")
+volume_db = -10.263
 bus = &"SFX"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=744478198]

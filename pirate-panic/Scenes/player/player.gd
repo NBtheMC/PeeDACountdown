@@ -110,6 +110,10 @@ func drop_held_item():
 		return
 	held_item.reparent(held_item.starting_parent)
 	held_item.transform = held_item.starting_transform
+	if is_holding_fishing_rod(): 
+		held_item.reel_in()
+		unlock_rotation()
+		unlock_movement()
 	held_item = null
 	# held_item.transform.origin.y = held_item.starting_y
 	sfx_item_drop.play() #sfx

@@ -33,7 +33,7 @@ func cast_line(hook_spot: Transform3D) -> void:
 	cast_sound.play()
 	is_fishing = true
 	line_mesh.visible = true
-	fishing_pole_hook.transform = hook_spot
+	fishing_pole_hook.global_transform = hook_spot
 
 func reel_in() -> void:
 	# print("Reeled in")

@@ -27,10 +27,12 @@ item_name = "fishing_spot"
 
 [node name="SFX_FishPlonk" type="AudioStreamPlayer3D" parent="." unique_id=472328708]
 stream = SubResource("AudioStreamRandomizer_uirjc")
+volume_db = -15.449
 bus = &"SFX"
 
 [node name="SFX_CatchFish" type="AudioStreamPlayer" parent="." unique_id=1240020987]
 stream = ExtResource("3_fxcg1")
+volume_db = -8.211
 bus = &"SFX"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1515164837]
