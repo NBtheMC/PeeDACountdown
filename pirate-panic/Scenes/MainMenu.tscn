@@ -139,9 +139,9 @@ offset_bottom = 40.0
 [node name="Credits Header" type="Label" parent="Credits Page" unique_id=1004271138]
 layout_mode = 0
 offset_left = 128.0
-offset_top = 503.0
+offset_top = 464.0
 offset_right = 704.0
-offset_bottom = 613.0
+offset_bottom = 574.0
 theme_override_fonts/font = ExtResource("2_853f1")
 theme_override_font_sizes/font_size = 72
 text = "CREDITS"
@@ -149,15 +149,15 @@ text = "CREDITS"
 [node name="Credits" type="RichTextLabel" parent="Credits Page" unique_id=577610323]
 layout_mode = 0
 offset_left = 128.0
-offset_top = 580.0
+offset_top = 541.0
 offset_right = 1570.0
-offset_bottom = 856.0
+offset_bottom = 817.0
 theme_override_fonts/normal_font = ExtResource("2_853f1")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "[color=yellow]Autumn Moulios[/color] - Sound Design, Programming
-[color=yellow]Dabmaster2000[/color] - Programming
-[color=yellow]MetaToshi[/color] - Design Lead, Concept / Texture Art
+[color=yellow]Naman (Dabmaster2000)[/color] - Programming
+[color=yellow]Gloria [color=#b140f4](MetaToshi)[/color][/color] - Design Lead, Concept Art
 [color=yellow]Oats[/color] - 3D modeling & lighting
 [color=yellow]Parmpreet Gill[/color] - Programming
 [color=yellow]riko [color=#f1bce3](mewsical-shark)[/color][/color] - Music, Programming
