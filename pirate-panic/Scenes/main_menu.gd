@@ -3,7 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$"Main Menu Page/Start Game".pressed.connect(start_game)
+	$"Main Menu Page/Start Game".pressed.connect(FadeManager.get_child(0).start_game_routine)
 	$"Main Menu Page/Credits".pressed.connect(open_credits)
 	
 	$"Credits Page/Back To Main Menu".pressed.connect(close_credits)

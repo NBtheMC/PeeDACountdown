@@ -11,6 +11,8 @@ class_name Player
 @onready var hand = $Head/Camera3D/Hand
 @onready var animator = $AnimationPlayer
 
+@export var drop_tooltip : RichTextLabel
+
 var held_item
 
 var currentViewedInteractable: Interactable = null
@@ -107,6 +109,7 @@ func hold_item(item: Node):
 	item.reparent(hand)
 	item.transform = hand.transform #Transform3D.IDENTITY 
 	held_item = item
+	drop_tooltip.visible = true
 	sfx_item_pickup.play() # sfx
 
 func drop_held_item():
@@ -119,6 +122,7 @@ func drop_held_item():
 		unlock_rotation()
 		unlock_movement()
 	held_item = null
+	drop_tooltip.visible = false
 	# held_item.transform.origin.y = held_item.starting_y
 	sfx_item_drop.play() #sfx
 	

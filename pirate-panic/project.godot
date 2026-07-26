@@ -19,6 +19,11 @@ config/icon="res://Scenes/countdown/icon.svg"
 
 buses/default_bus_layout="uid://t1hd7ultt4vu"
 
+[autoload]
+
+FadeManager="*uid://dv7tw0dab8emn"
+EndgameHandler="*uid://ce25s4luhq2jb"
+
 [display]
 
 window/size/viewport_width=1920

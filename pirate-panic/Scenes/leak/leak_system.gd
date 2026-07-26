@@ -60,6 +60,7 @@ func _process(delta: float) -> void:
 		print("Too manmy leaks! The boat has sank!")
 		boat_sank = true
 		leak_max.emit()
+		FadeManager.get_child(0).lose_game_routine("You died!", "Your ship sank!")
 		timer.stop()
 
 func _start_timer():

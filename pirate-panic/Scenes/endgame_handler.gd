@@ -26,6 +26,7 @@ func end_game(condition: String, text: String) -> void:
 	get_tree().root.add_child(end_scene_instance)
 	get_tree().current_scene.queue_free()
 	get_tree().current_scene = end_scene_instance
+	FadeManager.get_child(0).game_ending = false
 	pass
 
 # LOSE CONDITIONS

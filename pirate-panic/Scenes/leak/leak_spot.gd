@@ -25,6 +25,7 @@ func _on_interactable_interacted(interactor: Node) -> void:
 
 
 func _on_interactable_show_text(interactor: Node) -> void:
+	if (not active or interactor.held_item == null): return
 	screen_text.visible = true
 
 
