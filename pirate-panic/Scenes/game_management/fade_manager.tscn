@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dv7tw0dab8emn"]
+
+[ext_resource type="Script" uid="uid://b403rcrnxwfor" path="res://Scenes/UI/black_fade.gd" id="1_vl5d0"]
+[ext_resource type="AudioStream" uid="uid://cw7qblhes0eyn" path="res://Assets/Audio/Death.ogg" id="2_rq2i2"]
+[ext_resource type="AudioStream" uid="uid://d2cvw8xhnggj" path="res://Assets/Audio/Win Game.ogg" id="2_us3rc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0wyw"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Fade" type="Control" unique_id=483939236]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="." unique_id=395596559]
+unique_name_in_owner = true
+z_index = 10
+z_as_relative = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0wyw")
+script = ExtResource("1_vl5d0")
+
+[node name="SFX_Win_Game" type="AudioStreamPlayer" parent="Panel" unique_id=1651738930]
+stream = ExtResource("2_us3rc")
+volume_db = -10.532
+bus = &"SFX"
+
+[node name="SFX_Lose_Game" type="AudioStreamPlayer" parent="Panel" unique_id=1792792817]
+stream = ExtResource("2_rq2i2")
+volume_db = -11.19
+bus = &"SFX"

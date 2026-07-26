@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ce25s4luhq2jb"]
+
+[ext_resource type="Script" uid="uid://bc3auk67i4w7v" path="res://Scenes/endgame_handler.gd" id="1_6quac"]
+[ext_resource type="PackedScene" uid="uid://b6ywl0s35tqs3" path="res://Scenes/Ending.tscn" id="2_n0fh5"]
+
+[node name="EndgameHandler" type="Node" unique_id=111092107]
+script = ExtResource("1_6quac")
+ending_scene = ExtResource("2_n0fh5")

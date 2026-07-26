@@ -69,6 +69,7 @@ func _process(delta: float) -> void:
 	if rowed_distance >= total_distance:
 		print("Rowing complete!")
 		reached_ending.emit()
+		FadeManager.get_child(0).beat_game_routine()
 		stop_rowing() # Safely handles the state cleanup and animation pausing
 
 func _on_interactable_show_text(interactor: Node) -> void:
