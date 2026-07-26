@@ -16,13 +16,13 @@ transform = Transform3D(0.5, 0, 0, 0, 0.35394207, 0.3531643, 0, -0.3531643, 0.35
 transform = Transform3D(0.5, 0, 0, 0, 0.46256465, 0.1898261, 0, -0.1898261, 0.46256465, 0.16078031, 0.19303651, 1.2741386)
 
 [node name="HeartSpot3" parent="." unique_id=1201112614 instance=ExtResource("2_otey4")]
-transform = Transform3D(0.10634424, 0.33951917, 0.35130847, -0.47714207, 0.1494505, 0, -0.10500645, -0.33524808, 0.35578415, 0.7081238, 0.18588983, 1.5083376)
+transform = Transform3D(0.007982358, 0.27123982, -0.41995853, -0.046336945, 0.4186055, 0.26948512, 0.4977842, 0.034616902, 0.03181982, 0.7081238, 0.18588983, 1.5083376)
 
 [node name="HeartSpot4" parent="." unique_id=239795194 instance=ExtResource("2_otey4")]
-transform = Transform3D(0.40808758, 0.28890228, 0, -0.28890228, 0.40808758, 0, 0, 0, 0.5, 0.113195345, 0.30699143, 2.4826598)
+transform = Transform3D(-0.4759368, -0.15277237, 0.012029964, -0.13963082, 0.44848922, 0.17134921, -0.06314547, 0.15974332, -0.46956864, 0.113195345, 0.30699143, 2.4826598)
 
 [node name="HeartSpot5" parent="." unique_id=68488773 instance=ExtResource("2_otey4")]
-transform = Transform3D(0.5, 0, 0, 0, 0.45699355, -0.20287164, 0, 0.20287164, 0.45699355, 0.3436867, 0.16920616, 0.95246184)
+transform = Transform3D(-0.44185433, 0.094951555, 0.21389018, 0.13899325, 0.4741368, 0.07665028, -0.18827023, 0.12719509, -0.44539398, 0.3436867, 0.16920616, 0.95246184)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="leak_repair" from="HeartSpot" to="." method="_on_leak_spot_leak_repair"]

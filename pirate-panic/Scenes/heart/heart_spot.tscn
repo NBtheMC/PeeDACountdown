@@ -69,6 +69,10 @@ vertical_alignment = 1
 [node name="Damaged" parent="." unique_id=1631991804 instance=ExtResource("8_gl64w")]
 visible = false
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Damaged" unique_id=290067667]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.036800686, 0.0779406, 0)
+light_color = Color(0.64162695, 0.56099373, 0.79857683, 1)
+
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
 [connection signal="showText" from="Interactable" to="." method="_on_interactable_show_text"]
 [connection signal="unshowText" from="Interactable" to="." method="_on_interactable_unshow_text"]
