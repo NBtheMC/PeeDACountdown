@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://doe6sn26ingvw" path="res://Scenes/UI/ui.tscn" id="20_vid44"]
 [ext_resource type="Material" uid="uid://dr6nhx47opvvk" path="res://Art/Shaders/boat_oarlocks.tres" id="21_jkfk2"]
 [ext_resource type="Material" uid="uid://ckrbcednt11gy" path="res://Art/Shaders/boat_prow.tres" id="22_6e77c"]
+[ext_resource type="Script" uid="uid://bc3auk67i4w7v" path="res://Scenes/endgame_handler.gd" id="25_ihkmo"]
 
 [sub_resource type="Environment" id="Environment_66mwo"]
 background_mode = 1
@@ -49,6 +50,8 @@ size = Vector2(2, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yuhor"]
 shader = ExtResource("7_s3gpa")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ldmme"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7f8lw"]
 
@@ -146,17 +149,10 @@ screen_text = NodePath("../../../UI/UI_Main/MarginContainer/Reticle/InteractTool
 
 [node name="HeartSystem" parent="Environment" unique_id=1764984908 instance=ExtResource("8_dstl4")]
 
-[node name="Oars2" parent="Environment" unique_id=884779015 instance=ExtResource("7_vid44")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29480532, 0.19037, 1.1280442)
-
-[node name="Oars" parent="Environment" unique_id=998845485 instance=ExtResource("8_ppi7r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.19010639, 1.10298)
-visible = false
-
 [node name="RowingObject" parent="Environment" unique_id=1267491984 node_paths=PackedStringArray("rowing_text", "oar_animation_player", "world_objects") instance=ExtResource("6_3puld")]
 transform = Transform3D(0.78058046, 0, 0, 0, 1, 0, 0, 0, 1, -0.34215546, 0.36353314, 1.1244775)
 rowing_text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
-oar_animation_player = NodePath("../Oars2/AnimationPlayer")
+oar_animation_player = NodePath("../../Oars2/AnimationPlayer")
 world_objects = NodePath("../WorldObjects")
 
 [node name="MeshInstance3D" parent="Environment/RowingObject" index="0" unique_id=118222880]
@@ -168,7 +164,7 @@ visible = false
 [node name="RowingObject2" parent="Environment" unique_id=1684298204 node_paths=PackedStringArray("rowing_text", "oar_animation_player", "world_objects") instance=ExtResource("6_3puld")]
 transform = Transform3D(0.78058046, 0, 0, 0, 1, 0, 0, 0, 1, 0.8376088, 0.36353314, 1.1244775)
 rowing_text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
-oar_animation_player = NodePath("../Oars2/AnimationPlayer")
+oar_animation_player = NodePath("../../Oars2/AnimationPlayer")
 world_objects = NodePath("../WorldObjects")
 
 [node name="MeshInstance3D" parent="Environment/RowingObject2" index="0" unique_id=118222880]
@@ -182,7 +178,14 @@ visible = false
 [node name="Lighthouse" type="Node3D" parent="Environment/WorldObjects" unique_id=593051121]
 transform = Transform3D(9.999999, 0, 0, 0, 9.999999, 0, 0, 0, 9.999999, 0, 0.7767438, -37.23124)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/WorldObjects/Lighthouse" unique_id=394796682]
+[node name="StaticBody3D" type="Area3D" parent="Environment/WorldObjects/Lighthouse" unique_id=528710857]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/WorldObjects/Lighthouse/StaticBody3D" unique_id=521577269]
+transform = Transform3D(1.1816415, 0, 0, 0, 1.0000001, 0, 0, 0, 1.1881269, 0, 0, 0)
+shape = SubResource("CylinderShape3D_ldmme")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/WorldObjects/Lighthouse/StaticBody3D" unique_id=394796682]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
 mesh = SubResource("CylinderMesh_7f8lw")
 surface_material_override/0 = SubResource("StandardMaterial3D_pmtd4")
 
@@ -236,20 +239,36 @@ shape = SubResource("ConcavePolygonShape3D_scxk2")
 
 [node name="UI" parent="." unique_id=54619041 instance=ExtResource("20_vid44")]
 
+[node name="Cursor" parent="UI/UI_Main/MarginContainer" parent_id_path=PackedInt32Array(54619041, 776437626, 2044965301) index="4" unique_id=1693252210]
+position = Vector2(999, 529)
+
 [node name="Monster" parent="." unique_id=1095326937 instance=ExtResource("18_3mmx0")]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0.19705439, 0.128883, 9.720951)
 
+[node name="Oars2" parent="." unique_id=884779015 instance=ExtResource("7_vid44")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.58000904, 0.32063323, 2.3015854)
+
+[node name="Oars" parent="." unique_id=998845485 instance=ExtResource("8_ppi7r")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.4283984, 0.32010603, 2.251457)
+visible = false
+
+[node name="EndgameHandler" type="Node" parent="." unique_id=1581665583]
+script = ExtResource("25_ihkmo")
+
+[connection signal="leak_max" from="Environment/LeakSystem" to="EndgameHandler" method="_on_leak_system_leak_max"]
+[connection signal="area_entered" from="Environment/WorldObjects/Lighthouse/StaticBody3D" to="EndgameHandler" method="_on_lighthouse_reached"]
 [connection signal="countdown_fatal" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [2]]
 [connection signal="countdown_low" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [1]]
 [connection signal="countdown_nominal" from="UI/CountdownHandler/TimerUI/HungerHandler" to="Ingame Music" method="set_hunger_status" binds= [0]]
+[connection signal="countdown_zero" from="UI/CountdownHandler/TimerUI/HungerHandler" to="EndgameHandler" method="_on_hunger_handler_countdown_zero"]
 [connection signal="countdown_fatal" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="Ingame Music" method="set_psyche_status" binds= [2]]
 [connection signal="countdown_low" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="Ingame Music" method="set_psyche_status" binds= [1]]
 [connection signal="countdown_nominal" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="Ingame Music" method="set_psyche_status" binds= [0]]
+[connection signal="countdown_zero" from="UI/CountdownHandler/TimerUI/PsycheHandler" to="EndgameHandler" method="_on_psyche_handler_countdown_zero"]
+[connection signal="countdown_finished" from="UI/CountdownHandler/TimerUI/MainTimer" to="EndgameHandler" method="_on_main_timer_countdown_finished"]
 
 [editable path="Player"]
 [editable path="Environment/LeakSystem"]
-[editable path="Environment/Oars2"]
-[editable path="Environment/Oars"]
 [editable path="Environment/RowingObject"]
 [editable path="Environment/RowingObject2"]
 [editable path="Environment/FishingRod"]
@@ -262,3 +281,5 @@ transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0,
 [editable path="UI/UI_Main"]
 [editable path="UI/UI_Main/MarginContainer/TextBox"]
 [editable path="UI/UI_Main/MarginContainer/Warning_Icon_Container"]
+[editable path="Oars2"]
+[editable path="Oars"]
