@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b8fscqkhwf4br"]
+
+[ext_resource type="Texture2D" uid="uid://dexnv24jw5dgl" path="res://Art/Textures/Mallet_BaseColor.png" id="1_bq4n3"]
+
+[resource]
+albedo_texture = ExtResource("1_bq4n3")
+roughness = 0.9

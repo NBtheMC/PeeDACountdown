@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b5tq3he4t555u" path="res://Scenes/items/item.gd" id="1_0b5ce"]
 [ext_resource type="PackedScene" uid="uid://cyd1o5kcgun06" path="res://Art/Mallet.fbx" id="2_d353r"]
+[ext_resource type="Material" uid="uid://b8fscqkhwf4br" path="res://Art/Shaders/mallet.tres" id="3_d353r"]
 [ext_resource type="PackedScene" uid="uid://bm417dbu1c2o6" path="res://Scenes/misc/Interactable.tscn" id="3_v2t4x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kmt4r"]
@@ -14,6 +15,9 @@ item_name = "mallet"
 text = NodePath("CanvasLayer/MalletText")
 
 [node name="Mallet" parent="." unique_id=1462124587 instance=ExtResource("2_d353r")]
+
+[node name="Hammer_Combined" parent="Mallet" index="0" unique_id=1950304344]
+surface_material_override/0 = ExtResource("3_d353r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1053835945]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032470703, 0.5418396, 0)
@@ -37,3 +41,5 @@ metadata/_edit_use_anchors_ = true
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
 [connection signal="showText" from="Interactable" to="." method="_on_interactable_show_text"]
 [connection signal="unshowText" from="Interactable" to="." method="_on_interactable_unshow_text"]
+
+[editable path="Mallet"]
