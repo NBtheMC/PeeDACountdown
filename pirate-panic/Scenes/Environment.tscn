@@ -99,7 +99,9 @@ surface_material_override/0 = SubResource("ShaderMaterial_yuhor")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1232709242]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.25171167, 1.0088221, 2.134068)
+lod_bias = 0.001
 billboard = 1
+alpha_cut = 1
 texture = ExtResource("5_hr7o0")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=933440087]
