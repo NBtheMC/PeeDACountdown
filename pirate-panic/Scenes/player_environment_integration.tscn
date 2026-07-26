@@ -198,7 +198,7 @@ transform = Transform3D(0.33354592, 0, 0, 0, 0.55624425, 0, 0, 0, 0.5594557, 0, 
 visible = false
 
 [node name="FishingRod" parent="Environment" unique_id=892319930 node_paths=PackedStringArray("text") instance=ExtResource("12_ne2mb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1919952, 0.27869126, 2.1209729)
+transform = Transform3D(1, 0, 0, 0, 0.49728775, 0.86758566, 0, -0.86758566, 0.49728775, 0.035582587, 0.18252394, -0.12917425)
 text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 
 [node name="FishingSpot" parent="Environment" unique_id=2077910226 node_paths=PackedStringArray("player", "text") instance=ExtResource("13_dstl4")]
@@ -207,7 +207,7 @@ player = NodePath("../../Player")
 text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 
 [node name="Mallet" parent="Environment" unique_id=532419465 node_paths=PackedStringArray("text") instance=ExtResource("14_4j1fj")]
-transform = Transform3D(0.19, 0, 0, 0, 0.19, 0, 0, 0, 0.19, -0.001306951, 0.16600525, 1.8308382)
+transform = Transform3D(-0.06600505, -0.033711746, 0.17494816, -0.00097060174, 0.1866331, 0.03559718, -0.17816396, 0.011472575, -0.06500761, -0.0725033, 0.16600525, 1.8308382)
 text = NodePath("../../UI/UI_Main/MarginContainer/Reticle/InteractTooltip")
 
 [node name="MalletText" parent="Environment/Mallet/CanvasLayer" parent_id_path=PackedInt32Array(532419465, 75364972) index="0" unique_id=917845243]
