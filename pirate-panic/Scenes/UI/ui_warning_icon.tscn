@@ -56,7 +56,9 @@ expand_mode = 2
 [node name="SFX_Warning" type="AudioStreamPlayer" parent="." unique_id=1632411678]
 stream = ExtResource("4_emsw4")
 volume_db = -10.263
+bus = &"SFX"
 
 [node name="SFX_Fatal" type="AudioStreamPlayer" parent="." unique_id=1835255662]
 stream = ExtResource("5_ni01x")
 volume_db = -14.368
+bus = &"SFX"

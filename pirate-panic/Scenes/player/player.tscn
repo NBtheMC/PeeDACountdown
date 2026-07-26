@@ -46,7 +46,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46840495, -0.25, -0.671996
 [node name="SFX_ItemDrop" type="AudioStreamPlayer" parent="." unique_id=317480180]
 stream = ExtResource("2_e41v5")
 volume_db = -9.579
+bus = &"SFX"
 
 [node name="SFX_ItemPickUp" type="AudioStreamPlayer" parent="." unique_id=2000630848]
 stream = SubResource("AudioStreamRandomizer_d6es2")
 volume_db = -9.579
+bus = &"SFX"

@@ -3,21 +3,37 @@
 [ext_resource type="Script" uid="uid://c4rohau6pyyqi" path="res://Scenes/items/fishing_spot_item.gd" id="1_ypaso"]
 [ext_resource type="AudioStream" uid="uid://c8xp4iho1dyya" path="res://Assets/Audio/Fish Bite-001.ogg" id="2_ombqm"]
 [ext_resource type="AudioStream" uid="uid://f85krih22lab" path="res://Assets/Audio/Catch Fish.ogg" id="3_fxcg1"]
+[ext_resource type="AudioStream" uid="uid://doh4do5lv00x7" path="res://Assets/Audio/Fish Bite-002.ogg" id="4_fxcg1"]
 [ext_resource type="Script" uid="uid://caiqt33tvbeu1" path="res://Scenes/misc/Interactable.gd" id="4_ped8v"]
+[ext_resource type="AudioStream" uid="uid://dbbju243e10jc" path="res://Assets/Audio/Fish Bite-003.ogg" id="5_ped8v"]
 [ext_resource type="Texture2D" uid="uid://ca5o8ocahfcdm" path="res://Art/Textures/FishingSpot_01.png" id="5_syxr7"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uirjc"]
+streams_count = 3
+stream_0/stream = ExtResource("2_ombqm")
+stream_1/stream = ExtResource("4_fxcg1")
+stream_2/stream = ExtResource("5_ped8v")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_axf4i"]
 size = Vector3(0.5975342, 0.5274658, 0.6446991)
 
-[node name="FishingSpot" type="StaticBody3D" unique_id=2077910226 node_paths=PackedStringArray("hook_spawn_marker", "player", "text")]
+[node name="FishingSpot" type="StaticBody3D" unique_id=2077910226 node_paths=PackedStringArray("hook_spawn_marker", "fish_sound", "catch_sound")]
 collision_layer = 2
 script = ExtResource("1_ypaso")
 hook_spawn_marker = NodePath("HookSpot")
-fish_sound = ExtResource("2_ombqm")
-catch_sound = ExtResource("3_fxcg1")
-player = NodePath("")
+fish_sound = NodePath("SFX_FishPlonk")
+catch_sound = NodePath("SFX_CatchFish")
 item_name = "fishing_spot"
-text = NodePath("")
+
+[node name="SFX_FishPlonk" type="AudioStreamPlayer3D" parent="." unique_id=472328708]
+stream = SubResource("AudioStreamRandomizer_uirjc")
+volume_db = -15.449
+bus = &"SFX"
+
+[node name="SFX_CatchFish" type="AudioStreamPlayer" parent="." unique_id=1240020987]
+stream = ExtResource("3_fxcg1")
+volume_db = -8.211
+bus = &"SFX"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1515164837]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29051358, 0)

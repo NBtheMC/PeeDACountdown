@@ -120,8 +120,10 @@ stretch_mode = 4
 [node name="SFX_ClockTick" type="AudioStreamPlayer" parent="MarginContainer/Timer_Container" unique_id=1002985017]
 stream = SubResource("AudioStreamRandomizer_emsw4")
 volume_db = -21.211
+bus = &"SFX"
 
 [node name="SFX_TimeRunningOut" type="AudioStreamPlayer" parent="MarginContainer/Timer_Container" unique_id=696639998]
+bus = &"SFX"
 
 [node name="TextBox" parent="MarginContainer" unique_id=1858019659 instance=ExtResource("2_rad5t")]
 visible = false

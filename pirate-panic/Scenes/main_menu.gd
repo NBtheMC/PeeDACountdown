@@ -16,7 +16,6 @@ func open_credits():
 	$"Credits Page".visible = true
 	
 	$"Main Menu Page/Start Game".disabled = true
-	$"Main Menu Page/Settings".disabled = true
 	$"Main Menu Page/Credits".disabled = true
 	
 	$"Credits Page/Back To Main Menu".disabled = false
@@ -26,7 +25,6 @@ func close_credits():
 	$"Credits Page".visible = false
 	
 	$"Main Menu Page/Start Game".disabled = false
-	$"Main Menu Page/Settings".disabled = false
 	$"Main Menu Page/Credits".disabled = false
 	
 	$"Credits Page/Back To Main Menu".disabled = true
