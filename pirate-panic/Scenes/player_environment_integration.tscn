@@ -63,7 +63,8 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.4283984, 0.32010603, 2.2514
 visible = false
 
 [node name="Lighthouse" type="Sprite3D" parent="." unique_id=1701358256]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.974037)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.980524, -19.320358)
+alpha_cut = 1
 texture = ExtResource("25_ihkmo")
 
 [node name="Environment" parent="." unique_id=342448898 instance=ExtResource("11_s3gpa")]
