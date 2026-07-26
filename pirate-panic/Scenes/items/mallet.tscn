@@ -17,6 +17,7 @@ text = NodePath("CanvasLayer/MalletText")
 [node name="Mallet" parent="." unique_id=1462124587 instance=ExtResource("2_d353r")]
 
 [node name="Hammer_Combined" parent="Mallet" index="0" unique_id=1950304344]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("3_d353r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1053835945]
