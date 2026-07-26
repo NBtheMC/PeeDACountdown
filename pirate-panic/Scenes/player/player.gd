@@ -10,7 +10,6 @@ class_name Player
 @onready var raycast = $Head/Camera3D/RayCast3D
 @onready var hand = $Head/Camera3D/Hand
 @onready var animator = $AnimationPlayer
-
 @export var drop_tooltip : RichTextLabel
 
 var held_item
@@ -107,7 +106,8 @@ func _process(delta: float) -> void:
 func hold_item(item: Node):
 	if (held_item): return
 	item.reparent(hand)
-	item.transform = hand.transform #Transform3D.IDENTITY 
+	item.global_position = hand.global_position #Transform3D.IDENTITY dawg what
+	item.global_rotation = hand.global_rotation
 	held_item = item
 	drop_tooltip.visible = true
 	sfx_item_pickup.play() # sfx
