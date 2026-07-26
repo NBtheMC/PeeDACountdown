@@ -25,6 +25,7 @@
 [ext_resource type="Material" uid="uid://dr6nhx47opvvk" path="res://Art/Shaders/boat_oarlocks.tres" id="21_jkfk2"]
 [ext_resource type="Material" uid="uid://ckrbcednt11gy" path="res://Art/Shaders/boat_prow.tres" id="22_6e77c"]
 [ext_resource type="Script" uid="uid://bc3auk67i4w7v" path="res://Scenes/endgame_handler.gd" id="25_ihkmo"]
+[ext_resource type="PackedScene" uid="uid://b6ywl0s35tqs3" path="res://Scenes/Ending.tscn" id="26_0lvn8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ldmme"]
 
@@ -256,6 +257,7 @@ visible = false
 
 [node name="EndgameHandler" type="Node" parent="." unique_id=1581665583]
 script = ExtResource("25_ihkmo")
+ending_scene = ExtResource("26_0lvn8")
 
 [connection signal="area_entered" from="WorldObjects/Lighthouse/StaticBody3D" to="EndgameHandler" method="_on_lighthouse_reached"]
 [connection signal="leak_max" from="Environment/LeakSystem" to="EndgameHandler" method="_on_leak_system_leak_max"]

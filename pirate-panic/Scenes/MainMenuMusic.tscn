@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c0nayvomxs731"]
+
+[ext_resource type="Script" uid="uid://b16mwakxpwyho" path="res://Scenes/main_menu_music.gd" id="1_gpnvn"]
+[ext_resource type="AudioStream" uid="uid://bdtqxki7f7ygq" path="res://Assets/Audio/Music/Main Menu/mus_main-menu_phrase_01.ogg" id="2_5vrtv"]
+[ext_resource type="AudioStream" uid="uid://bvfjtxq5ahrnc" path="res://Assets/Audio/Music/Main Menu/mus_main-menu_phrase_02.ogg" id="3_tccmw"]
+[ext_resource type="AudioStream" uid="uid://bq1ffts50gogc" path="res://Assets/Audio/Music/Main Menu/mus_main-menu_phrase_03.ogg" id="4_nsjcp"]
+[ext_resource type="AudioStream" uid="uid://jt85s4rif8u4" path="res://Assets/Audio/Music/Main Menu/mus_main-menu_phrase_04.ogg" id="5_ejjfs"]
+[ext_resource type="AudioStream" uid="uid://dd1vbc2ve4wbi" path="res://Assets/Audio/Music/Main Menu/mus_main-menu_phrase_05.ogg" id="6_a7yf1"]
+[ext_resource type="AudioStream" uid="uid://77j0wxqjdpg3" path="res://Assets/Audio/Music/Main Menu/mus_main-menu_phrase_06.ogg" id="7_3kcp8"]
+[ext_resource type="AudioStream" uid="uid://ssqly0qkedcp" path="res://Assets/Audio/Music/Main Menu/mus_main-menu_phrase_07.ogg" id="8_dswim"]
+[ext_resource type="AudioStream" uid="uid://dg8iov8jllo01" path="res://Assets/Audio/Music/Main Menu/mus_main-menu_phrase_08.ogg" id="9_eaa4b"]
+[ext_resource type="AudioStream" uid="uid://2orml4ikf07h" path="res://Assets/Audio/Music/Main Menu/mus_main-menu_phrase_09.ogg" id="10_2v6ha"]
+[ext_resource type="AudioStream" uid="uid://bd7h1kxqtvovh" path="res://Assets/Audio/Music/Main Menu/mus_main-menu_base.ogg" id="11_5vrtv"]
+
+[node name="MainMenuMusic" type="Node" unique_id=25036679]
+script = ExtResource("1_gpnvn")
+music_phrases = Array[AudioStreamOggVorbis]([ExtResource("2_5vrtv"), ExtResource("3_tccmw"), ExtResource("4_nsjcp"), ExtResource("5_ejjfs"), ExtResource("6_a7yf1"), ExtResource("7_3kcp8"), ExtResource("8_dswim"), ExtResource("9_eaa4b"), ExtResource("10_2v6ha"), null])
+delay_between_phrases_range = Vector2(7, 10)
+avoid_playing_last_x_clips = 4
+
+[node name="AudioPlayer1" type="AudioStreamPlayer2D" parent="." unique_id=1251720191]
+attenuation = 0.0
+bus = &"Music"
+
+[node name="AudioPlayer2" type="AudioStreamPlayer2D" parent="." unique_id=1580110169]
+autoplay = true
+attenuation = 0.0
+bus = &"Music"
+
+[node name="BaseLayer" type="AudioStreamPlayer2D" parent="." unique_id=1937369351]
+stream = ExtResource("11_5vrtv")
+autoplay = true
+attenuation = 0.0
+bus = &"Music"
+parameters/looping = true
+
+[node name="Timer" type="Timer" parent="." unique_id=47880790]
