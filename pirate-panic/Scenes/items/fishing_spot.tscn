@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://c4rohau6pyyqi" path="res://Scenes/items/fishing_spot_item.gd" id="1_ypaso"]
 [ext_resource type="AudioStream" uid="uid://c8xp4iho1dyya" path="res://Assets/Audio/Fish Bite-001.ogg" id="2_ombqm"]
 [ext_resource type="AudioStream" uid="uid://f85krih22lab" path="res://Assets/Audio/Catch Fish.ogg" id="3_fxcg1"]
+[ext_resource type="Texture2D" uid="uid://d0xgxqy68hjhu" path="res://Art/UI/FishingSpot_LIGHTUP.png" id="3_ped8v"]
 [ext_resource type="AudioStream" uid="uid://doh4do5lv00x7" path="res://Assets/Audio/Fish Bite-002.ogg" id="4_fxcg1"]
 [ext_resource type="Script" uid="uid://caiqt33tvbeu1" path="res://Scenes/misc/Interactable.gd" id="4_ped8v"]
 [ext_resource type="AudioStream" uid="uid://dbbju243e10jc" path="res://Assets/Audio/Fish Bite-003.ogg" id="5_ped8v"]
-[ext_resource type="Texture2D" uid="uid://ca5o8ocahfcdm" path="res://Art/Textures/FishingSpot_01.png" id="5_syxr7"]
+[ext_resource type="Texture2D" uid="uid://rfojlarjd1dy" path="res://Art/UI/FishingSpot_DARK01.png" id="7_fxcg1"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uirjc"]
 streams_count = 3
@@ -21,8 +22,12 @@ size = Vector3(0.5975342, 0.5274658, 0.6446991)
 collision_layer = 2
 script = ExtResource("1_ypaso")
 hook_spawn_marker = NodePath("HookSpot")
+min_wait_time = 2.0
+max_wait_time = 5.0
 fish_sound = NodePath("SFX_FishPlonk")
 catch_sound = NodePath("SFX_CatchFish")
+regular_sprite = ExtResource("7_fxcg1")
+lit_sprite = ExtResource("3_ped8v")
 item_name = "fishing_spot"
 
 [node name="SFX_FishPlonk" type="AudioStreamPlayer3D" parent="." unique_id=472328708]
@@ -48,8 +53,7 @@ script = ExtResource("4_ped8v")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1415939119]
 transform = Transform3D(0.05, 0, 0, 0, -2.1855695e-09, -0.05, 0, 0.05, -2.1855695e-09, -0.09276414, 0.027617097, 0.0807004)
-modulate = Color(0.41598046, 0.41598043, 0.4159804, 1)
-texture = ExtResource("5_syxr7")
+texture = ExtResource("7_fxcg1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=337235002]
 

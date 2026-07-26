@@ -21,12 +21,18 @@ signal fish_caught(value : float)
 
 @export var player : Player
 
+### SPRITES ###
+@export var regular_sprite : Texture
+@export var lit_sprite : Texture # it's liiiit
+var sprite_ref
+
 func _ready() -> void:
 	minigame_timer = Timer.new()
 	add_child(minigame_timer)
 	audio_player = AudioStreamPlayer.new()
 	add_child(audio_player)
 	minigame_timer.timeout.connect(fail_fishing)
+	sprite_ref = $Sprite3D
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
@@ -92,6 +98,7 @@ func start_fishing() -> void:
 
 	minigame_timer.wait_time = minigame_time
 	minigame_timer.start()
+	sprite_ref.texture = lit_sprite
 	is_fish_biting = true
 	fish_sound.play()
 	pass
@@ -119,6 +126,7 @@ func success_fishing() -> void:
 		player.get_held_item().reel_in()
 	catch_sound.play()
 	is_fish_biting = false
+	sprite_ref.texture = regular_sprite
 	fish_caught.emit(fish_value)
 
 func fail_fishing() -> void:
@@ -129,5 +137,6 @@ func fail_fishing() -> void:
 	if (player.get_held_item()):
 		player.get_held_item().reel_in()
 	is_fish_biting = false
+	sprite_ref.texture = regular_sprite
 	print("FAIL: Fish got away")
 	pass
